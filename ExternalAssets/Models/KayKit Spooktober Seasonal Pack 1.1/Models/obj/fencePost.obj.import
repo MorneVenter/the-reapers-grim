@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://btoo2pgjxts8v"
+path="res://.godot/imported/fencePost.obj-0b01d0acacf3e4d8d78133edfaf60126.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fencePost.obj-0b01d0acacf3e4d8d78133edfaf60126.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/obj/fencePost.obj"
+dest_files=["res://.godot/imported/fencePost.obj-0b01d0acacf3e4d8d78133edfaf60126.mesh", "res://.godot/imported/fencePost.obj-0b01d0acacf3e4d8d78133edfaf60126.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

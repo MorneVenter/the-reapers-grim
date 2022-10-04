@@ -1,0 +1,29 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://doevdvw7d2f0p"
+path="res://.godot/imported/tileSlopeMediumHigh_graveyard.dae-3267677ae90918a643d38b1b93b4f21c.scn"
+
+[deps]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/dae/tileSlopeMediumHigh_graveyard.dae"
+dest_files=["res://.godot/imported/tileSlopeMediumHigh_graveyard.dae-3267677ae90918a643d38b1b93b4f21c.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+import_script/path=""
+_subresources={}

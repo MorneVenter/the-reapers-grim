@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dcj2vgy6snnyg"
+path="res://.godot/imported/candleSmall.obj-a1d053145f7cd0c1fd5463944c5b11df.mesh"
+
+[deps]
+
+files=["res://.godot/imported/candleSmall.obj-a1d053145f7cd0c1fd5463944c5b11df.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/obj/candleSmall.obj"
+dest_files=["res://.godot/imported/candleSmall.obj-a1d053145f7cd0c1fd5463944c5b11df.mesh", "res://.godot/imported/candleSmall.obj-a1d053145f7cd0c1fd5463944c5b11df.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b5cr6o7xov1w7"
+path="res://.godot/imported/cauldron.obj-aa40476a94e978a89e3760773364831c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cauldron.obj-aa40476a94e978a89e3760773364831c.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/obj/cauldron.obj"
+dest_files=["res://.godot/imported/cauldron.obj-aa40476a94e978a89e3760773364831c.mesh", "res://.godot/imported/cauldron.obj-aa40476a94e978a89e3760773364831c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

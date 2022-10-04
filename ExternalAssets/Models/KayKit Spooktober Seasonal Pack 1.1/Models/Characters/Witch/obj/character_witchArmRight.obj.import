@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cdeg2e0m7d3wu"
+path="res://.godot/imported/character_witchArmRight.obj-398e46c6afac399b1cc862b89c507638.mesh"
+
+[deps]
+
+files=["res://.godot/imported/character_witchArmRight.obj-398e46c6afac399b1cc862b89c507638.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/Characters/Witch/obj/character_witchArmRight.obj"
+dest_files=["res://.godot/imported/character_witchArmRight.obj-398e46c6afac399b1cc862b89c507638.mesh", "res://.godot/imported/character_witchArmRight.obj-398e46c6afac399b1cc862b89c507638.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

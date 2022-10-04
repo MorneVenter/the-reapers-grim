@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ct177msdrfug7"
+path="res://.godot/imported/fenceCorner.obj-ff476c18e6c9d020e663ee20d33019ec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fenceCorner.obj-ff476c18e6c9d020e663ee20d33019ec.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/obj/fenceCorner.obj"
+dest_files=["res://.godot/imported/fenceCorner.obj-ff476c18e6c9d020e663ee20d33019ec.mesh", "res://.godot/imported/fenceCorner.obj-ff476c18e6c9d020e663ee20d33019ec.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c21smh8k271py"
+path="res://.godot/imported/candyCorn.obj-1d587b52de9169fb6c9a3bf3489d80b4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/candyCorn.obj-1d587b52de9169fb6c9a3bf3489d80b4.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/obj/candyCorn.obj"
+dest_files=["res://.godot/imported/candyCorn.obj-1d587b52de9169fb6c9a3bf3489d80b4.mesh", "res://.godot/imported/candyCorn.obj-1d587b52de9169fb6c9a3bf3489d80b4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

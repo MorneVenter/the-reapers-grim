@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://vvt74ar5urt2"
+path="res://.godot/imported/lampPost.obj-b5952781c2c891b99c75ca0051de13cf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lampPost.obj-b5952781c2c891b99c75ca0051de13cf.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/obj/lampPost.obj"
+dest_files=["res://.godot/imported/lampPost.obj-b5952781c2c891b99c75ca0051de13cf.mesh", "res://.godot/imported/lampPost.obj-b5952781c2c891b99c75ca0051de13cf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

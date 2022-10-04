@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dymuxd24da44a"
+path="res://.godot/imported/pumpkinLarge.obj-5b847ed598954c116202935e25e7c3a9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pumpkinLarge.obj-5b847ed598954c116202935e25e7c3a9.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/obj/pumpkinLarge.obj"
+dest_files=["res://.godot/imported/pumpkinLarge.obj-5b847ed598954c116202935e25e7c3a9.mesh", "res://.godot/imported/pumpkinLarge.obj-5b847ed598954c116202935e25e7c3a9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

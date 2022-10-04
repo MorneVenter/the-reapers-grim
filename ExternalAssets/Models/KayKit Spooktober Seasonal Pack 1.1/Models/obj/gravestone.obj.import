@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://voo14gtsdrt0"
+path="res://.godot/imported/gravestone.obj-7a9957fe2b27f12286c49e33f71cec9d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gravestone.obj-7a9957fe2b27f12286c49e33f71cec9d.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/obj/gravestone.obj"
+dest_files=["res://.godot/imported/gravestone.obj-7a9957fe2b27f12286c49e33f71cec9d.mesh", "res://.godot/imported/gravestone.obj-7a9957fe2b27f12286c49e33f71cec9d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

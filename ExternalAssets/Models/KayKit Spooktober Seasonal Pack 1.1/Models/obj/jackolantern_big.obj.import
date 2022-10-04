@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://lojyf31k1ufj"
+path="res://.godot/imported/jackolantern_big.obj-de01ddf937dc696248cc606f0cd7e5be.mesh"
+
+[deps]
+
+files=["res://.godot/imported/jackolantern_big.obj-de01ddf937dc696248cc606f0cd7e5be.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/obj/jackolantern_big.obj"
+dest_files=["res://.godot/imported/jackolantern_big.obj-de01ddf937dc696248cc606f0cd7e5be.mesh", "res://.godot/imported/jackolantern_big.obj-de01ddf937dc696248cc606f0cd7e5be.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

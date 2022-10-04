@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b0xa1t8hd34hw"
+path="res://.godot/imported/tileSlopeLowMedium_graveyard.obj-0ad410aa509febf48160ab337ba874e0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tileSlopeLowMedium_graveyard.obj-0ad410aa509febf48160ab337ba874e0.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/obj/tileSlopeLowMedium_graveyard.obj"
+dest_files=["res://.godot/imported/tileSlopeLowMedium_graveyard.obj-0ad410aa509febf48160ab337ba874e0.mesh", "res://.godot/imported/tileSlopeLowMedium_graveyard.obj-0ad410aa509febf48160ab337ba874e0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

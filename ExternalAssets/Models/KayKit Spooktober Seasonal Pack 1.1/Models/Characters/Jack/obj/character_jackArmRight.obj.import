@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cyb7rktwdsdt"
+path="res://.godot/imported/character_jackArmRight.obj-05f09e5c9618df5d7162450002d0d859.mesh"
+
+[deps]
+
+files=["res://.godot/imported/character_jackArmRight.obj-05f09e5c9618df5d7162450002d0d859.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/Characters/Jack/obj/character_jackArmRight.obj"
+dest_files=["res://.godot/imported/character_jackArmRight.obj-05f09e5c9618df5d7162450002d0d859.mesh", "res://.godot/imported/character_jackArmRight.obj-05f09e5c9618df5d7162450002d0d859.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

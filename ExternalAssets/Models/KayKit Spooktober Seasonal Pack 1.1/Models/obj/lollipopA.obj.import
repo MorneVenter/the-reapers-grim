@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ck3hrmigcg36o"
+path="res://.godot/imported/lollipopA.obj-64e69d4fcf76df4c1ceb737bb1364681.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lollipopA.obj-64e69d4fcf76df4c1ceb737bb1364681.mesh"]
+
+source_file="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/obj/lollipopA.obj"
+dest_files=["res://.godot/imported/lollipopA.obj-64e69d4fcf76df4c1ceb737bb1364681.mesh", "res://.godot/imported/lollipopA.obj-64e69d4fcf76df4c1ceb737bb1364681.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
