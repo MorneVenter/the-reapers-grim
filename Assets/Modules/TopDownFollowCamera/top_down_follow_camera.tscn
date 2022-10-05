@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdh1u0k3q06hp"]
+
+[ext_resource type="Script" path="res://Assets/Modules/TopDownFollowCamera/follow_camera.gd" id="1_jc7jl"]
+
+[node name="TopDownFollowCamera" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 16, 16)
+current = true
+fov = 35.0
+script = ExtResource("1_jc7jl")
