@@ -8,8 +8,11 @@ height = 1.56398
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.998248, 0)
+floor_max_angle = 0.610865
 script = ExtResource("1_sv0bb")
 MAX_SPEED = 5.5
+GLIDE_SPEED_INCREASE = 1.1
+GLIDE_GRAVITY_MULT = 0.013
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21751, 0)
