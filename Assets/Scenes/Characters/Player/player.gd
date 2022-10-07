@@ -37,6 +37,10 @@ var _is_gliding: bool = false
 var _allow_coyote_time: bool = true
 var _lock_animation: bool = false
 var _animation_to_wait_for: String = ""
+var _soul_fragment_level: int = 0
+var _glide_timer: Timer
+var _is_glide_blocked: bool = false
+var _glide_time: float = 1.0
 
 @onready var _player_animator: AnimationPlayer = $Reaper/AnimationPlayer
 @onready var _player_mesh: Node3D = $Reaper
@@ -50,6 +54,9 @@ var _is_jump_button_pressed := func() -> bool: return Input.is_action_just_press
 var _is_jump_button_held := func() -> bool: return Input.is_action_pressed("player_jump")
 var _get_player_input_direction := func() -> Vector2: return Input.get_vector("player_move_left", "player_move_right", "player_move_up", "player_move_down").normalized()
 
+func _init() -> void:
+	Player.register(self)
+
 func _ready() -> void:
 	_coyote_timer = Timer.new()
 	add_child(_coyote_timer)
@@ -58,12 +65,17 @@ func _ready() -> void:
 	_coyote_timer.timeout.connect(_on_coyote_timer_timeout)
 	_set_animation(IDLE)
 	_player_animator.connect("animation_finished", _animation_finished)
+	_glide_timer = Timer.new()
+	add_child(_glide_timer)
+	_glide_timer.one_shot = true
+	_glide_timer.timeout.connect(_on_glide_timer_timeout)
+	init_soul_fragment_level(2)
 
 func _physics_process(delta: float) -> void:
 	_handle_jump(delta)
 	_handle_player_movement()
-	move_and_slide()
 	_handle_animations()
+	move_and_slide()
 
 func _handle_animations() -> void:
 	if velocity.y < 0:
@@ -78,7 +90,7 @@ func _handle_player_movement() -> void:
 	var input_direction: Vector2 = _get_player_input_direction.call()
 	var direction: Vector3= (transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
 	if direction:
-		_player_mesh.rotation.y = Angles.lerp_angle(_player_mesh.rotation.y, atan2(velocity.x, velocity.z), 0.1)
+		_player_mesh.rotation.y = Angles.lerp_degrees(_player_mesh.rotation.y, atan2(velocity.x, velocity.z), 0.1)
 		if _current_speed < MAX_SPEED:
 			_current_speed += MOMENTUM_GAIN
 		var speed_multiplier: float = GLIDE_SPEED_INCREASE if _is_gliding else 1.0
@@ -105,6 +117,9 @@ func _handle_jump(delta: float) -> void:
 		if CAN_GLIDE and not _is_in_coyote_time:
 			_handle_glide_input()
 	else:
+		_is_glide_blocked = false
+		if _is_gliding:
+			EventSystem.stop_glide_wheel.emit()
 		_is_gliding = false
 		_allow_coyote_time = true
 	if _is_jump_button_pressed.call() and (_allow_jumps or is_on_floor()) and not _is_gliding:
@@ -118,14 +133,19 @@ func _jump() -> void:
 	_allow_jumps = false
 
 func _glide() -> void:
+	_glide_timer.wait_time = _glide_time
+	_glide_timer.start()
 	velocity.y = 0.0
 	_is_gliding = true
+	_is_glide_blocked = true
+	EventSystem.show_glide_wheel.emit(_soul_fragment_level / 4.0, _get_glide_time_by_level(_soul_fragment_level))
 
 func _handle_glide_input() -> void:
-	if _is_jump_button_pressed.call() and not _is_gliding:
+	if _is_jump_button_pressed.call() and not _is_gliding and not _is_glide_blocked:
 		_glide()
 	elif _is_jump_button_pressed.call() and _is_gliding:
 		_is_gliding = false
+		EventSystem.stop_glide_wheel.emit()
 
 func _apply_gravity(delta: float) -> void:
 	var gravity_multiplier: float = GLIDE_GRAVITY_MULT if _is_gliding else FALL_GRAVITY_MULT if not _is_holding_jump or velocity.y < 0.0 else FLOAT_GRAVITY_MULT
@@ -150,3 +170,27 @@ func _animation_finished(anim_name: String) -> void:
 	if _lock_animation and anim_name == _animation_to_wait_for:
 		_lock_animation = false
 		_animation_to_wait_for = ""
+
+func _on_glide_timer_timeout() -> void:
+	_is_gliding = false
+	EventSystem.stop_glide_wheel.emit()
+
+func _set_gliding_level(time: float) -> void:
+	if time <= 0:
+		CAN_GLIDE = false
+	else:
+		_glide_time = time
+
+func _get_glide_time_by_level(level: int) -> float:
+	match level:
+		0: return 0.0
+		1: return 0.5
+		2: return 2.3
+		3: return 3.7
+		4: return 4.0
+		_: return 0.0
+
+func init_soul_fragment_level(level: int) -> void:
+	_soul_fragment_level = level
+	_set_gliding_level(_get_glide_time_by_level(_soul_fragment_level))
+

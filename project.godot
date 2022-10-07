@@ -20,6 +20,9 @@ config/icon="res://icon.png"
 [autoload]
 
 Angles="*res://Assets/Scripts/Utilities/Angles.gd"
+Player="*res://Assets/Scripts/Utilities/Player.gd"
+Camera="*res://Assets/Scripts/Utilities/Camera.gd"
+EventSystem="*res://Assets/Scripts/Managers/EventSystem.gd"
 
 [debug]
 
@@ -34,6 +37,9 @@ gdscript/warnings/unused_class_variable=true
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=2
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
 [editor]

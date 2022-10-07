@@ -1,6 +1,6 @@
 extends Node
 
-static func lerp_angle(from, to, weight):
+static func lerp_degrees(from, to, weight):
 	return from + _short_angle_dist(from, to) * weight
 
 static func _short_angle_dist(from, to):

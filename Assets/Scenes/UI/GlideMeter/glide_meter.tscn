@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds57e20xmun43"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/UI/GlideMeter/glide_meter.gd" id="1_yldcg"]
+[ext_resource type="Texture2D" uid="uid://3gpj5t3qteg3" path="res://Assets/Sprites/GlideMeter/glide_meter.png" id="3_nmrpa"]
+
+[node name="GlideMeter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_yldcg")
+_player_offset = Vector2(-100, -70)
+
+[node name="Meter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 48.0
+pivot_offset = Vector2(16, 16)
+
+[node name="Background" type="TextureProgressBar" parent="Meter"]
+modulate = Color(0, 0, 0, 0.207843)
+offset_right = 48.0
+offset_bottom = 48.0
+pivot_offset = Vector2(16, 16)
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("3_nmrpa")
+
+[node name="BackWheel" type="TextureProgressBar" parent="Meter"]
+modulate = Color(1, 0.0980392, 0.054902, 1)
+offset_right = 48.0
+offset_bottom = 48.0
+pivot_offset = Vector2(16, 16)
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("3_nmrpa")
+radial_fill_degrees = 302.2
+
+[node name="FrontWheel" type="TextureProgressBar" parent="Meter"]
+modulate = Color(0.00392157, 1, 0.0235294, 1)
+offset_right = 48.0
+offset_bottom = 48.0
+pivot_offset = Vector2(16, 16)
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("3_nmrpa")
+radial_fill_degrees = 199.5

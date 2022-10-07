@@ -11,6 +11,9 @@ var target: Node3D
 var position_offset: Vector3 = Vector3.ZERO
 var origin_rotation: Vector3
 
+func _init() -> void:
+	Camera.register(self)
+
 func _ready() -> void:
 	origin_rotation = rotation
 	_check_if_target_node_exists()

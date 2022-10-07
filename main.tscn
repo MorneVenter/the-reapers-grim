@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv5mwygr1ojjx"]
+[gd_scene load_steps=3 format=3 uid="uid://bv5mwygr1ojjx"]
 
 [ext_resource type="PackedScene" uid="uid://bwx6qwgldouo3" path="res://Assets/Scenes/Levels/World/world.tscn" id="1_vci6i"]
+[ext_resource type="PackedScene" uid="uid://ds57e20xmun43" path="res://Assets/Scenes/UI/GlideMeter/glide_meter.tscn" id="2_e23tl"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -11,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,14 +34,6 @@ handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="TestLabel" type="RichTextLabel" parent="SubViewportContainer/2D"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "test"
+[node name="GlideMeter" parent="SubViewportContainer/2D" instance=ExtResource("2_e23tl")]
+grow_horizontal = 2
+grow_vertical = 2
