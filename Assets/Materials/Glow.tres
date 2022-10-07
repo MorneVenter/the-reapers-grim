@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://l041g52bjia7"]
+
+[ext_resource type="Shader" path="res://ExternalAssets/Shaders/Spatial/glow.gdshader" id="1_su4mu"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_su4mu")
+shader_parameter/albedo = Color(0.952941, 0.945098, 0.223529, 1)
+shader_parameter/emission_amount = 11.4
+shader_parameter/emission_color = Color(0.952941, 0.945098, 0.223529, 1)
+shader_parameter/rim_steepness = 3.5
+shader_parameter/uv_offset = null
+shader_parameter/uv_scale = null

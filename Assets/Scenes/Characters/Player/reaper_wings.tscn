@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://u3o1pnoo1g7i"]
+
+[ext_resource type="PackedScene" uid="uid://bp55s2k13r6t5" path="res://Assets/Models/Reaper/reaper_wings.blend" id="1_a6psl"]
+[ext_resource type="Material" uid="uid://l041g52bjia7" path="res://Assets/Materials/Glow.tres" id="2_58h6m"]
+
+[node name="reaper_wings" instance=ExtResource("1_a6psl")]
+
+[node name="Wings" parent="." index="0"]
+material_overlay = ExtResource("2_58h6m")

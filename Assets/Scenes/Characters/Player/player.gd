@@ -44,6 +44,7 @@ var _glide_time: float = 1.0
 
 @onready var _player_animator: AnimationPlayer = $Reaper/AnimationPlayer
 @onready var _player_mesh: Node3D = $Reaper
+@onready var _wings: Node3D = $Reaper/Wings
 
 const RUN = "NormalRun"
 const FALL = "Falling"
@@ -64,12 +65,17 @@ func _ready() -> void:
 	_coyote_timer.one_shot = true
 	_coyote_timer.wait_time = 0.15
 	_coyote_timer.timeout.connect(_on_coyote_timer_timeout)
+
 	_set_animation(IDLE)
 	_player_animator.connect("animation_finished", _animation_finished)
+
 	_glide_timer = Timer.new()
 	add_child(_glide_timer)
 	_glide_timer.one_shot = true
 	_glide_timer.timeout.connect(_on_glide_timer_timeout)
+	_wings.visible = false
+
+
 	init_soul_fragment_level(2)
 
 func _physics_process(delta: float) -> void:
@@ -124,6 +130,7 @@ func _handle_jump(delta: float) -> void:
 		_is_glide_blocked = false
 		if _is_gliding:
 			EventSystem.stop_glide_wheel.emit()
+			_hide_wings()
 		_is_gliding = false
 		_allow_coyote_time = true
 	if _is_jump_button_pressed.call() and (_allow_jumps or is_on_floor()) and not _is_gliding:
@@ -143,6 +150,7 @@ func _glide() -> void:
 	_is_gliding = true
 	_is_glide_blocked = true
 	EventSystem.show_glide_wheel.emit(_soul_fragment_level / 4.0, _get_glide_time_by_level(_soul_fragment_level))
+	_show_wings()
 
 func _handle_glide_input() -> void:
 	if _is_jump_button_pressed.call() and not _is_gliding and not _is_glide_blocked:
@@ -150,6 +158,7 @@ func _handle_glide_input() -> void:
 	elif _is_jump_button_pressed.call() and _is_gliding:
 		_is_gliding = false
 		EventSystem.stop_glide_wheel.emit()
+		_hide_wings()
 
 func _apply_gravity(delta: float) -> void:
 	var gravity_multiplier: float = GLIDE_GRAVITY_MULT if _is_gliding else FALL_GRAVITY_MULT if not _is_holding_jump or velocity.y < 0.0 else FLOAT_GRAVITY_MULT
@@ -178,6 +187,7 @@ func _animation_finished(anim_name: String) -> void:
 func _on_glide_timer_timeout() -> void:
 	_is_gliding = false
 	EventSystem.stop_glide_wheel.emit()
+	_hide_wings()
 
 func _set_gliding_level(time: float) -> void:
 	if time <= 0:
@@ -193,6 +203,18 @@ func _get_glide_time_by_level(level: int) -> float:
 		3: return 3.7
 		4: return 4.0
 		_: return 0.0
+
+func _show_wings() -> void:
+	_wings.visible = true
+	_wings.scale = Vector3(0,0,0)
+	var tween: Tween = create_tween()
+	tween.tween_property(_wings, "scale", Vector3(1.5, 1.5, 1.5), 0.2)
+
+func _hide_wings() -> void:
+	_wings.scale = Vector3(1,1,1)
+	var tween: Tween = create_tween()
+	tween.tween_property(_wings, "scale", Vector3(0,0,0), 0.2)
+	tween.tween_callback(func(): _wings.visible = false)
 
 func init_soul_fragment_level(level: int) -> void:
 	_soul_fragment_level = level

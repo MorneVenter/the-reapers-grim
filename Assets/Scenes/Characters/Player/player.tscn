@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ry8gnnt30x5k"]
+[gd_scene load_steps=5 format=3 uid="uid://ry8gnnt30x5k"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Characters/Player/player.gd" id="1_sv0bb"]
 [ext_resource type="PackedScene" uid="uid://blpfbw2bh3tb3" path="res://Assets/Scenes/Characters/Player/reaper.tscn" id="2_fjsfx"]
+[ext_resource type="PackedScene" uid="uid://u3o1pnoo1g7i" path="res://Assets/Scenes/Characters/Player/reaper_wings.tscn" id="3_rlbpb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0cd25"]
 height = 1.56398
@@ -20,3 +21,7 @@ shape = SubResource("CapsuleShape3D_0cd25")
 
 [node name="Reaper" parent="." instance=ExtResource("2_fjsfx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.988521, 0)
+
+[node name="Wings" parent="Reaper" instance=ExtResource("3_rlbpb")]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0.535877, -0.156114)
+visible = false
