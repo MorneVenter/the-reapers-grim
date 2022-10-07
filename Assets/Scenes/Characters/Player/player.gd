@@ -49,6 +49,7 @@ const RUN = "NormalRun"
 const FALL = "Falling"
 const JUMP = "Jump"
 const IDLE = "Idle"
+const GLIDE = "Glide"
 
 var _is_jump_button_pressed := func() -> bool: return Input.is_action_just_pressed("player_jump")
 var _is_jump_button_held := func() -> bool: return Input.is_action_pressed("player_jump")
@@ -80,7 +81,10 @@ func _physics_process(delta: float) -> void:
 func _handle_animations() -> void:
 	if velocity.y < 0:
 		_lock_animation = false
-		_set_animation(FALL)
+		if _is_gliding:
+			_set_animation(GLIDE)
+		else:
+			_set_animation(FALL)
 	elif  velocity.x != 0 or velocity.z != 0:
 		_set_animation(RUN)
 	else:

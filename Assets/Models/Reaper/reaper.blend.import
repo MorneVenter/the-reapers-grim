@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8xfq1o5gjbd2"
+uid="uid://ce1ec8hhy7o6t"
 path="res://.godot/imported/reaper.blend-0cccd229ad4cfbf204153783965fc054.scn"
 
 [deps]
@@ -29,6 +29,12 @@ import_script/path=""
 _subresources={
 "animations": {
 "Falling": {
+"save_to_file/enabled": false,
+"save_to_file/keep_custom_tracks": "",
+"save_to_file/path": "",
+"settings/loop_mode": 1
+},
+"Glide": {
 "save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",

@@ -12,7 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,5 +34,3 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="GlideMeter" parent="SubViewportContainer/2D" instance=ExtResource("2_e23tl")]
-grow_horizontal = 2
-grow_vertical = 2

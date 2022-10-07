@@ -8,8 +8,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_yldcg")
-_player_offset = Vector2(-100, -70)
+_player_offset = Vector2(-115, -85)
 
 [node name="Meter" type="Control" parent="."]
 layout_mode = 3
@@ -29,7 +31,7 @@ nine_patch_stretch = true
 texture_progress = ExtResource("3_nmrpa")
 
 [node name="BackWheel" type="TextureProgressBar" parent="Meter"]
-modulate = Color(1, 0.0980392, 0.054902, 1)
+modulate = Color(0.890196, 0.2, 0.407843, 1)
 offset_right = 48.0
 offset_bottom = 48.0
 pivot_offset = Vector2(16, 16)
@@ -40,7 +42,7 @@ texture_progress = ExtResource("3_nmrpa")
 radial_fill_degrees = 302.2
 
 [node name="FrontWheel" type="TextureProgressBar" parent="Meter"]
-modulate = Color(0.00392157, 1, 0.0235294, 1)
+modulate = Color(0.780392, 0.941176, 0.152941, 1)
 offset_right = 48.0
 offset_bottom = 48.0
 pivot_offset = Vector2(16, 16)
