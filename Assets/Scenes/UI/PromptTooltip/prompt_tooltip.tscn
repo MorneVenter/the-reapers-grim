@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://cio1v3oxj3n17"]
+
+[ext_resource type="Texture2D" uid="uid://dl2qy821k2ayg" path="res://Assets/Sprites/UI/Shapes/Shape2.png" id="1_ie0ac"]
+[ext_resource type="Script" path="res://Assets/Scenes/UI/PromptTooltip/prompt_tooltip.gd" id="1_xgjm1"]
+[ext_resource type="FontFile" uid="uid://fh3fg4obb7ws" path="res://ExternalAssets/Fonts/Kaph_Font_1_10/TrueType (.ttf)/Kaph-Regular.ttf" id="2_q4qw5"]
+
+[node name="PromptTooltip" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xgjm1")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.239216, 0.192157, 0.372549, 1)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -212.0
+offset_top = -207.0
+offset_right = -24.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1_ie0ac")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -34.5
+offset_right = 75.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Text" type="RichTextLabel" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2i(0, 30)
+offset_top = 12.0
+offset_right = 128.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_q4qw5")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Press[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Prompt" type="RichTextLabel" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2i(0, 30)
+offset_top = 46.0
+offset_right = 128.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_q4qw5")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]E[/center]"
+scroll_active = false
+shortcut_keys_enabled = false

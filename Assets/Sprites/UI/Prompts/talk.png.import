@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct624gbd87cpu"
-path.s3tc="res://.godot/imported/ForestReference.png-5b609c37a5783678c3850fd9486dce9a.s3tc.ctex"
-path.etc2="res://.godot/imported/ForestReference.png-5b609c37a5783678c3850fd9486dce9a.etc2.ctex"
+uid="uid://b6m43efideog2"
+path.s3tc="res://.godot/imported/talk.png-bb05d69e701d29a0148f93ee78df1ef4.s3tc.ctex"
+path.etc2="res://.godot/imported/talk.png-bb05d69e701d29a0148f93ee78df1ef4.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Forest/ForestReference.png"
-dest_files=["res://.godot/imported/ForestReference.png-5b609c37a5783678c3850fd9486dce9a.s3tc.ctex", "res://.godot/imported/ForestReference.png-5b609c37a5783678c3850fd9486dce9a.etc2.ctex"]
+source_file="res://Assets/Sprites/UI/Prompts/talk.png"
+dest_files=["res://.godot/imported/talk.png-bb05d69e701d29a0148f93ee78df1ef4.s3tc.ctex", "res://.godot/imported/talk.png-bb05d69e701d29a0148f93ee78df1ef4.etc2.ctex"]
 
 [params]
 

@@ -1,0 +1,108 @@
+[gd_scene load_steps=14 format=3 uid="uid://bbhqfwlkaq3sm"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/Pickups/SoulFragments/soul_fragment.gd" id="1_38aky"]
+[ext_resource type="Texture2D" uid="uid://b6m43efideog2" path="res://Assets/Sprites/UI/Prompts/talk.png" id="1_pmfi3"]
+[ext_resource type="Shader" path="res://ExternalAssets/Shaders/Spatial/shield.gdshader" id="2_1tpxr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8q0ys"]
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h2e4p"]
+seamless = true
+noise = SubResource("FastNoiseLite_8q0ys")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_syprs"]
+render_priority = 0
+shader = ExtResource("2_1tpxr")
+shader_parameter/barrier_color = Color(0.941176, 1, 0.141176, 1)
+shader_parameter/barrier_fog_noise_force = 0.02
+shader_parameter/barrier_force = 8.0
+shader_parameter/barrier_noise = SubResource("NoiseTexture2D_h2e4p")
+shader_parameter/barrier_noise_force = 0.3
+shader_parameter/speed = Vector2(0.35, 0.35)
+
+[sub_resource type="SphereMesh" id="SphereMesh_bqccm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hixjb"]
+albedo_color = Color(0.705882, 1, 0.2, 1)
+emission_enabled = true
+emission = Color(0.427451, 1, 0.298039, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_f7fn1"]
+
+[sub_resource type="Animation" id="Animation_d8rpc"]
+resource_name = "pulse"
+length = 1.1
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Prompt:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.15, 0.15, 0.15), Vector3(0.2, 0.2, 0.2), Vector3(0.15, 0.15, 0.15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Prompt:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.7823, 0), Vector3(-0.1, 1.782, 0), Vector3(0, 1.7823, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kdyeq"]
+_data = {
+"pulse": SubResource("Animation_d8rpc")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rwf63"]
+radius = 2.25381
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fng24"]
+radius = 1.00202
+
+[node name="SoulFragment" type="Node3D"]
+script = ExtResource("1_38aky")
+
+[node name="SphereOuter" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_syprs")
+mesh = SubResource("SphereMesh_bqccm")
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_hixjb")
+mesh = SubResource("SphereMesh_f7fn1")
+
+[node name="Prompt" type="Sprite3D" parent="."]
+transform = Transform3D(0.114907, 0, 0.0964181, 0, 0.15, 0, -0.0964181, 0, 0.114907, 0, 1.7823, 0)
+billboard = 1
+texture = ExtResource("1_pmfi3")
+
+[node name="PromptAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kdyeq")
+}
+
+[node name="TriggerArea" type="Area3D" parent="."]
+monitorable = false
+
+[node name="Collider" type="CollisionShape3D" parent="TriggerArea"]
+shape = SubResource("SphereShape3D_rwf63")
+
+[node name="Body" type="StaticBody3D" parent="."]
+
+[node name="Collider" type="CollisionShape3D" parent="Body"]
+shape = SubResource("SphereShape3D_fng24")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="." method="_on_trigger_area_body_exited"]
