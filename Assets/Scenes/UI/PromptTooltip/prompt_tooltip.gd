@@ -1,7 +1,7 @@
 extends Control
 
 @onready var prompt: TextureRect = $Background
-@onready var prompt_text: RichTextLabel = $Background/VBoxContainer/Prompt
+@onready var prompt_text: RichTextLabel = $Background/Container/Prompt
 
 @export var offset: Vector2 = Vector2(20, 20)
 

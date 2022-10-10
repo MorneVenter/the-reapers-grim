@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name PlayerObject
+
 @export_category("Movement")
 @export
 var JUMP_VELOCITY: float = 9.0
@@ -41,6 +43,7 @@ var _soul_fragment_level: int = 0
 var _glide_timer: Timer
 var _is_glide_blocked: bool = false
 var _glide_time: float = 1.0
+var _is_input_locked: bool = false
 
 @onready var _player_animator: AnimationPlayer = $Reaper/AnimationPlayer
 @onready var _player_mesh: Node3D = $Reaper
@@ -75,14 +78,14 @@ func _ready() -> void:
 	_glide_timer.timeout.connect(_on_glide_timer_timeout)
 	_wings.visible = false
 
-
-	init_soul_fragment_level(2)
+	_init_soul_fragment_level(_soul_fragment_level)
 
 func _physics_process(delta: float) -> void:
-	_handle_jump(delta)
-	_handle_player_movement()
+	if not _is_input_locked:
+		_handle_jump(delta)
+		_handle_player_movement()
+		move_and_slide()
 	_handle_animations()
-	move_and_slide()
 
 func _handle_animations() -> void:
 	if velocity.y < 0:
@@ -193,6 +196,7 @@ func _set_gliding_level(time: float) -> void:
 	if time <= 0:
 		CAN_GLIDE = false
 	else:
+		CAN_GLIDE = true
 		_glide_time = time
 
 func _get_glide_time_by_level(level: int) -> float:
@@ -216,7 +220,16 @@ func _hide_wings() -> void:
 	tween.tween_property(_wings, "scale", Vector3(0,0,0), 0.2)
 	tween.tween_callback(func(): _wings.visible = false)
 
-func init_soul_fragment_level(level: int) -> void:
+func _init_soul_fragment_level(level: int) -> void:
 	_soul_fragment_level = level
 	_set_gliding_level(_get_glide_time_by_level(_soul_fragment_level))
 
+func increase_soul_fragment_level() -> void:
+	if _soul_fragment_level < 4:
+		_init_soul_fragment_level(_soul_fragment_level + 1)
+
+func lock_input() -> void:
+	_is_input_locked = true
+
+func unlock_input() -> void:
+	_is_input_locked = false

@@ -8,6 +8,16 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "CharacterBody3D",
+"class": &"PlayerObject",
+"language": &"GDScript",
+"path": "res://Assets/Scenes/Characters/Player/player.gd"
+}]
+_global_script_class_icons={
+"PlayerObject": ""
+}
+
 [application]
 
 config/name="The Reaper's Grim"
@@ -23,6 +33,8 @@ Angles="*res://Assets/Scripts/Utilities/Angles.gd"
 Player="*res://Assets/Scripts/Utilities/Player.gd"
 Camera="*res://Assets/Scripts/Utilities/Camera.gd"
 EventSystem="*res://Assets/Scripts/Managers/EventSystem.gd"
+InputManager="*res://Assets/Scripts/Managers/InputManager.gd"
+CurrencyManager="*res://Assets/Scripts/Managers/CurrencyManager.gd"
 
 [debug]
 
@@ -48,6 +60,10 @@ script_templates_search_path="res://.script_templates"
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[filesystem]
+
+import/fbx/enabled=false
 
 [input]
 
@@ -99,6 +115,11 @@ player_peek_down={
 right_click={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"pressed":false,"double_click":false,"script":null)
+]
+}
+player_interact={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"unicode":0,"echo":false,"script":null)
 ]
 }
 

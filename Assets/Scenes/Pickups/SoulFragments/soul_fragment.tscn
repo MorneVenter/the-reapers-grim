@@ -47,18 +47,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0.15, 0.15, 0.15), Vector3(0.2, 0.2, 0.2), Vector3(0.15, 0.15, 0.15)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Prompt:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 1.7823, 0), Vector3(-0.1, 1.782, 0), Vector3(0, 1.7823, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kdyeq"]
 _data = {
@@ -73,6 +61,8 @@ radius = 1.00202
 
 [node name="SoulFragment" type="Node3D"]
 script = ExtResource("1_38aky")
+_accept_dialog_lines = ["You spend %coin coins to open the fragment.", "You can now glide further."]
+_error_dialog_lines = ["You require %coin coins to open this."]
 
 [node name="SphereOuter" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -84,7 +74,7 @@ material_override = SubResource("StandardMaterial3D_hixjb")
 mesh = SubResource("SphereMesh_f7fn1")
 
 [node name="Prompt" type="Sprite3D" parent="."]
-transform = Transform3D(0.114907, 0, 0.0964181, 0, 0.15, 0, -0.0964181, 0, 0.114907, 0, 1.7823, 0)
+transform = Transform3D(0.114907, 0, 0.096418, 0, 0.15, 0, -0.096418, 0, 0.114907, 0, 1.7823, 0)
 billboard = 1
 texture = ExtResource("1_pmfi3")
 

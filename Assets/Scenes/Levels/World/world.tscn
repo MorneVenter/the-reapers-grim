@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bphtud6jnbq3q"]
+[gd_scene load_steps=8 format=3 uid="uid://bphtud6jnbq3q"]
 
 [ext_resource type="PackedScene" uid="uid://ry8gnnt30x5k" path="res://Assets/Scenes/Characters/Player/player.tscn" id="1_2pmrc"]
 [ext_resource type="PackedScene" uid="uid://cdh1u0k3q06hp" path="res://Assets/Modules/TopDownFollowCamera/top_down_follow_camera.tscn" id="2_wl120"]
 [ext_resource type="Environment" uid="uid://6gl7dhw5onhh" path="res://Assets/Resources/Environments/world_environment.tres" id="3_2cqpq"]
 [ext_resource type="PackedScene" uid="uid://dwd7wnt8giurh" path="res://Assets/Scenes/Levels/Forest/forest.tscn" id="4_m7uc7"]
 [ext_resource type="PackedScene" uid="uid://bbhqfwlkaq3sm" path="res://Assets/Scenes/Pickups/SoulFragments/soul_fragment.tscn" id="5_yfatx"]
+[ext_resource type="PackedScene" uid="uid://4wdtwhly04em" path="res://Assets/Scenes/Pickups/Coins/coin.tscn" id="6_hxcah"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_q1y3g"]
 dof_blur_far_enabled = true
@@ -41,3 +42,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0447741, 0)
 
 [node name="SoulFragment" parent="Pickups" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06111, 3.01903, -7.35618)
+
+[node name="Coins" type="Node3D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01209, -4.29669)
+_respawns = false
+
+[node name="Coin2" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24172, 2.01209, 0.661876)
+_respawns = false
+
+[node name="Coin3" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4593, 2.01209, 3.73902)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6922, 2.01209, 3.73902)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6405, 2.01209, 4.76961)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.108, 2.01209, 5.52353)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7463, 2.01209, 5.52353)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0813, 2.01209, 6.10533)

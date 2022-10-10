@@ -15,22 +15,22 @@ script = ExtResource("1_xgjm1")
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(0.239216, 0.192157, 0.372549, 1)
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -212.0
-offset_top = -207.0
-offset_right = -24.0
-offset_bottom = -26.0
-grow_horizontal = 0
-grow_vertical = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -772.0
+offset_bottom = -359.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_ie0ac")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+[node name="Container" type="VBoxContainer" parent="Background"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -44,7 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Text" type="RichTextLabel" parent="Background/VBoxContainer"]
+[node name="Text" type="RichTextLabel" parent="Background/Container"]
 custom_minimum_size = Vector2i(0, 30)
 offset_top = 12.0
 offset_right = 128.0
@@ -58,7 +58,7 @@ text = "[center]Press[/center]"
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="Prompt" type="RichTextLabel" parent="Background/VBoxContainer"]
+[node name="Prompt" type="RichTextLabel" parent="Background/Container"]
 custom_minimum_size = Vector2i(0, 30)
 offset_top = 46.0
 offset_right = 128.0
