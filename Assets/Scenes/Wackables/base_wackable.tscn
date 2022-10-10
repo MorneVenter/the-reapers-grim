@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://djcw1dq4lu4jt"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/Wackables/wackable.gd" id="1_8vu17"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_72xwr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ys4ql"]
+resource_local_to_scene = true
+radius = 0.52013
+height = 2.08108
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6w0l0"]
+resource_local_to_scene = true
+size = Vector3(1.43887, 2.00868, 1.40643)
+
+[node name="Wackable" type="Node3D"]
+script = ExtResource("1_8vu17")
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00928, 0)
+mesh = SubResource("CapsuleMesh_72xwr")
+
+[node name="Body" type="StaticBody3D" parent="." groups=["Wackable"]]
+
+[node name="Collider" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04251, 0)
+shape = SubResource("CapsuleShape3D_ys4ql")
+
+[node name="HitBox" type="Area3D" parent="."]
+monitorable = false
+
+[node name="Collider" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01452, 0)
+shape = SubResource("BoxShape3D_6w0l0")
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 200.0
+one_shot = true
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

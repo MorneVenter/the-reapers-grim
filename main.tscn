@@ -43,5 +43,3 @@ render_target_update_mode = 4
 [node name="DialogSystem" parent="SubViewportContainer/2D" instance=ExtResource("4_v2lux")]
 
 [node name="CoinInterface" parent="SubViewportContainer/2D" instance=ExtResource("5_tryme")]
-grow_horizontal = 2
-grow_vertical = 2

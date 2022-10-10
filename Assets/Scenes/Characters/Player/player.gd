@@ -44,16 +44,22 @@ var _glide_timer: Timer
 var _is_glide_blocked: bool = false
 var _glide_time: float = 1.0
 var _is_input_locked: bool = false
+var _is_hitting: bool = false
 
 @onready var _player_animator: AnimationPlayer = $Reaper/AnimationPlayer
 @onready var _player_mesh: Node3D = $Reaper
 @onready var _wings: Node3D = $Reaper/Wings
+@onready var _scythe: Node3D = $Reaper/Scythe
+@onready var _scythe_animator: AnimationPlayer = $ScytheAnimator
+@onready var _hit_area: Area3D = $Reaper/HitArea
 
 const RUN = "NormalRun"
 const FALL = "Falling"
 const JUMP = "Jump"
 const IDLE = "Idle"
 const GLIDE = "Glide"
+const SCYTHE_IDLE = "idle"
+const SCYTHE_HIT = "hit"
 
 var _is_jump_button_pressed := func() -> bool: return Input.is_action_just_pressed("player_jump")
 var _is_jump_button_held := func() -> bool: return Input.is_action_pressed("player_jump")
@@ -78,12 +84,18 @@ func _ready() -> void:
 	_glide_timer.timeout.connect(_on_glide_timer_timeout)
 	_wings.visible = false
 
+	_scythe.visible = true
+	_scythe_animator.current_animation = SCYTHE_IDLE
+	_hit_area.monitorable = false
+	_hit_area.monitoring = false
+
 	_init_soul_fragment_level(_soul_fragment_level)
 
 func _physics_process(delta: float) -> void:
 	if not _is_input_locked:
 		_handle_jump(delta)
 		_handle_player_movement()
+		_handle_player_hit()
 		move_and_slide()
 	_handle_animations()
 
@@ -98,6 +110,14 @@ func _handle_animations() -> void:
 		_set_animation(RUN)
 	else:
 		_set_animation(IDLE)
+
+func _handle_player_hit() -> void:
+	if Input.is_action_just_pressed('player_hit') and is_on_floor() and not _is_hitting:
+		_hit()
+
+func _hit() -> void:
+	_is_hitting = true
+	_scythe_animator.current_animation = SCYTHE_HIT
 
 func _handle_player_movement() -> void:
 	var input_direction: Vector2 = _get_player_input_direction.call()
@@ -127,7 +147,7 @@ func _handle_jump(delta: float) -> void:
 	_check_for_coyote_time()
 	if not is_on_floor():
 		_apply_gravity(delta)
-		if CAN_GLIDE and not _is_in_coyote_time:
+		if CAN_GLIDE and not _is_in_coyote_time and not _is_hitting:
 			_handle_glide_input()
 	else:
 		_is_glide_blocked = false
@@ -136,7 +156,7 @@ func _handle_jump(delta: float) -> void:
 			_hide_wings()
 		_is_gliding = false
 		_allow_coyote_time = true
-	if _is_jump_button_pressed.call() and (_allow_jumps or is_on_floor()) and not _is_gliding:
+	if _is_jump_button_pressed.call() and (_allow_jumps or is_on_floor()) and not _is_gliding and not _is_hitting:
 		_jump()
 	_check_for_jump_hold()
 
@@ -209,12 +229,14 @@ func _get_glide_time_by_level(level: int) -> float:
 		_: return 0.0
 
 func _show_wings() -> void:
+	_scythe.visible = false
 	_wings.visible = true
 	_wings.scale = Vector3(0,0,0)
 	var tween: Tween = create_tween()
 	tween.tween_property(_wings, "scale", Vector3(1.5, 1.5, 1.5), 0.2)
 
 func _hide_wings() -> void:
+	_scythe.visible = true
 	_wings.scale = Vector3(1,1,1)
 	var tween: Tween = create_tween()
 	tween.tween_property(_wings, "scale", Vector3(0,0,0), 0.2)
@@ -233,3 +255,8 @@ func lock_input() -> void:
 
 func unlock_input() -> void:
 	_is_input_locked = false
+
+func _on_scythe_animator_animation_finished(anim_name: StringName) -> void:
+	if anim_name == SCYTHE_HIT:
+		_scythe_animator.current_animation = SCYTHE_IDLE
+		_is_hitting = false

@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var _respawns: bool = true
+@export var _respawns: bool = false
 
 @onready var _animator: AnimationPlayer = $AnimationPlayer
 @onready var _sprite: Sprite3D = $Sprite
