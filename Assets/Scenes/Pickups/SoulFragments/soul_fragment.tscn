@@ -74,11 +74,12 @@ material_override = SubResource("StandardMaterial3D_hixjb")
 mesh = SubResource("SphereMesh_f7fn1")
 
 [node name="Prompt" type="Sprite3D" parent="."]
-transform = Transform3D(0.114907, 0, 0.096418, 0, 0.15, 0, -0.096418, 0, 0.114907, 0, 1.7823, 0)
+transform = Transform3D(0.114907, 0, 0.0964179, 0, 0.15, 0, -0.0964179, 0, 0.114907, 0, 1.7823, 0)
 billboard = 1
 texture = ExtResource("1_pmfi3")
 
 [node name="PromptAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "pulse"
 libraries = {
 "": SubResource("AnimationLibrary_kdyeq")
 }

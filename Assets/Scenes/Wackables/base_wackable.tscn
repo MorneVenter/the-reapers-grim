@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://djcw1dq4lu4jt"]
+[gd_scene load_steps=4 format=3 uid="uid://djcw1dq4lu4jt"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Wackables/wackable.gd" id="1_8vu17"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_72xwr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ys4ql"]
 resource_local_to_scene = true
@@ -17,10 +15,6 @@ size = Vector3(1.43887, 2.00868, 1.40643)
 script = ExtResource("1_8vu17")
 
 [node name="Mesh" type="Node3D" parent="."]
-
-[node name="MeshInstance" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00928, 0)
-mesh = SubResource("CapsuleMesh_72xwr")
 
 [node name="Body" type="StaticBody3D" parent="." groups=["Wackable"]]
 

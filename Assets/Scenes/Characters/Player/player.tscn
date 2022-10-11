@@ -147,7 +147,7 @@ transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 
 visible = false
 
 [node name="Scythe" parent="Reaper" instance=ExtResource("4_sonqa")]
-transform = Transform3D(-0.160411, -0.473485, 0.00896023, -0.00963837, -0.00619415, -0.499869, 0.473471, -0.160541, -0.00714005, -0.510082, 0.467484, 0.270902)
+transform = Transform3D(-0.160411, -0.473485, 0.00896023, -0.00963837, -0.00619414, -0.499869, 0.473471, -0.160541, -0.00714005, -0.510082, 0.467484, 0.270902)
 
 [node name="HitArea" type="Area3D" parent="Reaper" groups=["Wacking"]]
 monitoring = false

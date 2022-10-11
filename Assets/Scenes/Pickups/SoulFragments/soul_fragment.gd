@@ -4,7 +4,6 @@ extends Node3D
 @export var _accept_dialog_lines: Array[String] = []
 @export var _error_dialog_lines: Array[String] = []
 
-@onready var prompt_animator: AnimationPlayer = $PromptAnimationPlayer
 @onready var prompt: Sprite3D = $Prompt
 
 const PLAYERGROUP: String = "Player"
@@ -17,7 +16,6 @@ var _can_afford: Callable = func(): return _coin_cost <= CurrencyManager.get_coi
 
 func _ready() -> void:
 	_set_player_in_range(false)
-	prompt_animator.current_animation = "pulse"
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed('player_interact') and _is_player_in_range and not _is_dialog_active and not _has_been_collected:

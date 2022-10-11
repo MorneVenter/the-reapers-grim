@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3y7x0crk3hdy"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/NPC/npc.gd" id="1_0q3c2"]
+[ext_resource type="Texture2D" uid="uid://b6m43efideog2" path="res://Assets/Sprites/UI/Prompts/talk.png" id="1_o184i"]
+
+[sub_resource type="Animation" id="Animation_cvngs"]
+resource_name = "pulse"
+length = 1.1
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Prompt:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.15, 0.15, 0.15), Vector3(0.2, 0.2, 0.2), Vector3(0.15, 0.15, 0.15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hkbld"]
+_data = {
+"pulse": SubResource("Animation_cvngs")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cfuej"]
+radius = 2.41415
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ctlb6"]
+
+[node name="NPC" type="Node3D"]
+script = ExtResource("1_0q3c2")
+_dialog_lines = ["Test", "Test2"]
+
+[node name="Prompt" type="Sprite3D" parent="."]
+transform = Transform3D(0.114907, 0, 0.096418, 0, 0.15, 0, -0.096418, 0, 0.114907, 0, 1.7823, 0)
+billboard = 1
+texture = ExtResource("1_o184i")
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="PromptAnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "pulse"
+libraries = {
+"": SubResource("AnimationLibrary_hkbld")
+}
+
+[node name="TriggerArea" type="Area3D" parent="."]
+
+[node name="Collider" type="CollisionShape3D" parent="TriggerArea"]
+shape = SubResource("SphereShape3D_cfuej")
+
+[node name="Body" type="StaticBody3D" parent="."]
+
+[node name="Collider" type="CollisionShape3D" parent="Body"]
+shape = SubResource("CapsuleShape3D_ctlb6")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="." method="_on_trigger_area_body_exited"]

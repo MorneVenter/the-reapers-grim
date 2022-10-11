@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp3iyl44n2gln"]
+
+[ext_resource type="PackedScene" uid="uid://djcw1dq4lu4jt" path="res://Assets/Scenes/Wackables/base_wackable.tscn" id="1_woblh"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jh1n4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oauw2"]
+resource_local_to_scene = true
+radius = 0.52013
+height = 2.08108
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0gmq"]
+resource_local_to_scene = true
+size = Vector3(1.43887, 2.00868, 1.40643)
+
+[node name="TestWackable" instance=ExtResource("1_woblh")]
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0831, 0)
+mesh = SubResource("CapsuleMesh_jh1n4")
+
+[node name="Collider" parent="Body" index="0"]
+shape = SubResource("CapsuleShape3D_oauw2")
+
+[node name="Collider" parent="HitBox" index="0"]
+shape = SubResource("BoxShape3D_v0gmq")

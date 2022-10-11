@@ -6,18 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://dwd7wnt8giurh" path="res://Assets/Scenes/Levels/Forest/forest.tscn" id="4_m7uc7"]
 [ext_resource type="PackedScene" uid="uid://bbhqfwlkaq3sm" path="res://Assets/Scenes/Pickups/SoulFragments/soul_fragment.tscn" id="5_yfatx"]
 [ext_resource type="PackedScene" uid="uid://4wdtwhly04em" path="res://Assets/Scenes/Pickups/Coins/coin.tscn" id="6_hxcah"]
-[ext_resource type="PackedScene" uid="uid://djcw1dq4lu4jt" path="res://Assets/Scenes/Wackables/base_wackable.tscn" id="7_85mib"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_q1y3g"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 28.0
-dof_blur_near_enabled = true
-dof_blur_near_distance = 16.0
+[ext_resource type="PackedScene" uid="uid://cp3iyl44n2gln" path="res://Assets/Scenes/Wackables/WackableObjects/test_wackable.tscn" id="7_vmphs"]
+[ext_resource type="PackedScene" uid="uid://bvjcjkb5gqxl4" path="res://Assets/Scenes/NPC/NPCObjects/test_npc.tscn" id="8_aelus"]
 
 [node name="World" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_2cqpq")
+
 [node name="Player" parent="." instance=ExtResource("1_2pmrc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96294, 0)
+
+[node name="Camera" parent="." instance=ExtResource("2_wl120")]
+transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 13, 16)
+target_node = NodePath("../Player")
+peek_angle = 10.0
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -26,15 +29,6 @@ transform = Transform3D(0.707107, -0.612372, 0.353553, 0, 0.5, 0.866025, -0.7071
 light_color = Color(0.803922, 0.741176, 0.631373, 1)
 shadow_enabled = true
 shadow_blur = 5.0
-
-[node name="Camera" parent="." instance=ExtResource("2_wl120")]
-transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 13, 16)
-target_node = NodePath("../Player")
-peek_angle = 10.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("3_2cqpq")
-camera_attributes = SubResource("CameraAttributesPractical_q1y3g")
 
 [node name="Forest" parent="." instance=ExtResource("4_m7uc7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0447741, 0)
@@ -78,14 +72,19 @@ _respawns = true
 
 [node name="Wackables" type="Node3D" parent="."]
 
-[node name="Wackable" parent="Wackables" instance=ExtResource("7_85mib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.84196, 1.96362, -4.82041)
+[node name="TestWackable" parent="Wackables" instance=ExtResource("7_vmphs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35886, 1.89707, 0)
 
-[node name="Wackable2" parent="Wackables" instance=ExtResource("7_85mib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24244, 1.96362, -6.07988)
+[node name="TestWackable2" parent="Wackables" instance=ExtResource("7_vmphs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35886, 1.89707, -5.96856)
 
-[node name="Wackable3" parent="Wackables" instance=ExtResource("7_85mib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24244, 1.96362, -12.2679)
+[node name="TestWackable3" parent="Wackables" instance=ExtResource("7_vmphs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.28252, 1.89707, -7.58709)
 
-[node name="Wackable4" parent="Wackables" instance=ExtResource("7_85mib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112595, 1.96362, -12.2679)
+[node name="TestWackable4" parent="Wackables" instance=ExtResource("7_vmphs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31488, 1.89707, 3.38001)
+
+[node name="NPC" type="Node3D" parent="."]
+
+[node name="TestNPC" parent="NPC" instance=ExtResource("8_aelus")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78579, 2.96337, 2.06429)

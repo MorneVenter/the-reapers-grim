@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvjcjkb5gqxl4"]
+
+[ext_resource type="PackedScene" uid="uid://c3y7x0crk3hdy" path="res://Assets/Scenes/NPC/base_npc.tscn" id="1_yfm0i"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4drck"]
+
+[node name="TestNPC" instance=ExtResource("1_yfm0i")]
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Mesh" index="0"]
+mesh = SubResource("CapsuleMesh_4drck")
