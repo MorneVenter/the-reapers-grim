@@ -14,7 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_xgjm1")
 
 [node name="Background" type="TextureRect" parent="."]
-self_modulate = Color(0.239216, 0.192157, 0.372549, 1)
+self_modulate = Color(0.87451, 0.517647, 0.282353, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

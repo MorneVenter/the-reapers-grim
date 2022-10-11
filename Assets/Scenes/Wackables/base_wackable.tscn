@@ -30,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01452, 0)
 shape = SubResource("BoxShape3D_6w0l0")
 
 [node name="RespawnTimer" type="Timer" parent="."]
-wait_time = 200.0
+wait_time = 230.0
 one_shot = true
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

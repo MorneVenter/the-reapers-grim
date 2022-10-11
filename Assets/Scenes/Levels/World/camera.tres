@@ -1,0 +1,10 @@
+[gd_resource type="CameraAttributesPractical" format=3 uid="uid://dsrk11bbxqgy8"]
+
+[resource]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 40.0
+dof_blur_far_transition = 2.8
+dof_blur_near_enabled = true
+dof_blur_near_distance = 16.0
+auto_exposure_min_sensitivity = 257.85
+auto_exposure_max_sensitivity = 30419.9

@@ -239,7 +239,7 @@ func _set_gliding_level(time: float) -> void:
 func _get_glide_time_by_level(level: int) -> float:
 	match level:
 		0: return 0.0
-		1: return 0.5
+		1: return 0.6
 		2: return 2.3
 		3: return 3.7
 		4: return 4.0

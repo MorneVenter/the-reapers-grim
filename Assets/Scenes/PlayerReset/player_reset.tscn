@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbt27hk5nagxj"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/PlayerReset/player_reset.gd" id="1_mm4vq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_abqyk"]
+size = Vector3(500, 1, 500)
+
+[node name="PlayerReset" type="Node3D"]
+script = ExtResource("1_mm4vq")
+
+[node name="Area" type="Area3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Area"]
+shape = SubResource("BoxShape3D_abqyk")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

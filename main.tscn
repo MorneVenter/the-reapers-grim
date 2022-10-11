@@ -24,7 +24,6 @@ stretch = true
 
 [node name="3D" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-scaling_3d_mode = 1
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
 size = Vector2i(1920, 1080)

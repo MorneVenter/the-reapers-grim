@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bphtud6jnbq3q"]
+[gd_scene load_steps=13 format=3 uid="uid://bphtud6jnbq3q"]
 
 [ext_resource type="PackedScene" uid="uid://ry8gnnt30x5k" path="res://Assets/Scenes/Characters/Player/player.tscn" id="1_2pmrc"]
 [ext_resource type="PackedScene" uid="uid://cdh1u0k3q06hp" path="res://Assets/Modules/TopDownFollowCamera/top_down_follow_camera.tscn" id="2_wl120"]
@@ -8,6 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://4wdtwhly04em" path="res://Assets/Scenes/Pickups/Coins/coin.tscn" id="6_hxcah"]
 [ext_resource type="PackedScene" uid="uid://cp3iyl44n2gln" path="res://Assets/Scenes/Wackables/WackableObjects/test_wackable.tscn" id="7_vmphs"]
 [ext_resource type="PackedScene" uid="uid://bvjcjkb5gqxl4" path="res://Assets/Scenes/NPC/NPCObjects/test_npc.tscn" id="8_aelus"]
+[ext_resource type="PackedScene" uid="uid://ch5fbhoxrwglk" path="res://Assets/Modules/GrassPatch/grass_patch.tscn" id="9_fxuqm"]
+[ext_resource type="PackedScene" uid="uid://dbt27hk5nagxj" path="res://Assets/Scenes/PlayerReset/player_reset.tscn" id="10_yg0uw"]
+
+[sub_resource type="Gradient" id="Gradient_jmrka"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.229698, 0.965197)
+colors = PackedColorArray(0.116519, 0.158203, 0, 1, 1, 0.725645, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6n5q4"]
+gradient = SubResource("Gradient_jmrka")
 
 [node name="World" type="Node3D"]
 
@@ -26,38 +36,51 @@ peek_angle = 10.0
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="Sun" type="DirectionalLight3D" parent="Lights"]
-transform = Transform3D(0.695913, 0.464477, -0.547692, 0, 0.762669, 0.646789, 0.718126, -0.450109, 0.53075, 0, 0, 0)
-light_color = Color(1, 0.843137, 0.980392, 1)
-light_energy = 1.3
-light_indirect_energy = 1.2
-light_volumetric_fog_energy = 3.0
+transform = Transform3D(0.707107, -0.353554, 0.612372, 0, 0.866026, 0.5, -0.707107, -0.353554, 0.612372, 0, 0, 0)
+light_color = Color(0.654902, 0.482353, 0.807843, 1)
+light_energy = 2.4
+light_volumetric_fog_energy = 5.0
 light_bake_mode = 1
 shadow_enabled = true
-shadow_blur = 1.891
+shadow_blur = 1.2
 directional_shadow_mode = 0
-directional_shadow_split_1 = 0.352
+directional_shadow_split_1 = 0.441
+directional_shadow_split_2 = 0.605
+directional_shadow_split_3 = 0.814
 directional_shadow_blend_splits = true
-directional_shadow_max_distance = 46.9
+directional_shadow_fade_start = 0.404
+directional_shadow_max_distance = 300.0
 sky_mode = 1
 
 [node name="Forest" parent="." instance=ExtResource("4_m7uc7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0447741, 0)
 
-[node name="Pickups" type="Node3D" parent="."]
+[node name="Fragments" type="Node3D" parent="."]
 
-[node name="SoulFragment" parent="Pickups" instance=ExtResource("5_yfatx")]
+[node name="SoulFragment" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06111, 3.01903, -7.35618)
+
+[node name="SoulFragment2" parent="Fragments" instance=ExtResource("5_yfatx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3416, 4.93343, 18.0465)
+
+[node name="SoulFragment3" parent="Fragments" instance=ExtResource("5_yfatx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1108, 4.93343, -23.1859)
+
+[node name="SoulFragment4" parent="Fragments" instance=ExtResource("5_yfatx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5757, 4.93343, -21.553)
 
 [node name="Coins" type="Node3D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("6_hxcah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01209, -4.29669)
+_respawns = true
 
 [node name="Coin2" parent="Coins" instance=ExtResource("6_hxcah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24172, 2.01209, 0.661876)
+_respawns = true
 
 [node name="Coin3" parent="Coins" instance=ExtResource("6_hxcah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4593, 2.01209, 3.73902)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4593, 2.01209, 2.87073)
 _respawns = true
 
 [node name="Coin4" parent="Coins" instance=ExtResource("6_hxcah")]
@@ -73,11 +96,587 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.108, 2.01209, 5.52353)
 _respawns = true
 
 [node name="Coin7" parent="Coins" instance=ExtResource("6_hxcah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7463, 2.01209, 5.52353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7463, 2.01209, 6.48117)
 _respawns = true
 
 [node name="Coin8" parent="Coins" instance=ExtResource("6_hxcah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0813, 2.01209, 6.10533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7911, 2.01209, 6.10533)
+_respawns = true
+
+[node name="Coin9" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2728, 2.01209, 11.7514)
+_respawns = true
+
+[node name="Coin10" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1349, 2.01209, 13.0515)
+_respawns = true
+
+[node name="Coin11" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1349, 2.01209, 16.3779)
+_respawns = true
+
+[node name="Coin12" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1349, 2.01209, 22.3123)
+_respawns = true
+
+[node name="Coin63" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1349, 5.12194, 22.3123)
+_respawns = true
+
+[node name="Coin64" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2348, 5.12194, 22.3123)
+_respawns = true
+
+[node name="Coin65" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64101, 4.53307, 22.3123)
+_respawns = true
+
+[node name="Coin107" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64101, 5.79363, 26.6156)
+_respawns = true
+
+[node name="Coin108" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64101, 4.8363, 26.6156)
+_respawns = true
+
+[node name="Coin109" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64101, 3.77056, 26.6156)
+_respawns = true
+
+[node name="Coin110" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.33096, 3.77056, 26.6156)
+_respawns = true
+
+[node name="Coin111" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71857, 3.77056, 8.36804)
+_respawns = true
+
+[node name="Coin112" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71857, 5.47759, 8.36804)
+_respawns = true
+
+[node name="Coin113" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71857, 0.18563, -27.7321)
+_respawns = true
+
+[node name="Coin114" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45813, 3.45133, -33.3178)
+_respawns = true
+
+[node name="Coin115" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45813, 2.67525, -33.3178)
+_respawns = true
+
+[node name="Coin116" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59485, 5.46999, -25.2847)
+_respawns = true
+
+[node name="Coin117" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59485, 5.46999, -27.7203)
+_respawns = true
+
+[node name="Coin118" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59485, 5.24561, -30.6018)
+_respawns = true
+
+[node name="Coin119" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59485, 5.24561, -33.3782)
+_respawns = true
+
+[node name="Coin120" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59485, 5.24561, -35.5574)
+_respawns = true
+
+[node name="Coin123" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3356, 5.24561, -35.5574)
+_respawns = true
+
+[node name="Coin124" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0637, 5.24561, -35.5574)
+_respawns = true
+
+[node name="Coin125" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7021, 5.24561, -36.1155)
+_respawns = true
+
+[node name="Coin126" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7021, 5.24561, -34.9255)
+_respawns = true
+
+[node name="Coin127" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7021, 5.59962, -35.4995)
+_respawns = true
+
+[node name="Coin128" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7021, 5.06843, -35.4995)
+_respawns = true
+
+[node name="Coin129" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.6831, 4.15638, -23.1974)
+_respawns = true
+
+[node name="Coin130" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.4112, 4.15638, -23.1974)
+_respawns = true
+
+[node name="Coin131" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0495, 4.15638, -23.7555)
+_respawns = true
+
+[node name="Coin132" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0495, 4.15638, -22.5656)
+_respawns = true
+
+[node name="Coin133" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0495, 4.51038, -23.1395)
+_respawns = true
+
+[node name="Coin134" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0495, 3.97919, -23.1395)
+_respawns = true
+
+[node name="Coin135" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.9556, 4.15638, -1.61195)
+_respawns = true
+
+[node name="Coin136" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.6837, 4.15638, -1.61195)
+_respawns = true
+
+[node name="Coin137" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.322, 4.15638, -2.17005)
+_respawns = true
+
+[node name="Coin138" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.322, 4.15638, -0.98011)
+_respawns = true
+
+[node name="Coin139" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.322, 4.51038, -1.55408)
+_respawns = true
+
+[node name="Coin140" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.322, 3.97919, -1.55408)
+_respawns = true
+
+[node name="Coin141" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2862, 4.68436, -0.337593)
+_respawns = true
+
+[node name="Coin142" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5581, 4.68436, -0.337593)
+_respawns = true
+
+[node name="Coin143" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9197, 4.68436, -0.895699)
+_respawns = true
+
+[node name="Coin144" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9197, 4.68436, 0.294243)
+_respawns = true
+
+[node name="Coin145" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9197, 5.03837, -0.279732)
+_respawns = true
+
+[node name="Coin146" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9197, 4.50718, -0.279732)
+_respawns = true
+
+[node name="Coin147" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1224, 2.39869, 14.5397)
+_respawns = true
+
+[node name="Coin148" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3943, 2.39869, 14.5397)
+_respawns = true
+
+[node name="Coin149" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.756, 2.39869, 13.9816)
+_respawns = true
+
+[node name="Coin150" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.756, 2.39869, 15.1716)
+_respawns = true
+
+[node name="Coin151" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.756, 2.75269, 14.5976)
+_respawns = true
+
+[node name="Coin152" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.756, 2.2215, 14.5976)
+_respawns = true
+
+[node name="Coin121" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59485, 5.15586, -37.7064)
+_respawns = true
+
+[node name="Coin122" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59485, 4.90153, -39.7192)
+_respawns = true
+
+[node name="Coin66" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3996, 4.53307, 22.3123)
+_respawns = true
+
+[node name="Coin67" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6154, 4.53307, 9.11614)
+_respawns = true
+
+[node name="Coin94" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.525, 5.16183, 1.91501)
+_respawns = true
+
+[node name="Coin97" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.525, 5.16183, 3.70072)
+_respawns = true
+
+[node name="Coin103" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0679, 5.7759, 3.70699)
+_respawns = true
+
+[node name="Coin104" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8985, 4.69723, 0.0273175)
+_respawns = true
+
+[node name="Coin106" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.5918, 5.30111, 1.86191)
+_respawns = true
+
+[node name="Coin105" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2437, 4.97054, -3.12669)
+_respawns = true
+
+[node name="Coin95" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.525, 5.04629, -0.378648)
+_respawns = true
+
+[node name="Coin96" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.525, 4.80751, -3.03405)
+_respawns = true
+
+[node name="Coin68" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6154, 4.53307, -14.7119)
+_respawns = true
+
+[node name="Coin98" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6411, 4.53307, -14.7119)
+_respawns = true
+
+[node name="Coin99" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6411, 8.39806, -23.326)
+_respawns = true
+
+[node name="Coin100" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2098, 8.39806, -23.326)
+_respawns = true
+
+[node name="Coin101" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8944, 7.11883, -23.326)
+_respawns = true
+
+[node name="Coin102" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1914, 5.47405, -23.326)
+_respawns = true
+
+[node name="Coin69" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6874, 4.53307, -16.0822)
+_respawns = true
+
+[node name="Coin70" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5665, 4.91653, -9.55695)
+_respawns = true
+
+[node name="Coin77" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3491, 5.06042, -9.55695)
+_respawns = true
+
+[node name="Coin71" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.1274, 4.53307, -9.55695)
+_respawns = true
+
+[node name="Coin72" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0915, 4.12932, -9.55695)
+_respawns = true
+
+[node name="Coin73" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4025, 3.71331, -9.55695)
+_respawns = true
+
+[node name="Coin74" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.8196, 3.39526, -9.55695)
+_respawns = true
+
+[node name="Coin75" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.3693, 2.80785, -9.55695)
+_respawns = true
+
+[node name="Coin76" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6321, 2.40417, -9.55695)
+_respawns = true
+
+[node name="Coin16" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1349, 0.258062, 26.454)
+_respawns = true
+
+[node name="Coin17" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5589, 0.258062, 26.454)
+_respawns = true
+
+[node name="Coin18" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8755, 0.258062, 26.454)
+_respawns = true
+
+[node name="Coin19" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0283, 0.258062, 26.454)
+_respawns = true
+
+[node name="Coin20" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7064, 0.258062, 26.454)
+_respawns = true
+
+[node name="Coin21" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1074, 0.258062, 26.454)
+_respawns = true
+
+[node name="Coin27" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3431, 0.258062, 26.454)
+_respawns = true
+
+[node name="Coin32" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3431, 0.258062, 14.9806)
+_respawns = true
+
+[node name="Coin33" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6187, 0.258062, -4.28266)
+_respawns = true
+
+[node name="Coin78" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8187, 2.97825, -4.28266)
+_respawns = true
+
+[node name="Coin79" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8187, 2.97825, 0.0318718)
+_respawns = true
+
+[node name="Coin80" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8187, 2.97825, 6.00779)
+_respawns = true
+
+[node name="Coin81" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.4904, 2.97825, -4.27078)
+_respawns = true
+
+[node name="Coin82" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.8732, 2.97825, -4.27078)
+_respawns = true
+
+[node name="Coin83" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.5058, 2.97825, -4.27078)
+_respawns = true
+
+[node name="Coin84" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.0308, 2.97825, 8.65949)
+_respawns = true
+
+[node name="Coin85" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8205, 4.62961, 8.65949)
+_respawns = true
+
+[node name="Coin86" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.0545, 4.83121, 8.65949)
+_respawns = true
+
+[node name="Coin34" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6187, 0.258062, 6.32842)
+_respawns = true
+
+[node name="Coin35" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2966, 0.258062, 1.05316)
+_respawns = true
+
+[node name="Coin36" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2966, 0.258062, -15.5333)
+_respawns = true
+
+[node name="Coin37" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5281, 0.258062, -26.2775)
+_respawns = true
+
+[node name="Coin38" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2663, 0.258062, -28.0956)
+_respawns = true
+
+[node name="Coin39" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8438, 0.258062, -28.0956)
+_respawns = true
+
+[node name="Coin40" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8616, 0.258062, -28.0956)
+_respawns = true
+
+[node name="Coin41" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5582, 0.258062, -28.0956)
+_respawns = true
+
+[node name="Coin42" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3358, 0.258062, -28.0956)
+_respawns = true
+
+[node name="Coin43" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1086, 0.258062, -28.0956)
+_respawns = true
+
+[node name="Coin44" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1086, 0.258062, -34.9779)
+_respawns = true
+
+[node name="Coin45" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22052, 0.258062, -39.3877)
+_respawns = true
+
+[node name="Coin46" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91388, 0.258062, -26.1041)
+_respawns = true
+
+[node name="Coin47" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91388, 0.258062, -18.3125)
+_respawns = true
+
+[node name="Coin48" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53399, 0.258062, -12.0802)
+_respawns = true
+
+[node name="Coin49" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3524, 0.258062, -5.35755)
+_respawns = true
+
+[node name="Coin50" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3619, 0.258062, -4.21082)
+_respawns = true
+
+[node name="Coin87" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3619, 4.2096, -12.4269)
+_respawns = true
+
+[node name="Coin88" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8849, 4.2096, -12.4269)
+_respawns = true
+
+[node name="Coin89" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49685, 5.36121, -23.0614)
+_respawns = true
+
+[node name="Coin90" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62163, 5.22634, -23.0614)
+_respawns = true
+
+[node name="Coin91" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.19095, 4.94622, -23.0614)
+_respawns = true
+
+[node name="Coin92" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.85337, 4.74908, -23.0614)
+_respawns = true
+
+[node name="Coin93" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.33959, 4.38598, -23.0614)
+_respawns = true
+
+[node name="Coin51" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7627, 0.293767, -8.83662)
+_respawns = true
+
+[node name="Coin55" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.604, 0.327855, -21.8977)
+_respawns = true
+
+[node name="Coin56" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0301, 0.327855, -27.842)
+_respawns = true
+
+[node name="Coin58" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9949, 0.327855, -27.842)
+_respawns = true
+
+[node name="Coin59" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1039, 0.327855, -27.842)
+_respawns = true
+
+[node name="Coin60" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3673, 0.327855, -27.842)
+_respawns = true
+
+[node name="Coin61" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5046, 0.327855, -27.842)
+_respawns = true
+
+[node name="Coin62" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5046, 0.327855, -27.842)
+_respawns = true
+
+[node name="Coin57" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1468, 0.327855, -27.8209)
+_respawns = true
+
+[node name="Coin52" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3146, 0.516851, -1.34623)
+_respawns = true
+
+[node name="Coin53" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3146, 0.484979, 4.43285)
+_respawns = true
+
+[node name="Coin54" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.175, 0.205098, 12.7845)
+_respawns = true
+
+[node name="Coin28" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.4358, 1.72275, 32.4487)
+_respawns = true
+
+[node name="Coin29" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8367, 1.10108, 35.4651)
+_respawns = true
+
+[node name="Coin30" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.8531, 0.840581, 40.6054)
+_respawns = true
+
+[node name="Coin31" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.3718, 0.279195, 47.5793)
+_respawns = true
+
+[node name="Coin22" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04352, 0.258062, 25.5866)
+_respawns = true
+
+[node name="Coin23" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66903, 0.258062, 21.1296)
+_respawns = true
+
+[node name="Coin24" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73519, 0.680913, 21.1296)
+_respawns = true
+
+[node name="Coin25" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73519, 1.99598, 21.1296)
+_respawns = true
+
+[node name="Coin26" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73519, 3.49915, 21.1296)
+_respawns = true
+
+[node name="Coin13" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1349, 3.49689, 26.6015)
+_respawns = true
+
+[node name="Coin14" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1349, 2.74146, 31.8515)
+_respawns = true
+
+[node name="Coin15" parent="Coins" instance=ExtResource("6_hxcah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1349, 0.787725, 37.4156)
 _respawns = true
 
 [node name="Wackables" type="Node3D" parent="."]
@@ -89,7 +688,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35886, 1.89707, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35886, 1.89707, -5.96856)
 
 [node name="TestWackable3" parent="Wackables" instance=ExtResource("7_vmphs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.28252, 1.89707, -7.58709)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12338, 1.89707, -4.95553)
 
 [node name="TestWackable4" parent="Wackables" instance=ExtResource("7_vmphs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31488, 1.89707, 3.38001)
@@ -98,3 +697,693 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31488, 1.89707, 3.38001)
 
 [node name="TestNPC" parent="NPC" instance=ExtResource("8_aelus")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78579, 2.96337, 2.06429)
+
+[node name="Grass" type="Node3D" parent="."]
+
+[node name="GrassPatch" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83008, -0.66785)
+radius = 3.2
+radius_variance = 1.0
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch2" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9284, 1.83008, -6.12327)
+radius_variance = 0.839
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch3" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79399, 1.83008, -0.608401)
+radius = 2.4
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch5" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9547, -0.100929, -7.50837)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch45" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.7928, -0.100929, -1.75458)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch55" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9928, 1.78481, 11.663)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch56" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.657, 1.78481, 17.7475)
+radius = 4.5
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch57" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8247, 1.78481, 17.7475)
+radius = 4.5
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch46" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5821, -0.100929, -1.75458)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch47" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9455, -0.100929, 4.07083)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch7" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75736, -0.100929, 7.09462)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch8" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71619, -0.100929, 8.19182)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch9" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71619, -0.100929, -6.47441)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch10" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3836, -0.100929, -2.86112)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch11" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4602, -0.100929, -1.29973)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch12" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4222, -0.100929, -5.18606)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch13" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4222, -0.100929, 1.27173)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch14" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.6182, -0.100929, 1.27173)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch15" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4304, -0.100929, -10.1573)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch16" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.48655, -0.100929, -19.7863)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch68" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8589, 4.07372, 11.8738)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch69" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.253, 4.07372, 17.6421)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch70" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.253, 4.07372, -18.0024)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch71" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5819, 4.07372, -13.4268)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch72" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.208, 4.07372, -19.3201)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch73" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8272, 4.07372, -13.8385)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch74" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8983, 4.07372, -20.233)
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch75" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6652, 4.07372, -20.891)
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch76" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0817, 4.07372, -12.2439)
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch77" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7569, 4.07372, -19.5779)
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch17" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61089, -0.100929, -17.284)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch18" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85821, -0.100929, -29.0494)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch19" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.85011, -0.100929, -33.9967)
+radius = 5.0
+radius_variance = 1.0
+total_grass_blades = 512
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch20" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8212, -0.100929, -37.1667)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch21" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71018, -0.100929, -26.6469)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch22" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.00086, -0.100929, -25.8963)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch23" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97838, -0.100929, -12.2985)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch24" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.12686, -0.100929, -1.21996)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch25" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.4198, -0.100929, 8.54074)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch26" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.307, -0.100929, -6.79775)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch27" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.02, -0.100929, -13.0016)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch28" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.02, -0.100929, -1.5738)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch29" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8031, -0.100929, -4.44362)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch30" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6722, -0.100929, -4.44362)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch31" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4346, -0.100929, -9.34687)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch32" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4346, -0.100929, 12.6794)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch33" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5883, -0.100929, 2.46184)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch34" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.7126, -0.100929, 8.07399)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch35" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.412, -0.100929, -3.86399)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch36" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5315, -0.100929, 25.5785)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch37" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8892, -0.100929, 25.5785)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch38" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3054, -0.0945909, 25.0033)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch48" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0547, 1.89261, 21.6996)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch49" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2097, 1.89261, 21.6996)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch50" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2097, 1.89261, 13.9845)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch51" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2097, 1.89261, 6.82846)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch52" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1325, 1.89261, 6.82846)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch53" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5761, 1.89261, 4.0471)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch54" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0603, 1.89261, 20.0224)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch39" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.36273, -0.100929, 25.5785)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch40" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.91954, -0.100929, 25.5785)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch41" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92882, -0.100929, 25.5785)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch42" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7967, -0.100929, 25.5785)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch43" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.281, -0.100929, 25.5785)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch44" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.1619, -0.100929, 24.8873)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch4" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.07341, 1.83008, 3.48175)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch6" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.86093, 1.83008, -11.8362)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch58" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24933, 1.83008, 11.8888)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch59" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82695, 3.77028, 17.7748)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch60" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69124, 3.77028, 21.7255)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch78" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.69205, 3.77028, -17.6)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch79" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5612, 3.77028, -12.8293)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch80" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1129, 3.77028, -8.97646)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch81" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4248, 3.77028, -6.98195)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch82" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9046, 3.77028, -7.7261)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch83" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2276, 3.77028, -12.2009)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch84" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.102, 3.77028, -15.0581)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch85" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2544, 3.77028, -23.2814)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch86" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4443, 3.77028, -23.2814)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch61" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3977, 3.77028, 21.4092)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch62" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6399, 3.77028, 21.4092)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch63" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6399, 3.77028, 7.89354)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch64" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1931, 3.77028, 13.8115)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch65" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4193, 3.77028, 13.8115)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch66" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9552, 3.77028, 11.6928)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch67" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9552, 3.77028, 20.5728)
+radius = 2.0
+radius_variance = 1.0
+total_grass_blades = 128
+grass_blade_height = 0.4
+grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="RespawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10578, 0)
+
+[node name="PlayerReset" parent="." instance=ExtResource("10_yg0uw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -66.5814, 0)
+respawn_point = NodePath("../RespawnPoint")

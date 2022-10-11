@@ -68,7 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.386119, 0)
 shape = SubResource("SphereShape3D_ejyns")
 
 [node name="RespawnTimer" type="Timer" parent="."]
-wait_time = 200.0
+wait_time = 230.0
 one_shot = true
 
 [node name="PickupSound" type="AudioStreamPlayer" parent="."]
