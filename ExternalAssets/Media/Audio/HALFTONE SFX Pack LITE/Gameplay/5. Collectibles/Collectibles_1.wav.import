@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dfv8hnplkxd6h"
+path="res://.godot/imported/Collectibles_1.wav-8e78c4716985a5a7e8f0f551ab1e90dd.sample"
+
+[deps]
+
+source_file="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/5. Collectibles/Collectibles_1.wav"
+dest_files=["res://.godot/imported/Collectibles_1.wav-8e78c4716985a5a7e8f0f551ab1e90dd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

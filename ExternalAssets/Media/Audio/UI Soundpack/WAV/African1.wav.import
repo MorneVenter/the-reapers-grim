@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bg5182a8uqea8"
+path="res://.godot/imported/African1.wav-0aed8e96f6e0995280eda97ffe265aeb.sample"
+
+[deps]
+
+source_file="res://ExternalAssets/Media/Audio/UI Soundpack/WAV/African1.wav"
+dest_files=["res://.godot/imported/African1.wav-0aed8e96f6e0995280eda97ffe265aeb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

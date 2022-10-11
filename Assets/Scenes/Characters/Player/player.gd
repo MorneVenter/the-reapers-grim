@@ -52,6 +52,9 @@ var _is_hitting: bool = false
 @onready var _scythe: Node3D = $Reaper/Scythe
 @onready var _scythe_animator: AnimationPlayer = $ScytheAnimator
 @onready var _hit_area: Area3D = $Reaper/HitArea
+@onready var _footstep_audio: AudioStreamPlayer3D = $FootstepSound
+@onready var _jump_audio: AudioStreamPlayer3D = $JumpSound
+@onready var _wing_audio: AudioStreamPlayer3D = $WingSound
 
 const RUN = "NormalRun"
 const FALL = "Falling"
@@ -89,6 +92,10 @@ func _ready() -> void:
 	_hit_area.monitorable = false
 	_hit_area.monitoring = false
 
+	_set_footstep_sounds(false)
+	_jump_audio.playing = false
+	_wing_audio.playing = false
+
 	_init_soul_fragment_level(_soul_fragment_level)
 
 func _physics_process(delta: float) -> void:
@@ -98,6 +105,7 @@ func _physics_process(delta: float) -> void:
 		_handle_player_hit()
 		move_and_slide()
 	_handle_animations()
+	_handle_footsteps()
 
 func _handle_animations() -> void:
 	if velocity.y < 0:
@@ -110,6 +118,13 @@ func _handle_animations() -> void:
 		_set_animation(RUN)
 	else:
 		_set_animation(IDLE)
+
+func _handle_footsteps() -> void:
+	_set_footstep_sounds(is_on_floor() and (velocity.x != 0 or velocity.z != 0))
+
+func _set_footstep_sounds(state: bool) -> void:
+	if _footstep_audio.playing != state:
+		_footstep_audio.playing = state
 
 func _handle_player_hit() -> void:
 	if Input.is_action_just_pressed('player_hit') and is_on_floor() and not _is_hitting:
@@ -161,12 +176,14 @@ func _handle_jump(delta: float) -> void:
 	_check_for_jump_hold()
 
 func _jump() -> void:
+	_jump_audio.playing = true
 	_set_animation(JUMP, true)
 	velocity.y = JUMP_VELOCITY
 	_is_holding_jump = true
 	_allow_jumps = false
 
 func _glide() -> void:
+	_wing_audio.playing = true
 	_glide_timer.wait_time = _glide_time
 	_glide_timer.start()
 	velocity.y = 0.0

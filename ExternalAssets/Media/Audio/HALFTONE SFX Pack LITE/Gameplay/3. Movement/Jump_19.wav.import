@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dcdu82kab1px3"
+path="res://.godot/imported/Jump_19.wav-61073b2178d3e453ba5fd0b2b2b242f6.sample"
+
+[deps]
+
+source_file="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/3. Movement/Jump_19.wav"
+dest_files=["res://.godot/imported/Jump_19.wav-61073b2178d3e453ba5fd0b2b2b242f6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

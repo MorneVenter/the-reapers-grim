@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dn67nlt86apdo"
+path="res://.godot/imported/Bounce_4.wav-61c33e3e3ad2af89103385194a320075.sample"
+
+[deps]
+
+source_file="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/3. Movement/Bounce_4.wav"
+dest_files=["res://.godot/imported/Bounce_4.wav-61c33e3e3ad2af89103385194a320075.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

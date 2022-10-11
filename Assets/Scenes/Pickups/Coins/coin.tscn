@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://4wdtwhly04em"]
+[gd_scene load_steps=8 format=3 uid="uid://4wdtwhly04em"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Pickups/Coins/coin.gd" id="1_ajlj5"]
 [ext_resource type="Texture2D" uid="uid://cduvcac1jppl3" path="res://Assets/Sprites/UI/Icons/coin.png" id="1_emhmd"]
+[ext_resource type="AudioStream" uid="uid://dnf3gsj3y6x57" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/5. Collectibles/Collectibles_8.wav" id="3_e8ij5"]
 
 [sub_resource type="Animation" id="Animation_8fj1j"]
 resource_name = "appear"
@@ -43,7 +44,7 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ejyns"]
-radius = 0.721256
+radius = 0.933939
 
 [node name="Coin" type="Node3D"]
 script = ExtResource("1_ajlj5")
@@ -69,6 +70,10 @@ shape = SubResource("SphereShape3D_ejyns")
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 200.0
 one_shot = true
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e8ij5")
+volume_db = -13.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]

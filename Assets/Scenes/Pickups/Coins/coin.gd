@@ -6,6 +6,7 @@ extends Node3D
 @onready var _sprite: Sprite3D = $Sprite
 @onready var _starting_position: Vector3 = position
 @onready var _respawn_timer: Timer = $RespawnTimer
+@onready var _pickup_audio: AudioStreamPlayer = $PickupSound
 
 const APPEAR_ANIM: String = 'appear'
 const IDLE_ANIM: String = 'idle'
@@ -22,6 +23,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_trigger_area_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and not _is_collected:
 		_is_collected = true
+		_pickup_audio.playing = true
 		CurrencyManager.add(1)
 		_animator.stop()
 		_sprite.scale = Vector3(0.15, 0.15, 0.15)

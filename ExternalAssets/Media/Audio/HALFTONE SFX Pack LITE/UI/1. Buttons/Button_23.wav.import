@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://v37ycd7515gc"
+path="res://.godot/imported/Button_23.wav-e8395e8ff6d52f02d952c1eb3d0b5596.sample"
+
+[deps]
+
+source_file="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/UI/1. Buttons/Button_23.wav"
+dest_files=["res://.godot/imported/Button_23.wav-e8395e8ff6d52f02d952c1eb3d0b5596.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

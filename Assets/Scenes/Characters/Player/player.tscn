@@ -1,9 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://ry8gnnt30x5k"]
+[gd_scene load_steps=15 format=3 uid="uid://ry8gnnt30x5k"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Characters/Player/player.gd" id="1_sv0bb"]
 [ext_resource type="PackedScene" uid="uid://blpfbw2bh3tb3" path="res://Assets/Scenes/Characters/Player/reaper.tscn" id="2_fjsfx"]
 [ext_resource type="PackedScene" uid="uid://u3o1pnoo1g7i" path="res://Assets/Scenes/Characters/Player/reaper_wings.tscn" id="3_rlbpb"]
 [ext_resource type="PackedScene" uid="uid://cahys6c8a61qc" path="res://Assets/Scenes/Characters/Player/scythe.tscn" id="4_sonqa"]
+[ext_resource type="AudioStream" uid="uid://3wkprcdbh4y1" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/7. Blip, Blop and Pops/Blop_1.wav" id="5_70lwj"]
+[ext_resource type="AudioStream" uid="uid://cr2ebd5ed0tpk" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/3. Movement/Jump_17.wav" id="5_bgmqt"]
+[ext_resource type="AudioStream" uid="uid://cowphnv7i0io7" path="res://ExternalAssets/Media/Audio/WalkSound.wav" id="5_ubpxp"]
+[ext_resource type="AudioStream" uid="uid://cncx4g6wlsf8l" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/7. Blip, Blop and Pops/Pop_3.wav" id="7_nc7r6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0cd25"]
 height = 1.56398
@@ -90,6 +94,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ScytheSound:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(-0.01, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_d7hej"]
 resource_name = "idle"
@@ -162,5 +178,26 @@ autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_88v4k")
 }
+
+[node name="WingSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_70lwj")
+unit_db = -23.0
+unit_size = 20.0
+pitch_scale = 1.53
+
+[node name="JumpSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_bgmqt")
+unit_db = -20.0
+unit_size = 20.0
+pitch_scale = 0.68
+
+[node name="ScytheSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_nc7r6")
+volume_db = -10.0
+
+[node name="FootstepSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_ubpxp")
+unit_db = -7.0
+unit_size = 20.0
 
 [connection signal="animation_finished" from="ScytheAnimator" to="." method="_on_scythe_animator_animation_finished"]
