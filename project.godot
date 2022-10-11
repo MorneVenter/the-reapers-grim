@@ -135,5 +135,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
+global_illumination/gi/use_half_resolution=true
+global_illumination/sdfgi/probe_ray_count=0
 environment/default_environment="res://default_env.tres"

@@ -1,10 +1,11 @@
 [gd_resource type="Environment" load_steps=3 format=3 uid="uid://6gl7dhw5onhh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0plr1"]
-sky_top_color = Color(1, 0.992157, 0.811765, 1)
+sky_top_color = Color(0.980392, 1, 1, 1)
 sky_horizon_color = Color(0.572549, 0.486275, 0.329412, 1)
 ground_bottom_color = Color(0.545098, 0.290196, 0.0745098, 1)
 ground_horizon_color = Color(0.572549, 0.486275, 0.329412, 1)
+sun_angle_max = 54.95
 
 [sub_resource type="Sky" id="Sky_h2ikq"]
 sky_material = SubResource("ProceduralSkyMaterial_0plr1")
@@ -12,20 +13,30 @@ sky_material = SubResource("ProceduralSkyMaterial_0plr1")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_h2ikq")
-tonemap_mode = 2
-tonemap_exposure = 0.85
+tonemap_mode = 1
+tonemap_exposure = 0.9
 ssao_radius = 8.96
 ssao_intensity = 8.2
 ssao_detail = 0.82
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+sdfgi_min_cell_size = 0.5
 sdfgi_energy = 0.35
 glow_normalized = true
-glow_intensity = 4.88
+glow_intensity = 1.77
+glow_strength = 1.5
+glow_bloom = 0.67
+fog_enabled = true
+fog_light_color = Color(0.882353, 0.886275, 0.254902, 1)
+fog_light_energy = 2.0
+fog_density = 0.0
+fog_height = -1.7
+fog_height_density = 0.1
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.01
+volumetric_fog_density = 0.008
 volumetric_fog_albedo = Color(0.768627, 0.921569, 0.556863, 1)
 volumetric_fog_emission = Color(0.847059, 0.854902, 0.156863, 1)
-volumetric_fog_length = 56.0
+volumetric_fog_emission_energy = 0.5
 adjustment_enabled = true
-adjustment_brightness = 0.96
 adjustment_contrast = 1.1
-adjustment_saturation = 1.1
+adjustment_saturation = 0.9
