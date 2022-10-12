@@ -9,37 +9,37 @@
 [ext_resource type="AudioStream" uid="uid://cowphnv7i0io7" path="res://ExternalAssets/Media/Audio/WalkSound.wav" id="5_ubpxp"]
 [ext_resource type="AudioStream" uid="uid://cncx4g6wlsf8l" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/7. Blip, Blop and Pops/Pop_3.wav" id="7_nc7r6"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0cd25"]
-height = 1.56398
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_vihmw"]
 size = Vector3(2.05984, 1, 1.36053)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0cd25"]
+height = 1.56398
 
 [sub_resource type="Animation" id="Animation_1hys6"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Reaper/Scythe:rotation")
+tracks/0/path = NodePath("Reaper/Scythe:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.54788, 2.24362, -2.14199)]
+"values": [Vector3(-0.510082, 0.467484, 0.270902)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Reaper/Scythe:position")
+tracks/1/path = NodePath("Reaper/Scythe:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.510082, 0.467484, 0.270902)]
+"values": [Vector3(1.54788, 2.24362, -2.14199)]
 }
 
 [sub_resource type="Animation" id="Animation_wr3xi"]
@@ -61,47 +61,59 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Reaper/Scythe:position")
+tracks/1/path = NodePath("Reaper/HitArea:monitorable")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.37),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Reaper/Scythe:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.21, 0.31, 0.37, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-0.16375, 0.48, 0.37), Vector3(-0.486865, 0.48, 0.278519), Vector3(0.637533, 0.48, 0.37673), Vector3(0.563229, 0.48, -0.00670397), Vector3(0.639146, 0.48, -0.24873)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Reaper/HitArea:monitoring")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.21, 0.37),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Reaper/HitArea:monitorable")
+tracks/3/path = NodePath("Reaper/HitArea:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.21, 0.37),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ScytheSound:playing")
+tracks/4/path = NodePath("Reaper/Scythe:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(-0.01, 0.16),
+"times": PackedFloat32Array(0, 0.21, 0.31, 0.37, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.16375, 0.48, 0.37), Vector3(-0.486865, 0.48, 0.278519), Vector3(0.637533, 0.48, 0.37673), Vector3(0.563229, 0.48, -0.00670397), Vector3(0.639146, 0.48, -0.24873)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ScytheSound:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.19),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -114,26 +126,26 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Reaper/Scythe:rotation")
+tracks/0/path = NodePath("Reaper/Scythe:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0.959931), Vector3(0, 0, 1.0472), Vector3(0, 0, 0.959931)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Reaper/Scythe:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.110286, 0.731856, -0.237468)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Reaper/Scythe:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.959931), Vector3(0, 0, 1.0472), Vector3(0, 0, 0.959931)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_88v4k"]
@@ -147,25 +159,19 @@ _data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.998248, 0)
 floor_max_angle = 0.610865
 script = ExtResource("1_sv0bb")
-MAX_SPEED = 5.5
-GLIDE_SPEED_INCREASE = 1.1
-GLIDE_GRAVITY_MULT = 0.013
-
-[node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21751, 0)
-shape = SubResource("CapsuleShape3D_0cd25")
 
 [node name="Reaper" parent="." instance=ExtResource("2_fjsfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.988521, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.992192, 0)
 
 [node name="Wings" parent="Reaper" instance=ExtResource("3_rlbpb")]
-transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0.535877, -0.156114)
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, -0.452644, -0.156114)
 visible = false
 
 [node name="Scythe" parent="Reaper" instance=ExtResource("4_sonqa")]
 transform = Transform3D(-0.160411, -0.473485, 0.00896023, -0.00963837, -0.00619414, -0.499869, 0.473471, -0.160541, -0.00714005, -0.510082, 0.467484, 0.270902)
 
 [node name="HitArea" type="Area3D" parent="Reaper" groups=["Wacking"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00924075, 0)
 monitoring = false
 monitorable = false
 
@@ -173,11 +179,9 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485641, 0.885568)
 shape = SubResource("BoxShape3D_vihmw")
 
-[node name="ScytheAnimator" type="AnimationPlayer" parent="."]
-autoplay = "idle"
-libraries = {
-"": SubResource("AnimationLibrary_88v4k")
-}
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21751, 0)
+shape = SubResource("CapsuleShape3D_0cd25")
 
 [node name="WingSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_70lwj")
@@ -199,5 +203,17 @@ volume_db = -10.0
 stream = ExtResource("5_ubpxp")
 unit_db = -7.0
 unit_size = 20.0
+
+[node name="ScytheAnimator" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_88v4k")
+}
+
+[node name="Timers" type="Node3D" parent="."]
+
+[node name="GlideTimer" type="Timer" parent="Timers"]
+
+[node name="CoyoteTimer" type="Timer" parent="Timers"]
 
 [connection signal="animation_finished" from="ScytheAnimator" to="." method="_on_scythe_animator_animation_finished"]

@@ -17,11 +17,13 @@ size = Vector3(1.43887, 1.33075, 1.40643)
 [node name="Light" type="OmniLight3D" parent="Mesh" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.703433, 0)
 light_color = Color(1, 0.980392, 0.517647, 1)
-light_energy = 3.0
+light_energy = 4.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
+light_specular = 12.668
+light_bake_mode = 1
 shadow_reverse_cull_face = true
-omni_range = 0.982436
+omni_range = 0.768502
 omni_attenuation = 0.5
 omni_shadow_mode = 0
 

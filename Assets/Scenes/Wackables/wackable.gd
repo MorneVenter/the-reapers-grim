@@ -2,11 +2,11 @@ extends Node3D
 
 @export var _coin_count: int = 3
 
-@onready var coin: PackedScene = preload('res://Assets/Scenes/Pickups/Coins/coin.tscn')
 @onready var _mesh: Node3D = $Mesh
 @onready var _respawn_timer: Timer = $RespawnTimer
 
 
+var coin: PackedScene = preload('res://Assets/Scenes/Pickups/Coins/coin.tscn')
 var _current_coins: int = 0
 
 func _ready() -> void:
@@ -29,7 +29,7 @@ func _spawn_coin() -> void:
 	if _current_coins >= 1:
 		_current_coins -= 1
 		var new_coin = coin.instantiate()
-		add_child(new_coin)
+		call_deferred("add_child", new_coin)
 		new_coin.position.y = 1.0
 		var z_range: float = randf_range(2.0, 3.3)
 		var x_range: float = randf_range(-1.0, 1.0)

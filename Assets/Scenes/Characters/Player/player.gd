@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+#
 class_name PlayerObject
 
 @export_category("Movement")
@@ -29,8 +29,6 @@ var GLIDE_SPEED_INCREASE: float = 1.0
 @export_range(0.0, 0.9)
 var GLIDE_GRAVITY_MULT: float = 0.15
 
-
-var _coyote_timer: Timer
 var _current_speed: float = 0.0
 var _is_holding_jump: bool = false
 var _allow_jumps: bool = true
@@ -40,7 +38,6 @@ var _allow_coyote_time: bool = true
 var _lock_animation: bool = false
 var _animation_to_wait_for: String = ""
 var _soul_fragment_level: int = 0
-var _glide_timer: Timer
 var _is_glide_blocked: bool = false
 var _glide_time: float = 1.0
 var _is_input_locked: bool = false
@@ -55,6 +52,8 @@ var _is_hitting: bool = false
 @onready var _footstep_audio: AudioStreamPlayer3D = $FootstepSound
 @onready var _jump_audio: AudioStreamPlayer3D = $JumpSound
 @onready var _wing_audio: AudioStreamPlayer3D = $WingSound
+@onready var _glide_timer: Timer = $Timers/GlideTimer
+@onready var _coyote_timer: Timer = $Timers/CoyoteTimer
 
 const RUN = "NormalRun"
 const FALL = "Falling"
@@ -68,12 +67,10 @@ var _is_jump_button_pressed := func() -> bool: return Input.is_action_just_press
 var _is_jump_button_held := func() -> bool: return Input.is_action_pressed("player_jump")
 var _get_player_input_direction := func() -> Vector2: return Input.get_vector("player_move_left", "player_move_right", "player_move_up", "player_move_down").normalized()
 
-func _init() -> void:
-	Player.register(self)
-
 func _ready() -> void:
-	_coyote_timer = Timer.new()
-	add_child(_coyote_timer)
+	Player.register(self)
+	unlock_input()
+
 	_coyote_timer.one_shot = true
 	_coyote_timer.wait_time = 0.15
 	_coyote_timer.timeout.connect(_on_coyote_timer_timeout)
@@ -81,8 +78,6 @@ func _ready() -> void:
 	_set_animation(IDLE)
 	_player_animator.connect("animation_finished", _animation_finished)
 
-	_glide_timer = Timer.new()
-	add_child(_glide_timer)
 	_glide_timer.one_shot = true
 	_glide_timer.timeout.connect(_on_glide_timer_timeout)
 	_wings.visible = false
