@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dwd7wnt8giurh" path="res://Assets/Scenes/Levels/Forest/forest.tscn" id="4_m7uc7"]
 [ext_resource type="PackedScene" uid="uid://bbhqfwlkaq3sm" path="res://Assets/Scenes/Pickups/SoulFragments/soul_fragment.tscn" id="5_yfatx"]
 [ext_resource type="PackedScene" uid="uid://4wdtwhly04em" path="res://Assets/Scenes/Pickups/Coins/coin.tscn" id="6_hxcah"]
-[ext_resource type="PackedScene" uid="uid://cp3iyl44n2gln" path="res://Assets/Scenes/Wackables/WackableObjects/test_wackable.tscn" id="7_vmphs"]
 [ext_resource type="PackedScene" uid="uid://bvjcjkb5gqxl4" path="res://Assets/Scenes/NPC/NPCObjects/test_npc.tscn" id="8_aelus"]
+[ext_resource type="PackedScene" uid="uid://xfwuk15bhq2l" path="res://Assets/Scenes/Wackables/WackableObjects/jackoolantern.tscn" id="8_ulieu"]
 [ext_resource type="PackedScene" uid="uid://ch5fbhoxrwglk" path="res://Assets/Modules/GrassPatch/grass_patch.tscn" id="9_fxuqm"]
 [ext_resource type="PackedScene" uid="uid://dbt27hk5nagxj" path="res://Assets/Scenes/PlayerReset/player_reset.tscn" id="10_yg0uw"]
 
@@ -681,17 +681,17 @@ _respawns = true
 
 [node name="Wackables" type="Node3D" parent="."]
 
-[node name="TestWackable" parent="Wackables" instance=ExtResource("7_vmphs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35886, 1.89707, 0)
+[node name="Jackoolantern" parent="Wackables" instance=ExtResource("8_ulieu")]
+transform = Transform3D(0.901213, 0, 0.433376, 0, 1, 0, -0.433376, 0, 0.901213, -6.28667, 1.89658, 1.41788)
 
-[node name="TestWackable2" parent="Wackables" instance=ExtResource("7_vmphs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35886, 1.89707, -5.96856)
+[node name="Jackoolantern2" parent="Wackables" instance=ExtResource("8_ulieu")]
+transform = Transform3D(0.572489, 0, 0.819912, 0, 1, 0, -0.819912, 0, 0.572489, -6.28667, 1.89658, -6.01291)
 
-[node name="TestWackable3" parent="Wackables" instance=ExtResource("7_vmphs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12338, 1.89707, -4.95553)
+[node name="Jackoolantern3" parent="Wackables" instance=ExtResource("8_ulieu")]
+transform = Transform3D(0.961247, 0, 0.275688, 0, 1, 0, -0.275688, 0, 0.961247, -5.21673, 1.89658, -7.52238)
 
-[node name="TestWackable4" parent="Wackables" instance=ExtResource("7_vmphs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31488, 1.89707, 3.38001)
+[node name="Jackoolantern4" parent="Wackables" instance=ExtResource("8_ulieu")]
+transform = Transform3D(0.883201, 0, -0.468994, 0, 1, 0, 0.468994, 0, 0.883201, -4.34019, 1.89658, -9.03772)
 
 [node name="NPC" type="Node3D" parent="."]
 
@@ -1387,3 +1387,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10578, 0)
 [node name="PlayerReset" parent="." instance=ExtResource("10_yg0uw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -66.5814, 0)
 respawn_point = NodePath("../RespawnPoint")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.06504, 2.5654, 0)
+light_color = Color(1, 0.980392, 0.517647, 1)
+light_energy = 3.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+shadow_reverse_cull_face = true
+omni_range = 4.48969
+omni_attenuation = 0.5
+omni_shadow_mode = 0

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://xfwuk15bhq2l"]
+
+[ext_resource type="PackedScene" uid="uid://djcw1dq4lu4jt" path="res://Assets/Scenes/Wackables/base_wackable.tscn" id="1_pk1jj"]
+[ext_resource type="PackedScene" uid="uid://qiu43i0ttlah" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/jackolantern_big.gltf.glb" id="2_r3vf5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vabwk"]
+resource_local_to_scene = true
+radius = 0.69269
+height = 1.44757
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5eu88"]
+resource_local_to_scene = true
+size = Vector3(1.43887, 1.33075, 1.40643)
+
+[node name="Jackoolantern" instance=ExtResource("1_pk1jj")]
+
+[node name="Light" type="OmniLight3D" parent="Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.703433, 0)
+light_color = Color(1, 0.980392, 0.517647, 1)
+light_energy = 3.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+shadow_reverse_cull_face = true
+omni_range = 0.982436
+omni_attenuation = 0.5
+omni_shadow_mode = 0
+
+[node name="jackolantern_biggltf" parent="Mesh" index="1" instance=ExtResource("2_r3vf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.434566, 0)
+
+[node name="Collider" parent="Body" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.586475, 0)
+shape = SubResource("CapsuleShape3D_vabwk")
+
+[node name="Collider" parent="HitBox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.658674, 0)
+shape = SubResource("BoxShape3D_5eu88")
