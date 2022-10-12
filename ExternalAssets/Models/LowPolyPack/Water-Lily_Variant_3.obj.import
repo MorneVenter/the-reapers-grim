@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://coq2bilae7lhc"
+path="res://.godot/imported/Water-Lily_Variant_3.obj-20b57c8afb9a673f7384e4d6a0bb8f46.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Water-Lily_Variant_3.obj-20b57c8afb9a673f7384e4d6a0bb8f46.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Water-Lily_Variant_3.obj"
+dest_files=["res://.godot/imported/Water-Lily_Variant_3.obj-20b57c8afb9a673f7384e4d6a0bb8f46.mesh", "res://.godot/imported/Water-Lily_Variant_3.obj-20b57c8afb9a673f7384e4d6a0bb8f46.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

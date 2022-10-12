@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dtyyaefu5sug7"
+path="res://.godot/imported/Bush_Small_Variant_4.obj-d1e17e7012d1cf8aa05688832d441f61.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bush_Small_Variant_4.obj-d1e17e7012d1cf8aa05688832d441f61.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Bush_Small_Variant_4.obj"
+dest_files=["res://.godot/imported/Bush_Small_Variant_4.obj-d1e17e7012d1cf8aa05688832d441f61.mesh", "res://.godot/imported/Bush_Small_Variant_4.obj-d1e17e7012d1cf8aa05688832d441f61.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

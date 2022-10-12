@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://wmueog8p5c20"
+path="res://.godot/imported/Stones_Blocks_Small_Variant_5.obj-9d46ecdd47a30923c6f8ba2de5e57c6f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Stones_Blocks_Small_Variant_5.obj-9d46ecdd47a30923c6f8ba2de5e57c6f.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Stones_Blocks_Small_Variant_5.obj"
+dest_files=["res://.godot/imported/Stones_Blocks_Small_Variant_5.obj-9d46ecdd47a30923c6f8ba2de5e57c6f.mesh", "res://.godot/imported/Stones_Blocks_Small_Variant_5.obj-9d46ecdd47a30923c6f8ba2de5e57c6f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

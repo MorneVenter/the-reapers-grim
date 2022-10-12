@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cac160s0ftl05"
+path="res://.godot/imported/Birch_Stick.obj-562664e265306f7a4ec0f189f2029054.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Birch_Stick.obj-562664e265306f7a4ec0f189f2029054.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Birch_Stick.obj"
+dest_files=["res://.godot/imported/Birch_Stick.obj-562664e265306f7a4ec0f189f2029054.mesh", "res://.godot/imported/Birch_Stick.obj-562664e265306f7a4ec0f189f2029054.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

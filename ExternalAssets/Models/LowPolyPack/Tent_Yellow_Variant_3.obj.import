@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dcrktvgp272ti"
+path="res://.godot/imported/Tent_Yellow_Variant_3.obj-e6f0252f29bfccd9a42a03213e57b3da.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Tent_Yellow_Variant_3.obj-e6f0252f29bfccd9a42a03213e57b3da.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Tent_Yellow_Variant_3.obj"
+dest_files=["res://.godot/imported/Tent_Yellow_Variant_3.obj-e6f0252f29bfccd9a42a03213e57b3da.mesh", "res://.godot/imported/Tent_Yellow_Variant_3.obj-e6f0252f29bfccd9a42a03213e57b3da.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

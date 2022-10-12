@@ -52,6 +52,7 @@ var _is_hitting: bool = false
 @onready var _footstep_audio: AudioStreamPlayer3D = $FootstepSound
 @onready var _jump_audio: AudioStreamPlayer3D = $JumpSound
 @onready var _wing_audio: AudioStreamPlayer3D = $WingSound
+@onready var _soul_sound: AudioStreamPlayer = $SoulSound
 @onready var _glide_timer: Timer = $Timers/GlideTimer
 @onready var _coyote_timer: Timer = $Timers/CoyoteTimer
 
@@ -260,6 +261,7 @@ func _init_soul_fragment_level(level: int) -> void:
 
 func increase_soul_fragment_level() -> void:
 	if _soul_fragment_level < 4:
+		_soul_sound.playing = true
 		_init_soul_fragment_level(_soul_fragment_level + 1)
 
 func lock_input() -> void:

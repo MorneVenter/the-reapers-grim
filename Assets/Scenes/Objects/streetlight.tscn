@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci2oqt8gu7o4s"]
+
+[ext_resource type="PackedScene" uid="uid://dfrnf4y3a3ivb" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/lampPost.gltf.glb" id="1_dgrj5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mkb6u"]
+height = 3.00068
+
+[node name="Streetlight" type="Node3D"]
+
+[node name="StaticBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="StaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4486, 0)
+shape = SubResource("CapsuleShape3D_mkb6u")
+
+[node name="lampPostgltf" parent="." instance=ExtResource("1_dgrj5")]
+
+[node name="OmniLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.236005, 2.32655, 0)
+light_color = Color(1, 0.929412, 0.568627, 1)
+light_energy = 16.0
+light_specular = 13.0
+light_bake_mode = 1
+omni_range = 0.804695
+
+[node name="OmniLight2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.251658, 2.32655, 0)
+light_color = Color(1, 0.929412, 0.568627, 1)
+light_energy = 16.0
+light_specular = 13.0
+light_bake_mode = 1
+omni_range = 0.804695

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://hxusgtrtlfnb"
+path="res://.godot/imported/Oak_Alpine-Green_Variant_5.obj-c2610511d5ba78637f78a95d0c938981.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Oak_Alpine-Green_Variant_5.obj-c2610511d5ba78637f78a95d0c938981.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Oak_Alpine-Green_Variant_5.obj"
+dest_files=["res://.godot/imported/Oak_Alpine-Green_Variant_5.obj-c2610511d5ba78637f78a95d0c938981.mesh", "res://.godot/imported/Oak_Alpine-Green_Variant_5.obj-c2610511d5ba78637f78a95d0c938981.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

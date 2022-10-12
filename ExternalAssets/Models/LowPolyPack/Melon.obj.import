@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dwmdhb5udh1i6"
+path="res://.godot/imported/Melon.obj-7c681861c0bdf18a401a76b1d27a2367.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Melon.obj-7c681861c0bdf18a401a76b1d27a2367.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Melon.obj"
+dest_files=["res://.godot/imported/Melon.obj-7c681861c0bdf18a401a76b1d27a2367.mesh", "res://.godot/imported/Melon.obj-7c681861c0bdf18a401a76b1d27a2367.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

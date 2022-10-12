@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ct0dq2kbrqxha"
+path="res://.godot/imported/Oak_Dark-Green_Variant_7.obj-cc40cdb89b1d3a93e31f68fa631426d2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Oak_Dark-Green_Variant_7.obj-cc40cdb89b1d3a93e31f68fa631426d2.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Oak_Dark-Green_Variant_7.obj"
+dest_files=["res://.godot/imported/Oak_Dark-Green_Variant_7.obj-cc40cdb89b1d3a93e31f68fa631426d2.mesh", "res://.godot/imported/Oak_Dark-Green_Variant_7.obj-cc40cdb89b1d3a93e31f68fa631426d2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

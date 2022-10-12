@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dsdhrj5btxpbw"
+path="res://.godot/imported/Birch_Orange_Variant_1.obj-d4108c4d9a56894837f82286dc993230.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Birch_Orange_Variant_1.obj-d4108c4d9a56894837f82286dc993230.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Birch_Orange_Variant_1.obj"
+dest_files=["res://.godot/imported/Birch_Orange_Variant_1.obj-d4108c4d9a56894837f82286dc993230.mesh", "res://.godot/imported/Birch_Orange_Variant_1.obj-d4108c4d9a56894837f82286dc993230.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

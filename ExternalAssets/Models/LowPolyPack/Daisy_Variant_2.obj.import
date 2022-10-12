@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://baoxqupnv73wp"
+path="res://.godot/imported/Daisy_Variant_2.obj-46e64922e51301859391a14c64107bac.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Daisy_Variant_2.obj-46e64922e51301859391a14c64107bac.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Daisy_Variant_2.obj"
+dest_files=["res://.godot/imported/Daisy_Variant_2.obj-46e64922e51301859391a14c64107bac.mesh", "res://.godot/imported/Daisy_Variant_2.obj-46e64922e51301859391a14c64107bac.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

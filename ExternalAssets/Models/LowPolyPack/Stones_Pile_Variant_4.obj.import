@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dvj28g8wsvc0s"
+path="res://.godot/imported/Stones_Pile_Variant_4.obj-f2846c0f624a5eab4f05e3794b87e1ab.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Stones_Pile_Variant_4.obj-f2846c0f624a5eab4f05e3794b87e1ab.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Stones_Pile_Variant_4.obj"
+dest_files=["res://.godot/imported/Stones_Pile_Variant_4.obj-f2846c0f624a5eab4f05e3794b87e1ab.mesh", "res://.godot/imported/Stones_Pile_Variant_4.obj-f2846c0f624a5eab4f05e3794b87e1ab.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://484qrnm0w03p"
+path="res://.godot/imported/Flower_Fantasy_Variant_8.obj-ce55c09db50f59719fd2479e925cf533.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Flower_Fantasy_Variant_8.obj-ce55c09db50f59719fd2479e925cf533.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Flower_Fantasy_Variant_8.obj"
+dest_files=["res://.godot/imported/Flower_Fantasy_Variant_8.obj-ce55c09db50f59719fd2479e925cf533.mesh", "res://.godot/imported/Flower_Fantasy_Variant_8.obj-ce55c09db50f59719fd2479e925cf533.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

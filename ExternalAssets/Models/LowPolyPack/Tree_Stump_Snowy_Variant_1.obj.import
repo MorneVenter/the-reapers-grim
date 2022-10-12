@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b322bk5lmns3"
+path="res://.godot/imported/Tree_Stump_Snowy_Variant_1.obj-6122e0d850e5aa8c1a7c827562f7c294.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Tree_Stump_Snowy_Variant_1.obj-6122e0d850e5aa8c1a7c827562f7c294.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Tree_Stump_Snowy_Variant_1.obj"
+dest_files=["res://.godot/imported/Tree_Stump_Snowy_Variant_1.obj-6122e0d850e5aa8c1a7c827562f7c294.mesh", "res://.godot/imported/Tree_Stump_Snowy_Variant_1.obj-6122e0d850e5aa8c1a7c827562f7c294.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

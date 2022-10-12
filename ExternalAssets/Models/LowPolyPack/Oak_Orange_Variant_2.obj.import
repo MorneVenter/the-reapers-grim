@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://blpfctjf2lu1o"
+path="res://.godot/imported/Oak_Orange_Variant_2.obj-a926cbeb26926e0598aa50c5d83ef011.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Oak_Orange_Variant_2.obj-a926cbeb26926e0598aa50c5d83ef011.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Oak_Orange_Variant_2.obj"
+dest_files=["res://.godot/imported/Oak_Orange_Variant_2.obj-a926cbeb26926e0598aa50c5d83ef011.mesh", "res://.godot/imported/Oak_Orange_Variant_2.obj-a926cbeb26926e0598aa50c5d83ef011.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://brheubs2nlrcn"]
+
+[ext_resource type="PackedScene" uid="uid://dxgsbnr8pnjdb" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/fenceSingle.gltf.glb" id="1_7e68o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3abmj"]
+size = Vector3(2.86843, 1.46001, 1)
+
+[node name="Fence" type="Node3D"]
+
+[node name="fenceSinglegltf" parent="." instance=ExtResource("1_7e68o")]
+
+[node name="StaticBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="StaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71341, 0)
+shape = SubResource("BoxShape3D_3abmj")

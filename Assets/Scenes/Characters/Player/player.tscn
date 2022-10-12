@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ry8gnnt30x5k"]
+[gd_scene load_steps=16 format=3 uid="uid://ry8gnnt30x5k"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Characters/Player/player.gd" id="1_sv0bb"]
 [ext_resource type="PackedScene" uid="uid://blpfbw2bh3tb3" path="res://Assets/Scenes/Characters/Player/reaper.tscn" id="2_fjsfx"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cr2ebd5ed0tpk" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/3. Movement/Jump_17.wav" id="5_bgmqt"]
 [ext_resource type="AudioStream" uid="uid://cowphnv7i0io7" path="res://ExternalAssets/Media/Audio/WalkSound.wav" id="5_ubpxp"]
 [ext_resource type="AudioStream" uid="uid://cncx4g6wlsf8l" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/7. Blip, Blop and Pops/Pop_3.wav" id="7_nc7r6"]
+[ext_resource type="AudioStream" uid="uid://dd1q4xbj8i54g" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/6. Bullets & Powerups/Powerup_6.wav" id="9_mmtdy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vihmw"]
 size = Vector3(2.05984, 1, 1.36053)
@@ -159,12 +160,16 @@ _data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.998248, 0)
 floor_max_angle = 0.610865
 script = ExtResource("1_sv0bb")
+MOMENTUM_GAIN = 0.45
+FALL_GRAVITY_MULT = 3.0
+FLOAT_GRAVITY_MULT = 0.85
+GLIDE_GRAVITY_MULT = 0.01
 
 [node name="Reaper" parent="." instance=ExtResource("2_fjsfx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.992192, 0)
 
 [node name="Wings" parent="Reaper" instance=ExtResource("3_rlbpb")]
-transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, -0.452644, -0.156114)
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0.518196, -0.156114)
 visible = false
 
 [node name="Scythe" parent="Reaper" instance=ExtResource("4_sonqa")]
@@ -203,6 +208,11 @@ volume_db = -10.0
 stream = ExtResource("5_ubpxp")
 unit_db = -7.0
 unit_size = 20.0
+
+[node name="SoulSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mmtdy")
+volume_db = -7.0
+pitch_scale = 1.1
 
 [node name="ScytheAnimator" type="AnimationPlayer" parent="."]
 autoplay = "idle"

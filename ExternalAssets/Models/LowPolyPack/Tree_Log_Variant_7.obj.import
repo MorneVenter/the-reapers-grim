@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bwfvo2yyekxpf"
+path="res://.godot/imported/Tree_Log_Variant_7.obj-411428eb0b75fc43df579093d3c1bf5b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Tree_Log_Variant_7.obj-411428eb0b75fc43df579093d3c1bf5b.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Tree_Log_Variant_7.obj"
+dest_files=["res://.godot/imported/Tree_Log_Variant_7.obj-411428eb0b75fc43df579093d3c1bf5b.mesh", "res://.godot/imported/Tree_Log_Variant_7.obj-411428eb0b75fc43df579093d3c1bf5b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

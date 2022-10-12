@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://t6je2bvq5wpn"
+path="res://.godot/imported/Plant_Cattail_Variant_1.obj-6075a9d2c56f577c62198cda4f1a1396.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Plant_Cattail_Variant_1.obj-6075a9d2c56f577c62198cda4f1a1396.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Plant_Cattail_Variant_1.obj"
+dest_files=["res://.godot/imported/Plant_Cattail_Variant_1.obj-6075a9d2c56f577c62198cda4f1a1396.mesh", "res://.godot/imported/Plant_Cattail_Variant_1.obj-6075a9d2c56f577c62198cda4f1a1396.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://drsucbccymfyq"
+path="res://.godot/imported/Stone_Medium_Variant_1.obj-48224c71d1567188b7fb4727b724028d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Stone_Medium_Variant_1.obj-48224c71d1567188b7fb4727b724028d.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Stone_Medium_Variant_1.obj"
+dest_files=["res://.godot/imported/Stone_Medium_Variant_1.obj-48224c71d1567188b7fb4727b724028d.mesh", "res://.godot/imported/Stone_Medium_Variant_1.obj-48224c71d1567188b7fb4727b724028d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

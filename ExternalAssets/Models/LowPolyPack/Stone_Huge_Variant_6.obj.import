@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bov0gc7vbaaas"
+path="res://.godot/imported/Stone_Huge_Variant_6.obj-691159347b9ac175bbacea35b9add175.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Stone_Huge_Variant_6.obj-691159347b9ac175bbacea35b9add175.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Stone_Huge_Variant_6.obj"
+dest_files=["res://.godot/imported/Stone_Huge_Variant_6.obj-691159347b9ac175bbacea35b9add175.mesh", "res://.godot/imported/Stone_Huge_Variant_6.obj-691159347b9ac175bbacea35b9add175.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

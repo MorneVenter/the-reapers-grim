@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1v0h8xeuwgs"]
+
+[ext_resource type="PackedScene" uid="uid://djcw1dq4lu4jt" path="res://Assets/Scenes/Wackables/base_wackable.tscn" id="1_yxd50"]
+[ext_resource type="PackedScene" uid="uid://bsxswfkbtq8tu" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/gravestone.gltf.glb" id="2_khbur"]
+[ext_resource type="PackedScene" uid="uid://bbkxb6eff7b18" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/candleSmall.gltf.glb" id="3_ejbcp"]
+[ext_resource type="PackedScene" uid="uid://b33y3oiiyym1y" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/candleLarge.gltf.glb" id="4_sqaby"]
+[ext_resource type="PackedScene" uid="uid://bnr21ngm8ddc" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/candleBundle.gltf.glb" id="5_8ggbw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kupwo"]
+resource_local_to_scene = true
+radius = 0.637899
+height = 1.85334
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8kjxg"]
+resource_local_to_scene = true
+size = Vector3(1.93811, 1.75568, 1.40643)
+
+[node name="Tombstone" instance=ExtResource("1_yxd50")]
+
+[node name="gravestonegltf" parent="Mesh" index="0" instance=ExtResource("2_khbur")]
+transform = Transform3D(1, 0, 0, 0, 0.999914, 0.013142, 0, -0.013142, 0.999914, 0, 0, 0)
+
+[node name="Collider" parent="Body" index="0"]
+transform = Transform3D(0.999999, -0.0013439, 0, 0.0013439, 0.999999, 0, 0, 0, 1, 0, 0.893169, 0)
+shape = SubResource("CapsuleShape3D_kupwo")
+
+[node name="Collider" parent="HitBox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87798, 0)
+shape = SubResource("BoxShape3D_8kjxg")
+
+[node name="candleSmallgltf" parent="." index="4" instance=ExtResource("3_ejbcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85504, 0, -0.0141009)
+
+[node name="candleLargegltf" parent="." index="5" instance=ExtResource("4_sqaby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163601, -0.163732, 0.46547)
+
+[node name="candleBundlegltf" parent="." index="6" instance=ExtResource("5_8ggbw")]
+transform = Transform3D(0.414074, 0, 0.910243, 0, 1, 0, -0.910243, 0, 0.414074, -0.881002, 0, 0.0972395)
+
+[node name="CandleLight" type="OmniLight3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.184176, 0.724262, 0.533458)
+light_color = Color(0.945098, 0.87451, 0.380392, 1)
+light_energy = 0.992
+light_specular = 0.18
+light_bake_mode = 1
+omni_range = 0.912211

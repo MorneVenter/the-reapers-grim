@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dunyv7p34wy12"
+path="res://.godot/imported/Pine_Alpine Green_Variant_2.obj-8a4f9ba5914f496b9b5d5a6646dfb14d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pine_Alpine Green_Variant_2.obj-8a4f9ba5914f496b9b5d5a6646dfb14d.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Pine_Alpine Green_Variant_2.obj"
+dest_files=["res://.godot/imported/Pine_Alpine Green_Variant_2.obj-8a4f9ba5914f496b9b5d5a6646dfb14d.mesh", "res://.godot/imported/Pine_Alpine Green_Variant_2.obj-8a4f9ba5914f496b9b5d5a6646dfb14d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

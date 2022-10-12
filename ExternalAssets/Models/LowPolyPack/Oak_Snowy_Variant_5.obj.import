@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cgctcsal24v0q"
+path="res://.godot/imported/Oak_Snowy_Variant_5.obj-9df42f4b98843808d62662b769a4d64d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Oak_Snowy_Variant_5.obj-9df42f4b98843808d62662b769a4d64d.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Oak_Snowy_Variant_5.obj"
+dest_files=["res://.godot/imported/Oak_Snowy_Variant_5.obj-9df42f4b98843808d62662b769a4d64d.mesh", "res://.godot/imported/Oak_Snowy_Variant_5.obj-9df42f4b98843808d62662b769a4d64d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

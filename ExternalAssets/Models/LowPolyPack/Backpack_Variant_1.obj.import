@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bi3du7buxvlpq"
+path="res://.godot/imported/Backpack_Variant_1.obj-f603ecd43a2e727d8c7d278224713cb0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Backpack_Variant_1.obj-f603ecd43a2e727d8c7d278224713cb0.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Backpack_Variant_1.obj"
+dest_files=["res://.godot/imported/Backpack_Variant_1.obj-f603ecd43a2e727d8c7d278224713cb0.mesh", "res://.godot/imported/Backpack_Variant_1.obj-f603ecd43a2e727d8c7d278224713cb0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

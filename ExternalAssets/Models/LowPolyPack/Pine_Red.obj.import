@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bfw384m4t4nup"
+path="res://.godot/imported/Pine_Red.obj-d23ac3d72ce389d84e5716cf52e4c8d5.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pine_Red.obj-d23ac3d72ce389d84e5716cf52e4c8d5.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Pine_Red.obj"
+dest_files=["res://.godot/imported/Pine_Red.obj-d23ac3d72ce389d84e5716cf52e4c8d5.mesh", "res://.godot/imported/Pine_Red.obj-d23ac3d72ce389d84e5716cf52e4c8d5.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

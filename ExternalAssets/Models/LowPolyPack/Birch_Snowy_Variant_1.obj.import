@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ccrlx62bej1mm"
+path="res://.godot/imported/Birch_Snowy_Variant_1.obj-8dc091709b1764a8699082fb05eb1428.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Birch_Snowy_Variant_1.obj-8dc091709b1764a8699082fb05eb1428.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Birch_Snowy_Variant_1.obj"
+dest_files=["res://.godot/imported/Birch_Snowy_Variant_1.obj-8dc091709b1764a8699082fb05eb1428.mesh", "res://.godot/imported/Birch_Snowy_Variant_1.obj-8dc091709b1764a8699082fb05eb1428.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

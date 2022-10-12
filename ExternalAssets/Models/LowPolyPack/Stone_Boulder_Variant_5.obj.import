@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bne8jbapf8rn0"
+path="res://.godot/imported/Stone_Boulder_Variant_5.obj-7d8bd3f21d5644b0b48357e98b5a5473.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Stone_Boulder_Variant_5.obj-7d8bd3f21d5644b0b48357e98b5a5473.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Stone_Boulder_Variant_5.obj"
+dest_files=["res://.godot/imported/Stone_Boulder_Variant_5.obj-7d8bd3f21d5644b0b48357e98b5a5473.mesh", "res://.godot/imported/Stone_Boulder_Variant_5.obj-7d8bd3f21d5644b0b48357e98b5a5473.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

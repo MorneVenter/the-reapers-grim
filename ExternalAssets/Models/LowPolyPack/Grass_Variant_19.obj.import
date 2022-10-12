@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://rf2cqkq3b5x1"
+path="res://.godot/imported/Grass_Variant_19.obj-afc8b7f4d9c5b9e2a766d1edacc012c2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Grass_Variant_19.obj-afc8b7f4d9c5b9e2a766d1edacc012c2.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Grass_Variant_19.obj"
+dest_files=["res://.godot/imported/Grass_Variant_19.obj-afc8b7f4d9c5b9e2a766d1edacc012c2.mesh", "res://.godot/imported/Grass_Variant_19.obj-afc8b7f4d9c5b9e2a766d1edacc012c2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

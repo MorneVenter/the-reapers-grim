@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://clb6qi0puejqw"
+path="res://.godot/imported/Berry_Blue.obj-ac538fd5a23c044c5ab516f5d66d77bb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Berry_Blue.obj-ac538fd5a23c044c5ab516f5d66d77bb.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Berry_Blue.obj"
+dest_files=["res://.godot/imported/Berry_Blue.obj-ac538fd5a23c044c5ab516f5d66d77bb.mesh", "res://.godot/imported/Berry_Blue.obj-ac538fd5a23c044c5ab516f5d66d77bb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

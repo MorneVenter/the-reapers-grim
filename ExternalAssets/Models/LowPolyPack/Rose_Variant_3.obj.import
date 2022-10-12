@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dhmydy3pqnj68"
+path="res://.godot/imported/Rose_Variant_3.obj-de21399083c457d9bf849ca2f919e9de.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Rose_Variant_3.obj-de21399083c457d9bf849ca2f919e9de.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Rose_Variant_3.obj"
+dest_files=["res://.godot/imported/Rose_Variant_3.obj-de21399083c457d9bf849ca2f919e9de.mesh", "res://.godot/imported/Rose_Variant_3.obj-de21399083c457d9bf849ca2f919e9de.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

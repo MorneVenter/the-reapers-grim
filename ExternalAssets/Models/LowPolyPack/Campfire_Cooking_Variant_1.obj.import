@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://t82tselhe3en"
+path="res://.godot/imported/Campfire_Cooking_Variant_1.obj-9a2ef37b3f7ceffbb0d1ed6cd693ebf6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Campfire_Cooking_Variant_1.obj-9a2ef37b3f7ceffbb0d1ed6cd693ebf6.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Campfire_Cooking_Variant_1.obj"
+dest_files=["res://.godot/imported/Campfire_Cooking_Variant_1.obj-9a2ef37b3f7ceffbb0d1ed6cd693ebf6.mesh", "res://.godot/imported/Campfire_Cooking_Variant_1.obj-9a2ef37b3f7ceffbb0d1ed6cd693ebf6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

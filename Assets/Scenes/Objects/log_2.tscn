@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn26ou6b7sh62"]
+
+[ext_resource type="PackedScene" uid="uid://c37ay6ba2oqal" path="res://ExternalAssets/Models/LowPolyPack/LowPolyPack/mossy_log_2.blend" id="1_gmya0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hqj0l"]
+size = Vector3(1.23077, 0.920354, 4.08386)
+
+[node name="Log2" type="Node3D"]
+
+[node name="mossy_log_2" parent="." instance=ExtResource("1_gmya0")]
+
+[node name="StaticBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="StaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4629, 0.223281)
+shape = SubResource("BoxShape3D_hqj0l")

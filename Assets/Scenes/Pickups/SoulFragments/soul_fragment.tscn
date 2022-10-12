@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbhqfwlkaq3sm"]
+[gd_scene load_steps=15 format=3 uid="uid://bbhqfwlkaq3sm"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Pickups/SoulFragments/soul_fragment.gd" id="1_38aky"]
 [ext_resource type="Texture2D" uid="uid://b6m43efideog2" path="res://Assets/Sprites/UI/Prompts/talk.png" id="1_pmfi3"]
 [ext_resource type="Shader" path="res://ExternalAssets/Shaders/Spatial/shield.gdshader" id="2_1tpxr"]
+[ext_resource type="PackedScene" uid="uid://vlx5mmsgvkfq" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/shrine.gltf.glb" id="4_u7f24"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8q0ys"]
 frequency = 0.005
@@ -56,8 +57,9 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_rwf63"]
 radius = 2.25381
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_fng24"]
-radius = 1.00202
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqqit"]
+radius = 0.970358
+height = 4.27168
 
 [node name="SoulFragment" type="Node3D"]
 script = ExtResource("1_38aky")
@@ -65,16 +67,17 @@ _accept_dialog_lines = ["You spend %coin coins to open the fragment.", "You can 
 _error_dialog_lines = ["You require %coin coins to open this."]
 
 [node name="SphereOuter" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 0, 0.132736, 0)
 material_override = SubResource("ShaderMaterial_syprs")
 mesh = SubResource("SphereMesh_bqccm")
 
 [node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.132736, 0)
 material_override = SubResource("StandardMaterial3D_hixjb")
 mesh = SubResource("SphereMesh_f7fn1")
 
 [node name="Prompt" type="Sprite3D" parent="."]
-transform = Transform3D(0.114907, 0, 0.0964179, 0, 0.15, 0, -0.0964179, 0, 0.114907, 0, 1.7823, 0)
+transform = Transform3D(0.114907, 0, 0.0964179, 0, 0.15, 0, -0.0964179, 0, 0.114907, 0, 2.67145, 0)
 billboard = 1
 texture = ExtResource("1_pmfi3")
 
@@ -85,6 +88,7 @@ libraries = {
 }
 
 [node name="TriggerArea" type="Area3D" parent="."]
+visible = false
 monitorable = false
 
 [node name="Collider" type="CollisionShape3D" parent="TriggerArea"]
@@ -93,7 +97,10 @@ shape = SubResource("SphereShape3D_rwf63")
 [node name="Body" type="StaticBody3D" parent="."]
 
 [node name="Collider" type="CollisionShape3D" parent="Body"]
-shape = SubResource("SphereShape3D_fng24")
+shape = SubResource("CapsuleShape3D_kqqit")
+
+[node name="Shrine" parent="." instance=ExtResource("4_u7f24")]
+transform = Transform3D(1.70657, 0, 0, 0, 1.70657, 0, 0, 0, 1.70657, 0, -1.8925, 0)
 
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="." method="_on_trigger_area_body_exited"]

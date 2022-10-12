@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://swy62sbq0hen"
+path="res://.godot/imported/Teepee_Variant_1.obj-84ef151ff67e42c09729672e624c9a49.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Teepee_Variant_1.obj-84ef151ff67e42c09729672e624c9a49.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Teepee_Variant_1.obj"
+dest_files=["res://.godot/imported/Teepee_Variant_1.obj-84ef151ff67e42c09729672e624c9a49.mesh", "res://.godot/imported/Teepee_Variant_1.obj-84ef151ff67e42c09729672e624c9a49.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

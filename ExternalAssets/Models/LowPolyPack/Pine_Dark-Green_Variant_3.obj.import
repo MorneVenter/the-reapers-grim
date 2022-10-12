@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cpks2uyji1rvj"
+path="res://.godot/imported/Pine_Dark-Green_Variant_3.obj-024f49bcb7d0d57a2bad44803be884de.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pine_Dark-Green_Variant_3.obj-024f49bcb7d0d57a2bad44803be884de.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Pine_Dark-Green_Variant_3.obj"
+dest_files=["res://.godot/imported/Pine_Dark-Green_Variant_3.obj-024f49bcb7d0d57a2bad44803be884de.mesh", "res://.godot/imported/Pine_Dark-Green_Variant_3.obj-024f49bcb7d0d57a2bad44803be884de.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

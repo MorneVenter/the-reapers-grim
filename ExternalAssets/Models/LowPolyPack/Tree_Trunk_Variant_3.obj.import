@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2qd4y27h1p2b"
+path="res://.godot/imported/Tree_Trunk_Variant_3.obj-dd0a8006a0a480b070138a56d1128f6d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Tree_Trunk_Variant_3.obj-dd0a8006a0a480b070138a56d1128f6d.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Tree_Trunk_Variant_3.obj"
+dest_files=["res://.godot/imported/Tree_Trunk_Variant_3.obj-dd0a8006a0a480b070138a56d1128f6d.mesh", "res://.godot/imported/Tree_Trunk_Variant_3.obj-dd0a8006a0a480b070138a56d1128f6d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

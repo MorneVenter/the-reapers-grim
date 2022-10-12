@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cp8jkge7enf1b"
+path="res://.godot/imported/Tree_Stump_Mossy_Variant_1.obj-f07242ba72e57a3f53a575cd3716eea5.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Tree_Stump_Mossy_Variant_1.obj-f07242ba72e57a3f53a575cd3716eea5.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Tree_Stump_Mossy_Variant_1.obj"
+dest_files=["res://.godot/imported/Tree_Stump_Mossy_Variant_1.obj-f07242ba72e57a3f53a575cd3716eea5.mesh", "res://.godot/imported/Tree_Stump_Mossy_Variant_1.obj-f07242ba72e57a3f53a575cd3716eea5.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

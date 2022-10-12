@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dg70e5qrnrdbm"
+path="res://.godot/imported/Pine_Snowy_Variant_5.obj-71c758b88d56c257e629072b9192c26d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pine_Snowy_Variant_5.obj-71c758b88d56c257e629072b9192c26d.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Pine_Snowy_Variant_5.obj"
+dest_files=["res://.godot/imported/Pine_Snowy_Variant_5.obj-71c758b88d56c257e629072b9192c26d.mesh", "res://.godot/imported/Pine_Snowy_Variant_5.obj-71c758b88d56c257e629072b9192c26d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

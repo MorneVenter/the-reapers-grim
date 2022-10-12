@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d2ohghfy8og8d"
+path="res://.godot/imported/Campfire_Color2_Variant_1.obj-04a63db916a46edded6b429e90c15573.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Campfire_Color2_Variant_1.obj-04a63db916a46edded6b429e90c15573.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Campfire_Color2_Variant_1.obj"
+dest_files=["res://.godot/imported/Campfire_Color2_Variant_1.obj-04a63db916a46edded6b429e90c15573.mesh", "res://.godot/imported/Campfire_Color2_Variant_1.obj-04a63db916a46edded6b429e90c15573.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

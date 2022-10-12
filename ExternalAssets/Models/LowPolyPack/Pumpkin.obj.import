@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c0aasstkno6f5"
+path="res://.godot/imported/Pumpkin.obj-4a629aa58e0cc3f155bb35e4f2a7448c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pumpkin.obj-4a629aa58e0cc3f155bb35e4f2a7448c.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Pumpkin.obj"
+dest_files=["res://.godot/imported/Pumpkin.obj-4a629aa58e0cc3f155bb35e4f2a7448c.mesh", "res://.godot/imported/Pumpkin.obj-4a629aa58e0cc3f155bb35e4f2a7448c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

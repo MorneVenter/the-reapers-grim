@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://thcdge1c58xk"]
+
+[ext_resource type="PackedScene" uid="uid://c26srlrcfixqk" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/treeA_graveyard.gltf.glb" id="1_ujvqr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bakpl"]
+radius = 0.558203
+height = 3.05514
+
+[node name="Tree" type="Node3D"]
+
+[node name="treeA_graveyardgltf" parent="." instance=ExtResource("1_ujvqr")]
+
+[node name="StaticBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="StaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52485, 0)
+shape = SubResource("CapsuleShape3D_bakpl")

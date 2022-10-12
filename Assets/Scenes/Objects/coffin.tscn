@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxsn0nvhbduut"]
+
+[ext_resource type="PackedScene" uid="uid://ck363jsvpbm1u" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/coffinB_bottom.gltf.glb" id="1_o4upc"]
+[ext_resource type="PackedScene" uid="uid://belneklcqtsiy" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/coffinB_top.gltf.glb" id="2_qkocd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ks1i"]
+size = Vector3(1.50245, 1, 2.29041)
+
+[node name="Coffin" type="Node3D"]
+
+[node name="StaticBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="StaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503044, 0.100164)
+shape = SubResource("BoxShape3D_3ks1i")
+
+[node name="coffinB_bottomgltf" parent="." instance=ExtResource("1_o4upc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.295286, 0)
+
+[node name="coffinB_topgltf" parent="." instance=ExtResource("2_qkocd")]
+transform = Transform3D(0.98436, -0.100521, -0.144677, 0.097134, 0.99481, -0.0303022, 0.146972, 0.0157752, 0.989015, -0.661133, 0.4854, 0)

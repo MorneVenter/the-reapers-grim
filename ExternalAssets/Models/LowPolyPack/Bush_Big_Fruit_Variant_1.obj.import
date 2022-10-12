@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmmhwdl516i6t"
+path="res://.godot/imported/Bush_Big_Fruit_Variant_1.obj-94f91187b6a74a1eed15ee052e084ece.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bush_Big_Fruit_Variant_1.obj-94f91187b6a74a1eed15ee052e084ece.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Bush_Big_Fruit_Variant_1.obj"
+dest_files=["res://.godot/imported/Bush_Big_Fruit_Variant_1.obj-94f91187b6a74a1eed15ee052e084ece.mesh", "res://.godot/imported/Bush_Big_Fruit_Variant_1.obj-94f91187b6a74a1eed15ee052e084ece.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

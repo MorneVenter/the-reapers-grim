@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://diy6mmq2sx20m"
+path="res://.godot/imported/Stones_Monolith_Variant_2.obj-885e5eb8b25ce566508d2c8c974e3d11.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Stones_Monolith_Variant_2.obj-885e5eb8b25ce566508d2c8c974e3d11.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Stones_Monolith_Variant_2.obj"
+dest_files=["res://.godot/imported/Stones_Monolith_Variant_2.obj-885e5eb8b25ce566508d2c8c974e3d11.mesh", "res://.godot/imported/Stones_Monolith_Variant_2.obj-885e5eb8b25ce566508d2c8c974e3d11.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

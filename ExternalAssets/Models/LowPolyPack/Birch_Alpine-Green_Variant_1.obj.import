@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c6sds3mrkrxvt"
+path="res://.godot/imported/Birch_Alpine-Green_Variant_1.obj-6d5c7051b2ea59cef84c94b78293901a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Birch_Alpine-Green_Variant_1.obj-6d5c7051b2ea59cef84c94b78293901a.mesh"]
+
+source_file="res://ExternalAssets/Models/LowPolyPack/Birch_Alpine-Green_Variant_1.obj"
+dest_files=["res://.godot/imported/Birch_Alpine-Green_Variant_1.obj-6d5c7051b2ea59cef84c94b78293901a.mesh", "res://.godot/imported/Birch_Alpine-Green_Variant_1.obj-6d5c7051b2ea59cef84c94b78293901a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
