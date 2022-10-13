@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bphtud6jnbq3q"]
+[gd_scene load_steps=25 format=3 uid="uid://bphtud6jnbq3q"]
 
 [ext_resource type="PackedScene" uid="uid://cdh1u0k3q06hp" path="res://Assets/Modules/TopDownFollowCamera/top_down_follow_camera.tscn" id="2_wl120"]
 [ext_resource type="Environment" uid="uid://6gl7dhw5onhh" path="res://Assets/Resources/Environments/world_environment.tres" id="3_2cqpq"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cn26ou6b7sh62" path="res://Assets/Scenes/Objects/log_2.tscn" id="16_iydxy"]
 [ext_resource type="PackedScene" uid="uid://bpqorw00lxnwd" path="res://Assets/Scenes/Objects/rock_large.tscn" id="18_hr7gm"]
 [ext_resource type="PackedScene" uid="uid://cjs3ibwpncajt" path="res://Assets/Scenes/Objects/rock_meduim.tscn" id="19_s8wm4"]
+[ext_resource type="PackedScene" uid="uid://url8xnn8tcch" path="res://Assets/Scenes/Music/ambient_music.tscn" id="21_rk8tt"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_tsr71"]
 dof_blur_far_enabled = true
@@ -2163,3 +2164,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.10578, 0)
 [node name="PlayerReset" parent="." instance=ExtResource("10_yg0uw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -66.5814, 0)
 respawn_point = NodePath("../RespawnPoint")
+
+[node name="Music" parent="." instance=ExtResource("21_rk8tt")]

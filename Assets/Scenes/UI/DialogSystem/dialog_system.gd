@@ -13,7 +13,8 @@ var _current_dialog_frames: int = -1
 var _dialog_lines: Array[String] = []
 var _callback: Callable
 var _text_tween: Tween
-var _wpm: float = 190.0
+var _wpm: float = 195.0
+var _pitch: float = 0.0
 
 func _ready() -> void:
 	EventSystem.start_dialog.connect(_show_dialog)
@@ -38,7 +39,7 @@ func _stop_dialog() -> void:
 			_callback.call()
 	)
 
-func _show_dialog(dialog: Array[String], callback: Callable) -> void:
+func _show_dialog(dialog: Array[String], callback: Callable, pitch: float = 1.0) -> void:
 	if not _is_active:
 		EventSystem.zoom_camera.emit()
 		_is_active = true
@@ -46,6 +47,7 @@ func _show_dialog(dialog: Array[String], callback: Callable) -> void:
 		_dialog_window.visible = true
 		_dialog_lines = dialog
 		_current_dialog_frames = -1
+		_pitch = pitch
 		_show_next_frame()
 		var tween: Tween = create_tween()
 		_dialog_window.scale = Vector2.ZERO
@@ -64,7 +66,7 @@ func _show_next_frame() -> void:
 		_text_tween = create_tween()
 		_dialog_text.visible_ratio = 0.0
 		var text_to_display: String = _dialog_lines[_current_dialog_frames]
-		_voice_box.play_string(text_to_display)
+		_voice_box.play_string(text_to_display, _pitch)
 		var total_words: int = text_to_display.count(" ") + 1
 		var reading_time: float = total_words / _wpm * 60.0
 		_text_tween.set_trans(Tween.TRANS_LINEAR)

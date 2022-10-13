@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://url8xnn8tcch"]
+
+[ext_resource type="AudioStream" uid="uid://jsgthmobi14a" path="res://ExternalAssets/Media/Audio/butterfly - looped ambience sounds pack/Spring Break.wav" id="1_cfkuj"]
+[ext_resource type="Script" path="res://Assets/Scenes/Music/ambient_music.gd" id="1_wkrtu"]
+[ext_resource type="AudioStream" uid="uid://dl53memadif5o" path="res://ExternalAssets/Media/Audio/Autumn Lullaby.wav" id="2_71276"]
+[ext_resource type="AudioStream" uid="uid://8rk2pr1p2bvb" path="res://ExternalAssets/Media/Audio/Viktor Kraus - Blueberries.mp3" id="3_ky0bh"]
+
+[node name="Music" type="Node3D"]
+script = ExtResource("1_wkrtu")
+
+[node name="Ambiance" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_cfkuj")
+unit_db = -10.0
+unit_size = 50.0
+autoplay = true
+
+[node name="MusicOne" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8623, 0, 0)
+stream = ExtResource("2_71276")
+attenuation_model = 3
+unit_db = -17.0
+unit_size = 70.0
+max_db = 0.0
+autoplay = true
+max_distance = 65.0
+panning_strength = 0.0
+
+[node name="MusicTwo" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8623, 0, 0)
+stream = ExtResource("3_ky0bh")
+attenuation_model = 3
+unit_db = -17.0
+unit_size = 70.0
+max_db = 0.0
+autoplay = true
+max_distance = 65.0
+panning_strength = 0.0
+
+[connection signal="finished" from="MusicOne" to="." method="_on_music_one_finished"]
+[connection signal="finished" from="MusicTwo" to="." method="_on_music_two_finished"]

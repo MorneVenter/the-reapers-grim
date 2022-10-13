@@ -4,7 +4,6 @@
 
 [node name="Voicebox" type="AudioStreamPlayer"]
 volume_db = -14.0
-pitch_scale = 3.5
 bus = &"TextSound"
 script = ExtResource("1_vlwpt")
 

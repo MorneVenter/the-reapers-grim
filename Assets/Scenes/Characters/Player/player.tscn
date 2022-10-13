@@ -161,6 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.998248, 0)
 floor_max_angle = 0.610865
 script = ExtResource("1_sv0bb")
 MOMENTUM_GAIN = 0.45
+MAX_SPEED = 5.8
 FALL_GRAVITY_MULT = 3.0
 FLOAT_GRAVITY_MULT = 0.85
 GLIDE_GRAVITY_MULT = 0.01
@@ -190,29 +191,29 @@ shape = SubResource("CapsuleShape3D_0cd25")
 
 [node name="WingSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_70lwj")
-unit_db = -23.0
+unit_db = -20.0
 unit_size = 20.0
-pitch_scale = 1.53
+pitch_scale = 1.2
 
 [node name="JumpSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_bgmqt")
-unit_db = -20.0
+unit_db = -18.0
 unit_size = 20.0
-pitch_scale = 0.68
+pitch_scale = 0.8
 
 [node name="ScytheSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_nc7r6")
-volume_db = -10.0
+volume_db = -12.0
+pitch_scale = 0.8
 
 [node name="FootstepSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_ubpxp")
-unit_db = -7.0
-unit_size = 20.0
+bus = &"Footsteps"
 
 [node name="SoulSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_mmtdy")
-volume_db = -7.0
-pitch_scale = 1.1
+volume_db = -17.0
+pitch_scale = 0.9
 
 [node name="ScytheAnimator" type="AnimationPlayer" parent="."]
 autoplay = "idle"

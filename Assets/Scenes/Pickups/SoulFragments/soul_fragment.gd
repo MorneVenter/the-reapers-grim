@@ -22,9 +22,9 @@ func _process(_delta: float) -> void:
 		_is_dialog_active = true
 		Player.lock_input()
 		if _can_afford.call():
-			EventSystem.start_dialog.emit(_render_text_with_coins(_accept_dialog_lines), _end_dialog)
+			EventSystem.start_dialog.emit(_render_text_with_coins(_accept_dialog_lines), _end_dialog, 0.1)
 		else:
-			EventSystem.start_dialog.emit(_render_text_with_coins(_error_dialog_lines), _end_dialog)
+			EventSystem.start_dialog.emit(_render_text_with_coins(_error_dialog_lines), _end_dialog, 0.1)
 
 func _end_dialog() -> void:
 	_is_dialog_active = false

@@ -1,7 +1,11 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://ceepmjhtiq326"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://ceepmjhtiq326"]
 
 [sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_bh3sw"]
 resource_name = "PitchShift"
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_ahr5q"]
+resource_name = "HighPassFilter"
+cutoff_hz = 90.0
 
 [resource]
 bus/1/name = &"TextSound"
@@ -12,3 +16,11 @@ bus/1/volume_db = 0.0
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectPitchShift_bh3sw")
 bus/1/effect/0/enabled = true
+bus/2/name = &"Footsteps"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -3.21863
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectHighPassFilter_ahr5q")
+bus/2/effect/0/enabled = true

@@ -6,7 +6,8 @@ signal finished_phrase()
 const PITCH_MULTIPLIER_RANGE := 0.3
 const INFLECTION_SHIFT := 0.4
 
-@export_range(0.0, 1.5) var pitch: float = 1.0
+var _pitch: float = 1.0
+var _base_pitch: float = 3.5
 
 const sounds = {
 	'a': preload('res://ExternalAssets/Media/VoiceBox/Sounds/a.wav'),
@@ -46,8 +47,10 @@ var _pitch_effect: AudioEffectPitchShift
 
 func _ready() -> void:
 	_pitch_effect = AudioServer.get_bus_effect(1, 0)
+	_pitch_effect.pitch_scale = _pitch
 
-func play_string(in_string: String):
+func play_string(in_string: String, pitch: float):
+	_pitch_effect.pitch_scale = pitch
 	_parse_input_string(in_string)
 	_play_next_sound()
 
@@ -66,7 +69,7 @@ func _play_next_sound():
 		return
 	var sound: AudioStream = sounds[next_symbol.sound]
 	# Add some randomness to pitch plus optional inflection for end word in questions
-	_pitch_effect.pitch_scale = pitch + (PITCH_MULTIPLIER_RANGE * randf()) + (INFLECTION_SHIFT if next_symbol.inflective else 0.0)
+	pitch_scale = _base_pitch + (PITCH_MULTIPLIER_RANGE * randf()) + (INFLECTION_SHIFT if next_symbol.inflective else 0.0)
 	stream = sound
 	play()
 

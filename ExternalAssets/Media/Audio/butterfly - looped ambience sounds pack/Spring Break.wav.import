@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jsgthmobi14a"
+path="res://.godot/imported/Spring Break.wav-3fab79c922178c9fb991960ce861ebb6.sample"
+
+[deps]
+
+source_file="res://ExternalAssets/Media/Audio/butterfly - looped ambience sounds pack/Spring Break.wav"
+dest_files=["res://.godot/imported/Spring Break.wav-3fab79c922178c9fb991960ce861ebb6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
