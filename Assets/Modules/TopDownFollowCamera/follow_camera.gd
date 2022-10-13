@@ -10,6 +10,7 @@ var peek_angle: float = 0.0
 var target: Node3D
 var position_offset: Vector3 = Vector3.ZERO
 var origin_rotation: Vector3
+var zoom = false
 
 func _init() -> void:
 	Camera.register(self)
@@ -19,6 +20,8 @@ func _ready() -> void:
 	_check_if_target_node_exists()
 	_set_camera_offset()
 	position = _get_targeted_position()
+	EventSystem.zoom_camera.connect(_zoom)
+	EventSystem.unzoom_camera.connect(_unzoom)
 
 func _physics_process(delta):
 	_handlePeek()
@@ -31,7 +34,8 @@ func _set_camera_offset() -> void:
 func _get_targeted_position() -> Vector3:
 	_check_if_target_node_exists()
 	var global_target_position: Vector3 = target.global_position
-	return global_target_position + position_offset
+	var offset: Vector3 = (position_offset / 2.0) if zoom else position_offset
+	return global_target_position + offset
 
 func _check_if_target_node_exists() -> void:
 	if target_node == null or target == null:
@@ -54,3 +58,9 @@ func get_player_peek_direction() -> Vector2:
 		var scaled_mouse_vector: Vector2 = Vector2(scale_vector_coord.call(mouse_vector.x), scale_vector_coord.call(mouse_vector.y))
 		player_key_input = scaled_mouse_vector * -1.0
 	return player_key_input
+
+func _zoom() -> void:
+	zoom = true
+
+func _unzoom() -> void:
+	zoom = false

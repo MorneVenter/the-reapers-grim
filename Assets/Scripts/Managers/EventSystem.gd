@@ -10,3 +10,6 @@ signal hide_prompt()
 signal start_dialog(dialog: Array[String], callback: Callable)
 
 signal coins_changed(total: int)
+
+signal zoom_camera()
+signal unzoom_camera()

@@ -266,6 +266,7 @@ func increase_soul_fragment_level() -> void:
 
 func lock_input() -> void:
 	_is_input_locked = true
+	velocity = Vector3.ZERO
 
 func unlock_input() -> void:
 	_is_input_locked = false

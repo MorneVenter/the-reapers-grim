@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbj140la1jvvc"]
+
+[ext_resource type="Script" path="res://ExternalAssets/Media/VoiceBox/ACVoicebox.gd" id="1_vlwpt"]
+
+[node name="Voicebox" type="AudioStreamPlayer"]
+volume_db = -14.0
+pitch_scale = 3.5
+bus = &"TextSound"
+script = ExtResource("1_vlwpt")
+
+[connection signal="finished" from="." to="." method="_on_ac_voicebox_finished"]

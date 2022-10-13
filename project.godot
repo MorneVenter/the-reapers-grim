@@ -13,9 +13,15 @@ _global_script_classes=[{
 "class": &"PlayerObject",
 "language": &"GDScript",
 "path": "res://Assets/Scenes/Characters/Player/player.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": &"VoiceBox",
+"language": &"GDScript",
+"path": "res://ExternalAssets/Media/VoiceBox/ACVoicebox.gd"
 }]
 _global_script_class_icons={
-"PlayerObject": ""
+"PlayerObject": "",
+"VoiceBox": ""
 }
 
 [application]
