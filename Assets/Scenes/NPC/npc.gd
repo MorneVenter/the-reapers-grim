@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var _name: String = "Name"
 @export var _dialog_lines: Array[String] = []
 
 @onready var _prompt: Sprite3D = $Prompt
@@ -16,7 +17,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed('player_interact') and _is_player_in_range and not _is_dialog_active:
 		_is_dialog_active = true
 		Player.lock_input()
-		EventSystem.start_dialog.emit(_dialog_lines, _end_dialog)
+		EventSystem.start_dialog.emit(_name, _dialog_lines, _end_dialog)
 
 func _end_dialog() -> void:
 	_is_dialog_active = false

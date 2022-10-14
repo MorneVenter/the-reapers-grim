@@ -2,6 +2,7 @@ extends Control
 
 @onready var _dialog_window: Control = $Window
 @onready var _dialog_text: RichTextLabel = $Window/Text
+@onready var _name_text: RichTextLabel = $Window/NameText
 @onready var _next_audio: AudioStreamPlayer = $NextSound
 @onready var _voice_box: VoiceBox = $Voicebox
 
@@ -15,6 +16,17 @@ var _callback: Callable
 var _text_tween: Tween
 var _wpm: float = 195.0
 var _pitch: float = 0.0
+var _name: String = "Name"
+
+var _player_pitch: float = 1.2
+var _player_name: String = "Reaper-chan"
+var _player_tag: String = "[P]"
+
+var _highlight_tag_open: String = "**"
+var _highlight_tag_close: String = "*/*"
+
+var _highlight_open: String = "[color=#84fa58]"
+var _highlight_close: String = "[/color]"
 
 func _ready() -> void:
 	EventSystem.start_dialog.connect(_show_dialog)
@@ -39,7 +51,7 @@ func _stop_dialog() -> void:
 			_callback.call()
 	)
 
-func _show_dialog(dialog: Array[String], callback: Callable, pitch: float = 1.0) -> void:
+func _show_dialog(actor_name: String, dialog: Array[String], callback: Callable, pitch: float = 1.0) -> void:
 	if not _is_active:
 		EventSystem.zoom_camera.emit()
 		_is_active = true
@@ -48,6 +60,7 @@ func _show_dialog(dialog: Array[String], callback: Callable, pitch: float = 1.0)
 		_dialog_lines = dialog
 		_current_dialog_frames = -1
 		_pitch = pitch
+		_name = actor_name
 		_show_next_frame()
 		var tween: Tween = create_tween()
 		_dialog_window.scale = Vector2.ZERO
@@ -66,7 +79,14 @@ func _show_next_frame() -> void:
 		_text_tween = create_tween()
 		_dialog_text.visible_ratio = 0.0
 		var text_to_display: String = _dialog_lines[_current_dialog_frames]
-		_voice_box.play_string(text_to_display, _pitch)
+		var is_player_line: bool = text_to_display.contains(_player_tag)
+		var voice_pitch: float = _player_pitch if is_player_line else _pitch
+		_name_text.text = "[center]%s[/center]" % (_player_name if is_player_line else _name)
+		if is_player_line:
+			text_to_display = text_to_display.replace(_player_tag, "")
+		text_to_display = text_to_display.replace(_highlight_tag_open, _highlight_open)
+		text_to_display = text_to_display.replace(_highlight_tag_close, _highlight_close)
+		_voice_box.play_string(text_to_display, voice_pitch)
 		var total_words: int = text_to_display.count(" ") + 1
 		var reading_time: float = total_words / _wpm * 60.0
 		_text_tween.set_trans(Tween.TRANS_LINEAR)

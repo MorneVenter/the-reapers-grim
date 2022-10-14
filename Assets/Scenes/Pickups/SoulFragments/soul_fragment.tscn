@@ -63,7 +63,7 @@ height = 4.27168
 
 [node name="SoulFragment" type="Node3D"]
 script = ExtResource("1_38aky")
-_accept_dialog_lines = ["You spend %coin coins to open the fragment.", "You can now glide further."]
+_accept_dialog_lines = ["You spend %coin coins to open the fragment.", "You can now glide further.", "[P]I am a big **poop*/*."]
 _error_dialog_lines = ["You require %coin coins to open this."]
 
 [node name="SphereOuter" type="MeshInstance3D" parent="."]
