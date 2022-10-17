@@ -191,13 +191,11 @@ shape = SubResource("CapsuleShape3D_0cd25")
 
 [node name="WingSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_70lwj")
-unit_db = -20.0
 unit_size = 20.0
 pitch_scale = 1.2
 
 [node name="JumpSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_bgmqt")
-unit_db = -18.0
 unit_size = 20.0
 pitch_scale = 0.8
 
