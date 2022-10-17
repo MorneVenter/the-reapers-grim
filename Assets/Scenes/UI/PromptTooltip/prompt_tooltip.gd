@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if is_showing:
-		prompt.position = Camera.get_position(Player.get_player().global_position) + offset
+		prompt.position = Camera.get_position(Player.get_player_pos()) + offset
 
 func _show_prompt(new_prompt: String) -> void:
 	prompt.visible = true

@@ -5,6 +5,7 @@ extends Control
 @onready var _name_text: RichTextLabel = $Window/NameText
 @onready var _next_audio: AudioStreamPlayer = $NextSound
 @onready var _voice_box: VoiceBox = $Voicebox
+@onready var _prompt: RichTextLabel = $Window/Prompt/Container/Prompt
 
 const TEXT_TEMPLATE: String = '[center]%s[/center]'
 
@@ -18,7 +19,7 @@ var _wpm: float = 195.0
 var _pitch: float = 0.0
 var _name: String = "Name"
 
-var _player_pitch: float = 1.2
+var _player_pitch: float = 1.1
 var _player_name: String = "Reaper-chan"
 var _player_tag: String = "[P]"
 
@@ -66,6 +67,7 @@ func _show_dialog(actor_name: String, dialog: Array[String], callback: Callable,
 		_dialog_window.scale = Vector2.ZERO
 		tween.tween_property(_dialog_window, "scale", Vector2.ONE, 0.12)
 		tween.tween_callback(func(): _is_accepting_input = true)
+		_prompt.text = TEXT_TEMPLATE % InputManager.INTERACT
 
 func _show_next_frame() -> void:
 	if _text_tween != null:
@@ -83,7 +85,7 @@ func _show_next_frame() -> void:
 		var voice_pitch: float = _player_pitch if is_player_line else _pitch
 		_name_text.text = "[center]%s[/center]" % (_player_name if is_player_line else _name)
 		if is_player_line:
-			text_to_display = text_to_display.replace(_player_tag, "")
+			text_to_display = text_to_display.replace(_player_tag, "").strip_edges()
 		text_to_display = text_to_display.replace(_highlight_tag_open, _highlight_open)
 		text_to_display = text_to_display.replace(_highlight_tag_close, _highlight_close)
 		_voice_box.play_string(text_to_display, voice_pitch)

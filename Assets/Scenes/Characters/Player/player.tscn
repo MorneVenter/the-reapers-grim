@@ -189,14 +189,14 @@ shape = SubResource("BoxShape3D_vihmw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21751, 0)
 shape = SubResource("CapsuleShape3D_0cd25")
 
-[node name="WingSound" type="AudioStreamPlayer3D" parent="."]
+[node name="WingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_70lwj")
-unit_size = 20.0
+volume_db = -20.0
 pitch_scale = 1.2
 
-[node name="JumpSound" type="AudioStreamPlayer3D" parent="."]
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_bgmqt")
-unit_size = 20.0
+volume_db = -20.0
 pitch_scale = 0.8
 
 [node name="ScytheSound" type="AudioStreamPlayer" parent="."]

@@ -10,6 +10,7 @@ script = ExtResource("1_wkrtu")
 
 [node name="Ambiance" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_cfkuj")
+volume_db = -3.0
 unit_size = 50.0
 autoplay = true
 
@@ -17,9 +18,9 @@ autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8623, 0, 0)
 stream = ExtResource("2_71276")
 attenuation_model = 3
+volume_db = -13.0
 unit_size = 70.0
 max_db = 0.0
-autoplay = true
 max_distance = 65.0
 panning_strength = 0.0
 
@@ -27,9 +28,9 @@ panning_strength = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8623, 0, 0)
 stream = ExtResource("3_ky0bh")
 attenuation_model = 3
+volume_db = -13.0
 unit_size = 70.0
 max_db = 0.0
-autoplay = true
 max_distance = 65.0
 panning_strength = 0.0
 

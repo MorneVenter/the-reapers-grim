@@ -19,7 +19,7 @@ func _ready() -> void:
 	_reset_wheel()
 
 func _process(_delta: float) -> void:
-	_meter.position = Camera.get_position(Player.get_player().global_position) + _player_offset
+	_meter.position = Camera.get_position(Player.get_player_pos()) + _player_offset
 
 func start(start_percentage: float, duration: float) -> void:
 	if _wheel_start_tween != null:
