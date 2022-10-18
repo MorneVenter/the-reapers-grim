@@ -55,6 +55,7 @@ var _is_hitting: bool = false
 @onready var _soul_sound: AudioStreamPlayer = $SoulSound
 @onready var _glide_timer: Timer = $Timers/GlideTimer
 @onready var _coyote_timer: Timer = $Timers/CoyoteTimer
+@onready var _end_conversation: EndConversation = $EndConversation
 
 const RUN = "NormalRun"
 const FALL = "Falling"
@@ -63,10 +64,12 @@ const IDLE = "Idle"
 const GLIDE = "Glide"
 const SCYTHE_IDLE = "idle"
 const SCYTHE_HIT = "hit"
+const EXIT_HOLD_SECONDS: float = 1.5
 
 var _is_jump_button_pressed := func() -> bool: return Input.is_action_just_pressed("player_jump")
 var _is_jump_button_held := func() -> bool: return Input.is_action_pressed("player_jump")
 var _get_player_input_direction := func() -> Vector2: return Input.get_vector("player_move_left", "player_move_right", "player_move_up", "player_move_down").normalized()
+var _current_exit_hold: float = 0.0
 
 func _ready() -> void:
 	Player.register(self)
@@ -102,6 +105,18 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	_handle_animations()
 	_handle_footsteps()
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed('exit'):
+		_current_exit_hold += delta
+		if _current_exit_hold >= EXIT_HOLD_SECONDS:
+			_exit()
+	else:
+		_current_exit_hold = 0
+
+func _exit() -> void:
+	get_tree().quit()
 
 func _handle_animations() -> void:
 	if velocity.y < 0:
@@ -261,6 +276,8 @@ func _init_soul_fragment_level(level: int) -> void:
 
 func increase_soul_fragment_level() -> void:
 	if _soul_fragment_level < 4:
+		if (_soul_fragment_level + 1) >= 4:
+			_end_conversation.start()
 		_soul_sound.playing = true
 		_init_soul_fragment_level(_soul_fragment_level + 1)
 
