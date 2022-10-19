@@ -13,3 +13,5 @@ signal coins_changed(total: int)
 
 signal zoom_camera()
 signal unzoom_camera()
+
+signal show_credits(callback: Callable)

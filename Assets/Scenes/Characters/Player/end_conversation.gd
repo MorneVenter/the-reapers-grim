@@ -9,4 +9,5 @@ func start() -> void:
 	EventSystem.start_dialog.emit(speaker_name, dialog, _callback, 0.1)
 
 func _callback() -> void:
-	pass
+	Player.lock_input()
+	EventSystem.show_credits.emit(func(): Player.unlock_input())
