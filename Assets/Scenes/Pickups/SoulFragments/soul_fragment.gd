@@ -2,6 +2,7 @@ extends Node3D
 
 @export var _coin_cost: int = 1
 @export var _name: String = "Fragment"
+@export_range(0,2) var _pitch: float = 1.0
 @export var _accept_dialog_lines: Array[String] = []
 @export var _error_dialog_lines: Array[String] = []
 
@@ -23,9 +24,9 @@ func _process(_delta: float) -> void:
 		_is_dialog_active = true
 		Player.lock_input()
 		if _can_afford.call():
-			EventSystem.start_dialog.emit(_name, _render_text_with_coins(_accept_dialog_lines), _end_dialog, 0.1)
+			EventSystem.start_dialog.emit(_name, _render_text_with_coins(_accept_dialog_lines), _end_dialog, _pitch)
 		else:
-			EventSystem.start_dialog.emit(_name, _render_text_with_coins(_error_dialog_lines), _end_dialog, 0.1)
+			EventSystem.start_dialog.emit(_name, _render_text_with_coins(_error_dialog_lines), _end_dialog, _pitch)
 
 func _end_dialog() -> void:
 	_is_dialog_active = false

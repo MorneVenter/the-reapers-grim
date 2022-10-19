@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bphtud6jnbq3q"]
+[gd_scene load_steps=26 format=3 uid="uid://bphtud6jnbq3q"]
 
 [ext_resource type="PackedScene" uid="uid://cdh1u0k3q06hp" path="res://Assets/Modules/TopDownFollowCamera/top_down_follow_camera.tscn" id="2_wl120"]
 [ext_resource type="Environment" uid="uid://6gl7dhw5onhh" path="res://Assets/Resources/Environments/world_environment.tres" id="3_2cqpq"]
@@ -24,15 +24,19 @@
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_tsr71"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 37.0
+dof_blur_far_distance = 35.0
+dof_blur_far_transition = 20.77
 dof_blur_near_distance = 12.0
 
 [sub_resource type="Gradient" id="Gradient_jmrka"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.229698, 0.965197)
-colors = PackedColorArray(0.116519, 0.158203, 0, 1, 1, 0.725645, 0, 1)
+offsets = PackedFloat32Array(0.234375, 0.770089, 0.988839)
+colors = PackedColorArray(0.0690484, 0.09375, 0, 1, 1, 0.951128, 0.188534, 1, 1, 0.22275, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_6n5q4"]
+gradient = SubResource("Gradient_jmrka")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j5ilm"]
 gradient = SubResource("Gradient_jmrka")
 
 [node name="World" type="Node3D"]
@@ -43,6 +47,7 @@ environment = ExtResource("3_2cqpq")
 [node name="Camera" parent="." instance=ExtResource("2_wl120")]
 transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 13, 16)
 attributes = SubResource("CameraAttributesPractical_tsr71")
+fov = 30.0
 far = 120.0
 target_node = NodePath("../Player")
 peek_angle = 10.0
@@ -56,17 +61,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 transform = Transform3D(0.707107, -0.353554, 0.612372, 0, 0.866026, 0.5, -0.707107, -0.353554, 0.612372, 0, 0, 0)
 light_color = Color(0.654902, 0.482353, 0.807843, 1)
 light_energy = 2.4
-light_volumetric_fog_energy = 5.0
+light_volumetric_fog_energy = 8.0
 light_bake_mode = 1
 shadow_enabled = true
-shadow_blur = 1.2
-directional_shadow_mode = 0
-directional_shadow_split_1 = 0.441
+shadow_bias = 0.12
+shadow_normal_bias = 0.9
+shadow_blur = 3.0
+directional_shadow_mode = 1
+directional_shadow_split_1 = 0.363
 directional_shadow_split_2 = 0.605
 directional_shadow_split_3 = 0.814
-directional_shadow_blend_splits = true
-directional_shadow_fade_start = 0.404
-directional_shadow_max_distance = 300.0
 sky_mode = 1
 
 [node name="Forest" parent="." instance=ExtResource("4_m7uc7")]
@@ -74,17 +78,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0447741, 0)
 
 [node name="Fragments" type="Node3D" parent="."]
 
-[node name="SoulFragment" parent="Fragments" instance=ExtResource("5_yfatx")]
+[node name="Darlene" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06111, 3.73285, -8.74907)
+_coin_cost = 10
+_name = "Darlene"
+_accept_dialog_lines = ["you found the **%coin obols*/*? thanks …", "i’m not gonna lie …", "this isn’t how i wanted to start my afterlife", "i understand you didn’t do this on purpose, but …", "lets just go", "[P] i … i’m sorry", "[P] … now that i have one of my souls back i should be able to use my **wings*/* again", "[P] (press **[jump]*/* while in the air to **glide*/*)"]
+_error_dialog_lines = ["hey ...", "so … i’m stuck in here", "… alone", "i’m going to need **%coin obols*/* to get out of this …", "you can find them lying around all over the place", "be sure to check inside the **pumpkins*/*"]
 
-[node name="SoulFragment2" parent="Fragments" instance=ExtResource("5_yfatx")]
+[node name="Ralphie" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5697, 5.74054, 18.9043)
+_coin_cost = 10
+_name = "Ralphie"
+_pitch = 0.67
+_accept_dialog_lines = ["you have the **%coin obols*/*?", "TOOK YOU LONG ENOUGH!", "i can’t believe this. the grim reaper is a damn **amateur*/*!", "[P] listen, i’m reaaaally **sorry*/*. i messed up okay", "[P] but, i’m going to make it right", "[P] you’ll see!", "riiight, when this is done, i’d like to speak to your **manager*/* please", "[P] … okay", "[P] (it looks like my **glide distance*/* has been increased)"]
+_error_dialog_lines = ["… i’m dying …", "**OF BOREDOM*/*!", "YOU HAD **ONE JOB*/*!", "NOW GET ME **%coin OBOLS*/* SO I CAN MOVE ON WITH MY AFTERLIFE!"]
 
-[node name="SoulFragment3" parent="Fragments" instance=ExtResource("5_yfatx")]
+[node name="Aubrey" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1313, 5.69899, -22.1811)
+_coin_cost = 10
+_name = "Aubrey"
+_pitch = 1.05
+_accept_dialog_lines = ["You got the **%coin obols*/*?", "i knew i could count on you!", "[P] … i’m the reason you’re in this mess", "[P] i wasn’t able to do my job", "oh deary, you made a **mistake*/*", "we all make those", "our mistakes don’t define us …", "... but how we fix them do", "and so far … you’re doing **great*/*!", "[P] thank you … ", "[P] i’m not cut out for this job though …", "[P]  after this, i’m going to tell **Charon*/* that i’m quitting", "[P] (it looks like my **glide distance*/* has been increased)"]
+_error_dialog_lines = ["oooooh weeee, what a pickle we’re in, amirite?", "we’re going to need **%coin obols*/* to get me out of this", "you can do it! i’m counting on you"]
 
-[node name="SoulFragment4" parent="Fragments" instance=ExtResource("5_yfatx")]
+[node name="Walter" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8003, 4.93343, -23.4222)
+_coin_cost = 10
+_name = "Walter"
+_pitch = 0.94
+_accept_dialog_lines = ["you got the **%coin obols*/*? nice!", "before we go, i couldn’t help but overhear what you said to ol’ **Aubrey*/* over there …", "listen, if you quit now you’ll never be a good grim reaper", "you have to allow yourself to **grow*/*, okay?", "no one starts out being the best", "[P] … thank you", " [P] i’ll think about it", "[P] (it looks like my **glide distance*/* has been increased)"]
+_error_dialog_lines = ["oh no! looks like i’m stuck here", "could you do me solid and get me **%coin obols*/*?", "that should be enough to get me out of here!"]
 
 [node name="Coins" type="Node3D" parent="."]
 
@@ -896,6 +919,13 @@ radius = 3.2
 radius_variance = 1.0
 grass_blade_height = 0.3
 grass_color = SubResource("GradientTexture1D_6n5q4")
+
+[node name="GrassPatch87" parent="Grass" instance=ExtResource("9_fxuqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2557, 1.83008, 10.9998)
+radius = 3.2
+radius_variance = 1.0
+grass_blade_height = 0.3
+grass_color = SubResource("GradientTexture1D_j5ilm")
 
 [node name="GrassPatch2" parent="Grass" instance=ExtResource("9_fxuqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9284, 1.83008, -6.12327)

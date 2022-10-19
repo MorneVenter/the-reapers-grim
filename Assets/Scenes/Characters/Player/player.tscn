@@ -228,6 +228,7 @@ libraries = {
 
 [node name="EndConversation" type="Node" parent="."]
 script = ExtResource("10_esuw5")
-dialog = ["testy", "[P] ploooop"]
+speaker_name = "Charon"
+dialog = ["[P] <ring> <ring> <ring>", "Hello? Oh, it’s **you*/*.", "[P]  i got all four souls back!", "Good. Bring them to the **Underworld*/* immediately.", "… I have more souls for you to collect tomorrow.", "[P] … ", "[P] … ", "[P] i’ll be there! ", "[P] i’m not giving up!"]
 
 [connection signal="animation_finished" from="ScytheAnimator" to="." method="_on_scythe_animator_animation_finished"]

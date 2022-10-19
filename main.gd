@@ -8,6 +8,7 @@ const _world: PackedScene = preload('res://Assets/Scenes/Levels/World/world.tscn
 @onready var _made_by: TextureRect = $SubViewportContainer/Viewport2D/MadeBy
 @onready var _hints: Control = $SubViewportContainer/Viewport2D/ControlHints
 
+@export_range(0, 2) var _speaker_pitch: float = 1.0
 @export var _speaker_name: String = 'Test'
 @export var _intro_dialog: Array[String] = ['Test']
 
@@ -29,7 +30,7 @@ func _ready() -> void:
 	timer.start()
 
 func _start_intro() -> void:
-	EventSystem.start_dialog.emit(_speaker_name, _intro_dialog, _load_world, 1.0)
+	EventSystem.start_dialog.emit(_speaker_name, _intro_dialog, _load_world, _speaker_pitch)
 
 func _load_world() -> void:
 	var timer: Timer = Timer.new()
