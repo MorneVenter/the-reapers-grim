@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _set_text() -> void:
 	_move.text = "[%s] move" % _get_move_key()
-	_jump.text = "[%s] jump" % _get_jump_key()
+	_jump.text = "[%s] jump & glide" % _get_jump_key()
 	_scythe.text = "[right][%s] scythe [/right]" % _get_scythe_key()
 	_exit.text = "[hold %s] exit" % _get_exit_key()
 

@@ -29,6 +29,10 @@ func _ready() -> void:
 	add_child(timer)
 	timer.start()
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed('mute'):
+		AudioServer.set_bus_mute(0, not AudioServer.is_bus_mute(0))
+
 func _start_intro() -> void:
 	EventSystem.start_dialog.emit(_speaker_name, _intro_dialog, _load_world, _speaker_pitch)
 
