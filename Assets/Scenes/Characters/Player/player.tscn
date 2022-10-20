@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ry8gnnt30x5k"]
+[gd_scene load_steps=19 format=3 uid="uid://ry8gnnt30x5k"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Characters/Player/player.gd" id="1_sv0bb"]
 [ext_resource type="PackedScene" uid="uid://blpfbw2bh3tb3" path="res://Assets/Scenes/Characters/Player/reaper.tscn" id="2_fjsfx"]
@@ -9,10 +9,13 @@
 [ext_resource type="AudioStream" uid="uid://cowphnv7i0io7" path="res://ExternalAssets/Media/Audio/WalkSound.wav" id="5_ubpxp"]
 [ext_resource type="AudioStream" uid="uid://cncx4g6wlsf8l" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/7. Blip, Blop and Pops/Pop_3.wav" id="7_nc7r6"]
 [ext_resource type="AudioStream" uid="uid://dd1q4xbj8i54g" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/6. Bullets & Powerups/Powerup_6.wav" id="9_mmtdy"]
+[ext_resource type="AudioStream" uid="uid://bp2tildk3ayqx" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/UI/1. Buttons/Button_18.wav" id="10_2f5w0"]
 [ext_resource type="Script" path="res://Assets/Scenes/Characters/Player/end_conversation.gd" id="10_esuw5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vihmw"]
 size = Vector3(2.05984, 1, 1.36053)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a6x5h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0cd25"]
 height = 1.56398
@@ -186,6 +189,15 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485641, 0.885568)
 shape = SubResource("BoxShape3D_vihmw")
 
+[node name="PumpkinSpawn" type="Area3D" parent="Reaper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.557681, 1.5)
+
+[node name="Shape" type="CollisionShape3D" parent="Reaper/PumpkinSpawn"]
+shape = SubResource("SphereShape3D_a6x5h")
+
+[node name="PumpkinCast" type="RayCast3D" parent="Reaper/PumpkinSpawn"]
+target_position = Vector3(0, -0.6, 0)
+
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21751, 0)
 shape = SubResource("CapsuleShape3D_0cd25")
@@ -213,6 +225,10 @@ bus = &"Footsteps"
 stream = ExtResource("9_mmtdy")
 volume_db = -17.0
 pitch_scale = 0.9
+
+[node name="PlantFailSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_2f5w0")
+volume_db = -8.0
 
 [node name="ScytheAnimator" type="AnimationPlayer" parent="."]
 autoplay = "idle"

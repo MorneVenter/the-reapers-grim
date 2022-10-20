@@ -15,3 +15,5 @@ signal zoom_camera()
 signal unzoom_camera()
 
 signal show_credits(callback: Callable)
+
+signal spawn_pumpkin(position: Vector3)

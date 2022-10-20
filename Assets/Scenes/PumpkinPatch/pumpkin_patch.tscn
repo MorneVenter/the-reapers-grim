@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwl3ga365xo8k"]
+
+[ext_resource type="PackedScene" uid="uid://6o4ohhr4getb" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/pumpkinSmall.gltf.glb" id="1_bud1x"]
+[ext_resource type="Script" path="res://Assets/Scenes/PumpkinPatch/pumpkin_patch.gd" id="1_rfx2g"]
+[ext_resource type="PackedScene" uid="uid://c27cqxhufprj2" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/detailSingle_graveyard.gltf.glb" id="2_0khkx"]
+[ext_resource type="PackedScene" uid="uid://c6ry0giqcxq3o" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/pumpkinLarge.gltf.glb" id="2_6pycl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3heve"]
+radius = 0.603716
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0fw3q"]
+radius = 1.00104
+
+[node name="PumpkinPatch" type="Node3D"]
+script = ExtResource("1_rfx2g")
+
+[node name="Small" type="Node3D" parent="."]
+
+[node name="pumpkinSmallgltf" parent="Small" instance=ExtResource("1_bud1x")]
+transform = Transform3D(0.9768, 0.214156, 0, -0.214156, 0.9768, 0, 0, 0, 1, 0.247494, 0.242349, 0.188476)
+
+[node name="pumpkinSmallgltf2" parent="Small" instance=ExtResource("1_bud1x")]
+transform = Transform3D(0.983009, -0.183557, 0, 0.183557, 0.983009, 0, 0, 0, 1, -0.232655, 0.242349, 0.188476)
+
+[node name="pumpkinSmallgltf3" parent="Small" instance=ExtResource("1_bud1x")]
+transform = Transform3D(1, 0, 0, 0, 0.953601, 0.301072, 0, -0.301072, 0.953601, -0.00394082, 0.242349, -0.225929)
+
+[node name="detailSingle_graveyardgltf" parent="Small" instance=ExtResource("2_0khkx")]
+transform = Transform3D(0.4541, 0.221705, -0.862925, 0.118363, 0.944947, 0.305065, 0.883053, -0.240669, 0.402859, 0.21037, 0, -0.0721565)
+
+[node name="detailSingle_graveyardgltf3" parent="Small" instance=ExtResource("2_0khkx")]
+transform = Transform3D(-0.822531, 0.265413, -0.502989, 0.118363, 0.944947, 0.305065, 0.556267, 0.19139, -0.808664, -0.0546007, 0, 0.368779)
+
+[node name="detailSingle_graveyardgltf2" parent="Small" instance=ExtResource("2_0khkx")]
+transform = Transform3D(0.422912, -0.32594, 0.845522, 0.118363, 0.944947, 0.305065, -0.898407, -0.028937, 0.438209, -0.209563, 0, -0.109139)
+
+[node name="Large" type="Node3D" parent="."]
+visible = false
+
+[node name="pumpkinLargegltf" parent="Large" instance=ExtResource("2_6pycl")]
+transform = Transform3D(1, 0, 0, 0, 0.958093, 0.286458, 0, -0.286458, 0.958093, 0, 0.429821, -0.337039)
+
+[node name="pumpkinLargegltf2" parent="Large" instance=ExtResource("2_6pycl")]
+transform = Transform3D(0.961165, 0.275973, 0, -0.275973, 0.961165, 0, 0, 0, 1, 0.302327, 0.429821, 0.269835)
+
+[node name="pumpkinLargegltf3" parent="Large" instance=ExtResource("2_6pycl")]
+transform = Transform3D(0.950997, -0.3092, 0, 0.3092, 0.950997, 0, 0, 0, 1, -0.327702, 0.429821, 0.229028)
+
+[node name="detailSingle_graveyardgltf4" parent="Large" instance=ExtResource("2_0khkx")]
+transform = Transform3D(0.736251, -0.545447, -0.400526, 0.580197, 0.813432, -0.041228, 0.348288, -0.20203, 0.915357, -0.385799, 0, -0.199228)
+
+[node name="detailSingle_graveyardgltf5" parent="Large" instance=ExtResource("2_0khkx")]
+transform = Transform3D(-0.277334, 0.576051, -0.768929, 0.616449, 0.720556, 0.317473, 0.736937, -0.38596, -0.554941, 0.374221, 0, -0.0963863)
+
+[node name="detailSingle_graveyardgltf6" parent="Large" instance=ExtResource("2_0khkx")]
+transform = Transform3D(0.567614, -1.00746e-08, -0.823295, -0.512074, 0.783032, -0.353046, 0.644666, 0.621982, 0.44446, -0.0757709, 0, 0.556169)
+
+[node name="BodySmall" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape3D" parent="BodySmall"]
+shape = SubResource("SphereShape3D_3heve")
+
+[node name="BodyLarge" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="BodyLarge"]
+shape = SubResource("SphereShape3D_0fw3q")
+
+[node name="Highlight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.61366, 0)
+light_color = Color(0, 1, 0.521569, 1)
+light_energy = 2.34
+light_bake_mode = 1
+spot_range = 2.09211
+spot_attenuation = 0.5

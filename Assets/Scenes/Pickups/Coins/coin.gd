@@ -3,7 +3,7 @@ extends Node3D
 @export var _respawns: bool = false
 
 @onready var _animator: AnimationPlayer = $AnimationPlayer
-@onready var _sprite: Sprite3D = $Sprite
+@onready var _coin: Node3D = $Coin
 @onready var _starting_position: Vector3 = position
 @onready var _respawn_timer: Timer = $RespawnTimer
 @onready var _pickup_audio: AudioStreamPlayer = $PickupSound
@@ -26,7 +26,7 @@ func _on_trigger_area_body_entered(body: Node3D) -> void:
 		_pickup_audio.playing = true
 		CurrencyManager.add(1)
 		_animator.stop()
-		_sprite.scale = Vector3(0.15, 0.15, 0.15)
+		_coin.scale = Vector3.ONE
 		var tween: Tween = create_tween()
 		var new_position: Vector3 = position
 		new_position.y += 3.5
@@ -45,7 +45,7 @@ func _on_trigger_area_body_entered(body: Node3D) -> void:
 func _reset() -> void:
 	position = _starting_position
 	scale = Vector3.ONE
-	_sprite.scale = Vector3(0.15, 0.15, 0.15)
+	_coin.scale = Vector3.ONE
 	_animator.current_animation = IDLE_ANIM
 	visible = true
 

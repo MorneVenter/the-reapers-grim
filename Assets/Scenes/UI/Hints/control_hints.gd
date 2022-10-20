@@ -3,6 +3,7 @@ extends Control
 @onready var _move: RichTextLabel = $Move
 @onready var _jump: RichTextLabel = $Jump
 @onready var _scythe: RichTextLabel = $Scythe
+@onready var _plant: RichTextLabel = $Plant
 @onready var _exit: RichTextLabel = $Exit
 
 func _ready() -> void:
@@ -12,6 +13,7 @@ func _set_text() -> void:
 	_move.text = "[%s] move" % _get_move_key()
 	_jump.text = "[%s] jump & glide" % _get_jump_key()
 	_scythe.text = "[right][%s] scythe [/right]" % _get_scythe_key()
+	_plant.text = "[right][%s] plant pumpkin [/right]" % _get_plant_key()
 	_exit.text = "[hold %s] exit" % _get_exit_key()
 
 func _get_move_key() -> String:
@@ -22,6 +24,9 @@ func _get_jump_key() -> String:
 
 func _get_scythe_key() -> String:
 	return InputManager.HIT
+
+func _get_plant_key() -> String:
+	return InputManager.PLANT
 
 func _get_exit_key() -> String:
 	return InputManager.EXIT

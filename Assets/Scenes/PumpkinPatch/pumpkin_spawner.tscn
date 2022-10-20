@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1j2tmjp4lvna"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/PumpkinPatch/pumpkin_spawner.gd" id="1_1oh24"]
+
+[node name="PumpkinSpawner" type="Node3D"]
+script = ExtResource("1_1oh24")

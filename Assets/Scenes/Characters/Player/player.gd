@@ -53,9 +53,12 @@ var _is_hitting: bool = false
 @onready var _jump_audio: AudioStreamPlayer = $JumpSound
 @onready var _wing_audio: AudioStreamPlayer = $WingSound
 @onready var _soul_sound: AudioStreamPlayer = $SoulSound
+@onready var _plant_fail_sound: AudioStreamPlayer = $PlantFailSound
 @onready var _glide_timer: Timer = $Timers/GlideTimer
 @onready var _coyote_timer: Timer = $Timers/CoyoteTimer
 @onready var _end_conversation: EndConversation = $EndConversation
+@onready var _pumpkin_area: Area3D = $Reaper/PumpkinSpawn
+@onready var _pumpkin_ray: RayCast3D = $Reaper/PumpkinSpawn/PumpkinCast
 
 const RUN = "NormalRun"
 const FALL = "Falling"
@@ -99,6 +102,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not _is_input_locked:
+		_handle_planting()
 		_handle_jump(delta)
 		_handle_player_movement()
 		_handle_player_hit()
@@ -117,6 +121,16 @@ func _process(delta: float) -> void:
 
 func _exit() -> void:
 	get_tree().quit()
+
+func _handle_planting() -> void:
+	if Input.is_action_just_pressed('plant'):
+		var bodies := _pumpkin_area.get_overlapping_bodies()
+		var cast: bool = _pumpkin_ray.is_colliding()
+		if cast and bodies.size() == 0:
+			EventSystem.spawn_pumpkin.emit(_pumpkin_ray.get_collision_point())
+			_wing_audio.play()
+		else:
+			_plant_fail_sound.play()
 
 func _handle_animations() -> void:
 	if velocity.y < 0:

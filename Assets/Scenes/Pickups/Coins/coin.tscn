@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://4wdtwhly04em"]
+[gd_scene load_steps=10 format=3 uid="uid://4wdtwhly04em"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Pickups/Coins/coin.gd" id="1_ajlj5"]
 [ext_resource type="Texture2D" uid="uid://cduvcac1jppl3" path="res://Assets/Sprites/UI/Icons/coin.png" id="1_emhmd"]
 [ext_resource type="AudioStream" uid="uid://dnf3gsj3y6x57" path="res://ExternalAssets/Media/Audio/HALFTONE SFX Pack LITE/Gameplay/5. Collectibles/Collectibles_8.wav" id="3_e8ij5"]
+[ext_resource type="ArrayMesh" uid="uid://bu60qr476636k" path="res://Assets/Models/Coins/coins.obj" id="4_vmwer"]
 
 [sub_resource type="Animation" id="Animation_8fj1j"]
 resource_name = "appear"
@@ -11,30 +12,31 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:scale")
+tracks/0/path = NodePath("Coin:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.18),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.1, 0.1, 0.1)]
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_7ki3m"]
 resource_name = "idle"
+length = 3.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:scale")
+tracks/0/path = NodePath("Coin:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.15, 0.15, 0.15), Vector3(0.02, 0.15, 0.15), Vector3(0.15, 0.15, 0.15)]
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ds2ja"]
@@ -46,13 +48,11 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_ejyns"]
 radius = 0.933939
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdddl"]
+albedo_color = Color(1, 0.870588, 0.0980392, 1)
+
 [node name="Coin" type="Node3D"]
 script = ExtResource("1_ajlj5")
-
-[node name="Sprite" type="Sprite3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.378343, 0)
-billboard = 2
-texture = ExtResource("1_emhmd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "appear"
@@ -75,6 +75,25 @@ one_shot = true
 stream = ExtResource("3_e8ij5")
 volume_db = -16.0
 pitch_scale = 0.8
+
+[node name="Coin" type="Node3D" parent="."]
+transform = Transform3D(-0.0711534, 0, 0.997465, 0, 1, 0, -0.997465, 0, -0.0711534, 0, 0, 0)
+
+[node name="CoinModel" type="MeshInstance3D" parent="Coin"]
+transform = Transform3D(0.383932, 0, 0, 0, 0.383932, 0, 0, 0, 0.383932, 0, 0.377843, 0)
+material_override = SubResource("StandardMaterial3D_hdddl")
+mesh = ExtResource("4_vmwer")
+skeleton = NodePath("../..")
+
+[node name="SpriteFront" type="Sprite3D" parent="Coin"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.378343, -0.119409)
+shaded = true
+texture = ExtResource("1_emhmd")
+
+[node name="SpriteBack" type="Sprite3D" parent="Coin"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.378343, 0.117512)
+shaded = true
+texture = ExtResource("1_emhmd")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
