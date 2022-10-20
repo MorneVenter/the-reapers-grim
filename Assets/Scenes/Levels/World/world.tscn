@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bbhqfwlkaq3sm" path="res://Assets/Scenes/Pickups/SoulFragments/soul_fragment.tscn" id="5_yfatx"]
 [ext_resource type="PackedScene" uid="uid://4wdtwhly04em" path="res://Assets/Scenes/Pickups/Coins/coin.tscn" id="6_hxcah"]
 [ext_resource type="PackedScene" uid="uid://b1v0h8xeuwgs" path="res://Assets/Scenes/Wackables/WackableObjects/tombstone.tscn" id="7_rjd1u"]
-[ext_resource type="PackedScene" uid="uid://bvjcjkb5gqxl4" path="res://Assets/Scenes/NPC/NPCObjects/test_npc.tscn" id="8_aelus"]
 [ext_resource type="PackedScene" uid="uid://xfwuk15bhq2l" path="res://Assets/Scenes/Wackables/WackableObjects/jackoolantern.tscn" id="8_ulieu"]
 [ext_resource type="PackedScene" uid="uid://ch5fbhoxrwglk" path="res://Assets/Modules/GrassPatch/grass_patch.tscn" id="9_fxuqm"]
+[ext_resource type="PackedScene" uid="uid://crvdcucg5lekj" path="res://Assets/Scenes/NPC/NPCObjects/jackolantern.tscn" id="9_jscm8"]
 [ext_resource type="PackedScene" uid="uid://ry8gnnt30x5k" path="res://Assets/Scenes/Characters/Player/player.tscn" id="10_5sbqd"]
 [ext_resource type="PackedScene" uid="uid://brheubs2nlrcn" path="res://Assets/Scenes/Objects/fence.tscn" id="10_27h8c"]
 [ext_resource type="PackedScene" uid="uid://dbt27hk5nagxj" path="res://Assets/Scenes/PlayerReset/player_reset.tscn" id="10_yg0uw"]
@@ -907,9 +907,8 @@ transform = Transform3D(0.959803, -0.0458633, 0.276903, -0.00107074, 0.985954, 0
 
 [node name="NPC" type="Node3D" parent="."]
 
-[node name="TestNPC" parent="NPC" instance=ExtResource("8_aelus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51863, 2.96337, -2.81136)
-_dialog_lines = ["Where am I? I am sooooooo lost! Help me get home quickly!", "2Ayo this is a test lad !!!! Lets test this shite!", "Poop!", "4Ayo this is a test lad !!!! Lets test this shite!", "5Ayo this is a test lad !!!! Lets test this shite!"]
+[node name="NPC" parent="NPC" instance=ExtResource("9_jscm8")]
+transform = Transform3D(0.870931, 0, -0.491405, 0, 1, 0, 0.491405, 0, 0.870931, 2.42121, 1.99426, -3.08272)
 
 [node name="Grass" type="Node3D" parent="."]
 

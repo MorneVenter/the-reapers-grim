@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://crvdcucg5lekj"]
+
+[ext_resource type="PackedScene" uid="uid://c3y7x0crk3hdy" path="res://Assets/Scenes/NPC/base_npc.tscn" id="1_1blrb"]
+[ext_resource type="PackedScene" uid="uid://bb8byyou70ty8" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/Characters/Jack/gltf/character_jack.gltf" id="2_dsbjg"]
+
+[node name="NPC" instance=ExtResource("1_1blrb")]
+
+[node name="Mesh" parent="." index="1"]
+transform = Transform3D(0.998175, 0.0603926, 0, -0.0603926, 0.998175, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="character_jack" parent="Mesh" index="0" instance=ExtResource("2_dsbjg")]
+
+[node name="Light" type="OmniLight3D" parent="Mesh/character_jack" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285516, 1.11723, 0.434539)
+light_color = Color(0.172549, 1, 0.176471, 1)
+light_specular = 16.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_reverse_cull_face = true
+omni_range = 0.768502
+omni_attenuation = 0.5
+omni_shadow_mode = 0
+
+[node name="Light2" type="OmniLight3D" parent="Mesh/character_jack" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32095, 1.11723, 0.434539)
+light_color = Color(0.172549, 1, 0.176471, 1)
+light_specular = 16.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_reverse_cull_face = true
+omni_range = 0.768502
+omni_attenuation = 0.5
+omni_shadow_mode = 0

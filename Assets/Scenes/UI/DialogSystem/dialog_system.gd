@@ -20,7 +20,7 @@ var _pitch: float = 0.0
 var _name: String = "Name"
 
 var _player_pitch: float = 1.1
-var _player_name: String = "Reaper-chan"
+var _player_name: String = "[color=#fbff00]Ayami[/color]"
 var _player_tag: String = "[P]"
 
 var _highlight_tag_open: String = "**"

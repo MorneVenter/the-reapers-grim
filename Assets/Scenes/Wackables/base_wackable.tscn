@@ -15,6 +15,7 @@ size = Vector3(1.43887, 2.00868, 1.40643)
 script = ExtResource("1_8vu17")
 
 [node name="Mesh" type="Node3D" parent="."]
+transform = Transform3D(0.998308, 0.0581448, 0, -0.0581448, 0.998308, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Body" type="StaticBody3D" parent="." groups=["Wackable"]]
 
