@@ -68,6 +68,7 @@ const GLIDE = "Glide"
 const SCYTHE_IDLE = "idle"
 const SCYTHE_HIT = "hit"
 const EXIT_HOLD_SECONDS: float = 1.5
+const PLANT_COST: int = 10
 
 var _is_jump_button_pressed := func() -> bool: return Input.is_action_just_pressed("player_jump")
 var _is_jump_button_held := func() -> bool: return Input.is_action_pressed("player_jump")
@@ -126,7 +127,9 @@ func _handle_planting() -> void:
 	if Input.is_action_just_pressed('plant'):
 		var bodies := _pumpkin_area.get_overlapping_bodies()
 		var cast: bool = _pumpkin_ray.is_colliding()
-		if cast and bodies.size() == 0:
+		var can_afford: bool = CurrencyManager.get_coins()>= PLANT_COST
+		if cast and bodies.size() == 0 and can_afford:
+			CurrencyManager.deduct(PLANT_COST)
 			EventSystem.spawn_pumpkin.emit(_pumpkin_ray.get_collision_point())
 			_wing_audio.play()
 		else:

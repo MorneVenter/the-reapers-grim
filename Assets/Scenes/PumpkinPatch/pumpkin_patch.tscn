@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwl3ga365xo8k"]
+[gd_scene load_steps=10 format=3 uid="uid://bwl3ga365xo8k"]
 
 [ext_resource type="PackedScene" uid="uid://6o4ohhr4getb" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/pumpkinSmall.gltf.glb" id="1_bud1x"]
 [ext_resource type="Script" path="res://Assets/Scenes/PumpkinPatch/pumpkin_patch.gd" id="1_rfx2g"]
@@ -11,10 +11,37 @@ radius = 0.603716
 [sub_resource type="SphereShape3D" id="SphereShape3D_0fw3q"]
 radius = 1.00104
 
+[sub_resource type="Animation" id="Animation_nwv7d"]
+resource_name = "grow"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Small:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.9, 0.9, 0.9), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fuyor"]
+_data = {
+"grow": SubResource("Animation_nwv7d")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ilpcw"]
+size = Vector3(1.58988, 1.00913, 1.36788)
+
 [node name="PumpkinPatch" type="Node3D"]
 script = ExtResource("1_rfx2g")
 
 [node name="Small" type="Node3D" parent="."]
+transform = Transform3D(0.939115, 0, 0, 0, 0.939115, 0, 0, 0, 0.939115, 0, 0, 0)
+visible = false
 
 [node name="pumpkinSmallgltf" parent="Small" instance=ExtResource("1_bud1x")]
 transform = Transform3D(0.9768, 0.214156, 0, -0.214156, 0.9768, 0, 0, 0, 1, 0.247494, 0.242349, 0.188476)
@@ -35,7 +62,6 @@ transform = Transform3D(-0.822531, 0.265413, -0.502989, 0.118363, 0.944947, 0.30
 transform = Transform3D(0.422912, -0.32594, 0.845522, 0.118363, 0.944947, 0.305065, -0.898407, -0.028937, 0.438209, -0.209563, 0, -0.109139)
 
 [node name="Large" type="Node3D" parent="."]
-visible = false
 
 [node name="pumpkinLargegltf" parent="Large" instance=ExtResource("2_6pycl")]
 transform = Transform3D(1, 0, 0, 0, 0.958093, 0.286458, 0, -0.286458, 0.958093, 0, 0.429821, -0.337039)
@@ -73,3 +99,22 @@ light_energy = 2.34
 light_bake_mode = 1
 spot_range = 2.09211
 spot_attenuation = 0.5
+
+[node name="GrowTimer" type="Timer" parent="."]
+wait_time = 45.0
+one_shot = true
+autostart = true
+
+[node name="GrowAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fuyor")
+}
+
+[node name="WackArea" type="Area3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="WackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.506912, 0)
+shape = SubResource("BoxShape3D_ilpcw")
+
+[connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]
+[connection signal="area_entered" from="WackArea" to="." method="_on_wack_area_area_entered"]

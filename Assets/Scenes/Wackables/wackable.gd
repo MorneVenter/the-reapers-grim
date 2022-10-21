@@ -17,7 +17,13 @@ func _on_hit_box_area_entered(area: Area3D) -> void:
 		_wack()
 
 func _wack() -> void:
-	_spawn_coin()
+	if _coin_count > 5:
+		_spawn_coin()
+		_spawn_coin()
+		_spawn_coin()
+		_spawn_coin()
+	else:
+		_spawn_coin()
 	_mesh.rotation = Vector3.ZERO
 	var tween: Tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)

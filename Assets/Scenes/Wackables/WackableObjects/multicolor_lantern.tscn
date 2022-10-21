@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://byfabsfsicrms"]
+
+[ext_resource type="PackedScene" uid="uid://djcw1dq4lu4jt" path="res://Assets/Scenes/Wackables/base_wackable.tscn" id="1_7ncci"]
+[ext_resource type="PackedScene" uid="uid://qiu43i0ttlah" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/jackolantern_big.gltf.glb" id="2_n1nq1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_051d6"]
+radius = 1.10021
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fbr66"]
+resource_local_to_scene = true
+size = Vector3(2.01915, 1.45425, 1.62157)
+
+[node name="Wackable" instance=ExtResource("1_7ncci")]
+_coin_count = 15
+
+[node name="jackolantern_biggltf" parent="Mesh" index="0" instance=ExtResource("2_n1nq1")]
+transform = Transform3D(0.780072, 0.00150902, -0.230148, 0.0703735, 0.772782, 0.243594, 0.21913, -0.253551, 0.741064, -0.53607, 0.34948, 0.273979)
+
+[node name="jackolantern_biggltf2" parent="Mesh" index="1" instance=ExtResource("2_n1nq1")]
+transform = Transform3D(0.791635, 1.50137e-09, 0.186537, -0.0636126, 0.764562, 0.269963, -0.175355, -0.277356, 0.744181, 0.421147, 0.34948, 0.273979)
+
+[node name="jackolantern_biggltf3" parent="Mesh" index="2" instance=ExtResource("2_n1nq1")]
+transform = Transform3D(0.813315, 0, 0, 0, 0.508719, 0.634576, 0, -0.634576, 0.508719, -0.023285, 0.66866, -0.41325)
+
+[node name="Light" type="OmniLight3D" parent="Mesh" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46001, 0.435306, 0.258311)
+light_color = Color(0.12549, 1, 0, 1)
+light_energy = 11.502
+light_specular = 4.448
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 0.546436
+omni_attenuation = 0.5
+
+[node name="Light2" type="OmniLight3D" parent="Mesh" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554772, 0.435306, 0.305789)
+light_color = Color(0, 0.745098, 1, 1)
+light_energy = 11.502
+light_specular = 4.448
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 0.546436
+omni_attenuation = 0.5
+
+[node name="Light3" type="OmniLight3D" parent="Mesh" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0847859, 0.689684, -0.541502)
+light_color = Color(0.870588, 1, 0, 1)
+light_energy = 11.502
+light_specular = 4.448
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 0.546436
+omni_attenuation = 0.5
+
+[node name="Collider" parent="Body" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.206652, 0)
+shape = SubResource("SphereShape3D_051d6")
+
+[node name="Collider" parent="HitBox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.727508, 0)
+shape = SubResource("BoxShape3D_fbr66")

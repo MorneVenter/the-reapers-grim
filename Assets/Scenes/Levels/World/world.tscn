@@ -81,14 +81,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0447741, 0)
 
 [node name="Darlene" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06111, 3.73285, -8.74907)
-_coin_cost = 10
+_coin_cost = 18
 _name = "Darlene"
 _accept_dialog_lines = ["you found the **%coin obols*/*? thanks …", "i’m not gonna lie …", "this isn’t how i wanted to start my afterlife", "i understand you didn’t do this on purpose, but …", "lets just go", "[P] i … i’m sorry", "[P] … now that i have one of my souls back i should be able to use my **wings*/* again", "[P] (press **[jump]*/* while in the air to **glide*/*)"]
 _error_dialog_lines = ["hey ...", "so … i’m stuck in here", "… alone", "i’m going to need **%coin obols*/* to get out of this …", "you can find them lying around all over the place", "be sure to check inside the **pumpkins*/*"]
 
 [node name="Ralphie" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5697, 5.74054, 18.9043)
-_coin_cost = 10
+_coin_cost = 90
 _name = "Ralphie"
 _pitch = 0.67
 _accept_dialog_lines = ["you have the **%coin obols*/*?", "TOOK YOU LONG ENOUGH!", "i can’t believe this. the grim reaper is a damn **amateur*/*!", "[P] listen, i’m reaaaally **sorry*/*. i messed up okay", "[P] but, i’m going to make it right", "[P] you’ll see!", "riiight, when this is done, i’d like to speak to your **manager*/* please", "[P] … okay", "[P] (it looks like my **glide distance*/* has been increased)"]
@@ -96,7 +96,7 @@ _error_dialog_lines = ["… i’m dying …", "**OF BOREDOM*/*!", "YOU HAD **ONE
 
 [node name="Aubrey" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1313, 5.69899, -22.1811)
-_coin_cost = 10
+_coin_cost = 380
 _name = "Aubrey"
 _pitch = 1.05
 _accept_dialog_lines = ["You got the **%coin obols*/*?", "i knew i could count on you!", "[P] … i’m the reason you’re in this mess", "[P] i wasn’t able to do my job", "oh deary, you made a **mistake*/*", "we all make those", "our mistakes don’t define us …", "... but how we fix them do", "and so far … you’re doing **great*/*!", "[P] thank you … ", "[P] i’m not cut out for this job though …", "[P]  after this, i’m going to tell **Charon*/* that i’m quitting", "[P] (it looks like my **glide distance*/* has been increased)"]
@@ -104,7 +104,7 @@ _error_dialog_lines = ["oooooh weeee, what a pickle we’re in, amirite?", "we�
 
 [node name="Walter" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8003, 4.93343, -23.4222)
-_coin_cost = 10
+_coin_cost = 650
 _name = "Walter"
 _pitch = 0.94
 _accept_dialog_lines = ["you got the **%coin obols*/*? nice!", "before we go, i couldn’t help but overhear what you said to ol’ **Aubrey*/* over there …", "listen, if you quit now you’ll never be a good grim reaper", "you have to allow yourself to **grow*/*, okay?", "no one starts out being the best", "[P] … thank you", " [P] i’ll think about it", "[P] (it looks like my **glide distance*/* has been increased)"]
@@ -891,9 +891,6 @@ transform = Transform3D(0.967103, 0, 0.254382, 0, 1, 0, -0.254382, 0, 0.967103, 
 [node name="Tombstone8" parent="Wackables" instance=ExtResource("7_rjd1u")]
 transform = Transform3D(0.999141, 0, -0.0414224, 0, 1, 0, 0.0414224, 0, 0.999141, 44.6758, -0.102164, -5.14765)
 
-[node name="Tombstone9" parent="Wackables" instance=ExtResource("7_rjd1u")]
-transform = Transform3D(0.954136, 0.13365, 0.267883, -0.141248, 0.989932, 0.00920237, -0.263956, -0.0466183, 0.963407, 38.0761, -0.102164, -5.14765)
-
 [node name="Tombstone10" parent="Wackables" instance=ExtResource("7_rjd1u")]
 transform = Transform3D(0.954136, 0.13365, 0.267883, -0.141248, 0.989932, 0.00920237, -0.263956, -0.0466183, 0.963407, 38.0761, -0.102164, -5.14765)
 
@@ -910,6 +907,8 @@ transform = Transform3D(0.959803, -0.0458633, 0.276903, -0.00107074, 0.985954, 0
 
 [node name="NPC" parent="NPC" instance=ExtResource("9_jscm8")]
 transform = Transform3D(0.870931, 0, -0.491405, 0, 1, 0, 0.491405, 0, 0.870931, 2.42121, 1.99426, -3.08272)
+_name = "Jack"
+_dialog_lines = ["Festive greetings to you!", "Do you wanna plant some some **pumpkins*/*?", "If they grow really big we can carve them too!", "**Planting*/* a **pumpkin*/* will cost you **10 obols*/*", "After you have planted a pumpkin, you should wait until it's fully grown", "Then all that's left is to carve it with your **scythe*/*!"]
 
 [node name="Grass" type="Node3D" parent="."]
 
