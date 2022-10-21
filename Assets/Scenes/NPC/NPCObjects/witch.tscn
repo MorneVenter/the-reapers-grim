@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://eqxycebj1qnb"]
+
+[ext_resource type="PackedScene" uid="uid://c3y7x0crk3hdy" path="res://Assets/Scenes/NPC/base_npc.tscn" id="1_vrvwj"]
+[ext_resource type="PackedScene" uid="uid://c5lu1wa5iy65k" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/Characters/Witch/gltf/character_witch.gltf" id="2_uaibw"]
+
+[node name="NPC" instance=ExtResource("1_vrvwj")]
+
+[node name="character_witch" parent="Mesh" index="0" instance=ExtResource("2_uaibw")]
+transform = Transform3D(0.999246, -0.0388283, 0, 0.0388283, 0.999246, 0, 0, 0, 1, 0, 0, 0)

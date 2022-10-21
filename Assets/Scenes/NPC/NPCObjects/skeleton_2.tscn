@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxj72rgiymvnp"]
+
+[ext_resource type="PackedScene" uid="uid://c3y7x0crk3hdy" path="res://Assets/Scenes/NPC/base_npc.tscn" id="1_4g4r2"]
+[ext_resource type="PackedScene" uid="uid://dmfawkct4vivw" path="res://ExternalAssets/Models/KayKit Character Pack - Skeletons 1.0/Models/characters/gltf/character_skeleton_minion.gltf" id="2_p3hkw"]
+
+[node name="NPC" instance=ExtResource("1_4g4r2")]
+
+[node name="character_skeleton_minion" parent="Mesh" index="0" instance=ExtResource("2_p3hkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

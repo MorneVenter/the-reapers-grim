@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://4e5f1ptfk2ss"]
+
+[ext_resource type="PackedScene" uid="uid://c3y7x0crk3hdy" path="res://Assets/Scenes/NPC/base_npc.tscn" id="1_ka5j5"]
+[ext_resource type="PackedScene" uid="uid://158gycysl17k" path="res://ExternalAssets/Models/KayKit Character Pack - Skeletons 1.0/Models/characters/gltf/character_skeleton_mage.gltf" id="2_x21op"]
+
+[node name="NPC" instance=ExtResource("1_ka5j5")]
+
+[node name="character_skeleton_mage" parent="Mesh" index="0" instance=ExtResource("2_x21op")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

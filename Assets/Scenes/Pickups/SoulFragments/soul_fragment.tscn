@@ -102,5 +102,15 @@ shape = SubResource("CapsuleShape3D_kqqit")
 [node name="Shrine" parent="." instance=ExtResource("4_u7f24")]
 transform = Transform3D(1.70657, 0, 0, 0, 1.70657, 0, 0, 0, 1.70657, 0, -1.8925, 0)
 
+[node name="MoodLight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.40613, 0)
+light_color = Color(0.541176, 1, 0.0313726, 1)
+light_energy = 6.0
+light_specular = 1.941
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 11.4781
+spot_angle = 34.9668
+
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
 [connection signal="body_exited" from="TriggerArea" to="." method="_on_trigger_area_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bphtud6jnbq3q"]
+[gd_scene load_steps=30 format=3 uid="uid://bphtud6jnbq3q"]
 
 [ext_resource type="PackedScene" uid="uid://cdh1u0k3q06hp" path="res://Assets/Modules/TopDownFollowCamera/top_down_follow_camera.tscn" id="2_wl120"]
 [ext_resource type="Environment" uid="uid://6gl7dhw5onhh" path="res://Assets/Resources/Environments/world_environment.tres" id="3_2cqpq"]
@@ -12,7 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://ry8gnnt30x5k" path="res://Assets/Scenes/Characters/Player/player.tscn" id="10_5sbqd"]
 [ext_resource type="PackedScene" uid="uid://brheubs2nlrcn" path="res://Assets/Scenes/Objects/fence.tscn" id="10_27h8c"]
 [ext_resource type="PackedScene" uid="uid://dbt27hk5nagxj" path="res://Assets/Scenes/PlayerReset/player_reset.tscn" id="10_yg0uw"]
+[ext_resource type="PackedScene" uid="uid://eqxycebj1qnb" path="res://Assets/Scenes/NPC/NPCObjects/witch.tscn" id="10_yin7j"]
 [ext_resource type="PackedScene" uid="uid://thcdge1c58xk" path="res://Assets/Scenes/Objects/tree.tscn" id="11_6dgak"]
+[ext_resource type="PackedScene" uid="uid://4e5f1ptfk2ss" path="res://Assets/Scenes/NPC/NPCObjects/skeleton_1.tscn" id="11_tkoav"]
+[ext_resource type="PackedScene" uid="uid://cxj72rgiymvnp" path="res://Assets/Scenes/NPC/NPCObjects/skeleton_2.tscn" id="12_3ndc1"]
 [ext_resource type="PackedScene" uid="uid://ci2oqt8gu7o4s" path="res://Assets/Scenes/Objects/streetlight.tscn" id="12_jgbdd"]
 [ext_resource type="PackedScene" uid="uid://bkm3oqxe1qylx" path="res://ExternalAssets/Models/KayKit Spooktober Seasonal Pack 1.1/Models/gltf/pathCobbled.gltf.glb" id="13_cocpk"]
 [ext_resource type="PackedScene" uid="uid://cxsn0nvhbduut" path="res://Assets/Scenes/Objects/coffin.tscn" id="14_5gbna"]
@@ -74,6 +77,56 @@ directional_shadow_split_2 = 0.605
 directional_shadow_split_3 = 0.814
 sky_mode = 1
 
+[node name="Moodlight" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.682306, 0.668547, -0.295811, 0.397772, -2.825e-08, 0.917484, 0.613381, -0.74367, -0.26593, 40.5417, 5.91447, -8.62685)
+light_color = Color(0.278431, 0.235294, 1, 1)
+light_energy = 5.0
+light_specular = 0.825
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 11.4781
+spot_angle = 66.0938
+
+[node name="Moodlight2" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -16.2178, 4.05085, -8.62685)
+light_color = Color(0.278431, 0.235294, 1, 1)
+light_energy = 4.675
+light_specular = 0.825
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 11.4781
+spot_angle = 66.0938
+
+[node name="Moodlight3" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -33.4471, 5.41357, 23.1067)
+light_color = Color(1, 0.0666667, 0, 1)
+light_energy = 4.241
+light_specular = 1.941
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 11.4781
+spot_angle = 37.455
+
+[node name="Moodlight5" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -31.2687, 5.41357, 27.1991)
+light_color = Color(1, 0.0666667, 0, 1)
+light_energy = 4.241
+light_specular = 1.941
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 11.4781
+spot_angle = 37.455
+
+[node name="Moodlight4" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -42.9899, 4.17256, -7.00928)
+light_color = Color(1, 0.0666667, 0, 1)
+light_energy = 4.241
+light_specular = 1.941
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 11.4781
+spot_angle = 37.455
+
 [node name="Forest" parent="." instance=ExtResource("4_m7uc7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0447741, 0)
 
@@ -96,7 +149,7 @@ _error_dialog_lines = ["… i’m dying …", "**OF BOREDOM*/*!", "YOU HAD **ONE
 
 [node name="Aubrey" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1313, 5.69899, -22.1811)
-_coin_cost = 380
+_coin_cost = 370
 _name = "Aubrey"
 _pitch = 1.05
 _accept_dialog_lines = ["You got the **%coin obols*/*?", "i knew i could count on you!", "[P] … i’m the reason you’re in this mess", "[P] i wasn’t able to do my job", "oh deary, you made a **mistake*/*", "we all make those", "our mistakes don’t define us …", "... but how we fix them do", "and so far … you’re doing **great*/*!", "[P] thank you … ", "[P] i’m not cut out for this job though …", "[P]  after this, i’m going to tell **Charon*/* that i’m quitting", "[P] (it looks like my **glide distance*/* has been increased)"]
@@ -104,7 +157,7 @@ _error_dialog_lines = ["oooooh weeee, what a pickle we’re in, amirite?", "we�
 
 [node name="Walter" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8003, 4.93343, -23.4222)
-_coin_cost = 650
+_coin_cost = 510
 _name = "Walter"
 _pitch = 0.94
 _accept_dialog_lines = ["you got the **%coin obols*/*? nice!", "before we go, i couldn’t help but overhear what you said to ol’ **Aubrey*/* over there …", "listen, if you quit now you’ll never be a good grim reaper", "you have to allow yourself to **grow*/*, okay?", "no one starts out being the best", "[P] … thank you", " [P] i’ll think about it", "[P] (it looks like my **glide distance*/* has been increased)"]
@@ -763,7 +816,7 @@ transform = Transform3D(0.458575, 0.052527, -0.887102, -0.0317616, 0.998583, 0.0
 transform = Transform3D(0.99692, 0.0347163, -0.0703202, -0.0317616, 0.998583, 0.0427093, 0.0717033, -0.0403443, 0.996609, -6.24865, 3.87986, 17.7013)
 
 [node name="Jackoolantern11" parent="Wackables" instance=ExtResource("8_ulieu")]
-transform = Transform3D(0.759581, 0.0518892, -0.648339, -0.0317616, 0.998583, 0.0427093, 0.649636, -0.0118489, 0.760153, 2.06952, 3.87986, 19.0558)
+transform = Transform3D(0.759581, 0.0518892, -0.648339, -0.0317616, 0.998583, 0.0427093, 0.649636, -0.0118489, 0.760153, -0.302119, 3.87986, 16.8108)
 
 [node name="Jackoolantern12" parent="Wackables" instance=ExtResource("8_ulieu")]
 transform = Transform3D(0.808782, 0.00057129, 0.588108, -0.0317616, 0.998583, 0.0427093, -0.58725, -0.0532218, 0.807654, 2.12974, 1.77715, 15.1032)
@@ -905,10 +958,60 @@ transform = Transform3D(0.959803, -0.0458633, 0.276903, -0.00107074, 0.985954, 0
 
 [node name="NPC" type="Node3D" parent="."]
 
-[node name="NPC" parent="NPC" instance=ExtResource("9_jscm8")]
+[node name="Jack" parent="NPC" instance=ExtResource("9_jscm8")]
 transform = Transform3D(0.870931, 0, -0.491405, 0, 1, 0, 0.491405, 0, 0.870931, 2.42121, 1.99426, -3.08272)
 _name = "Jack"
 _dialog_lines = ["Festive greetings to you!", "Do you wanna plant some some **pumpkins*/*?", "If they grow really big we can carve them too!", "**Planting*/* a **pumpkin*/* will cost you **10 obols*/*", "After you have planted a pumpkin, you should wait until it's fully grown", "Then all that's left is to carve it with your **scythe*/*!"]
+
+[node name="Ugly Jack" parent="NPC" instance=ExtResource("9_jscm8")]
+transform = Transform3D(0.969415, 0, 0.245426, 0, 1, 0, -0.245426, 0, 0.969415, -18.2351, 3.94288, -24.7887)
+_name = "Ugly Jack"
+_dialog_lines = ["Wow! Look at you!", "Gliding all over the place!", "....", "Legend has it that if you plant enough pumpkins ...", "... the world will end!", "So **spooky*/*!"]
+
+[node name="Sarah" parent="NPC" instance=ExtResource("10_yin7j")]
+transform = Transform3D(0.693477, 0, 0.720478, 0, 1, 0, -0.720478, 0, 0.693477, -16.6162, 0, -7.36353)
+_name = "Sarah"
+_dialog_lines = ["Yesterday I wacked a pumpkin with my broom ...", "And a bunch of **Obols*/* fell out of it!", "I tried the same thing the next day and sure enough ...", "... more **Obols*/*!"]
+
+[node name="Bob" parent="NPC" instance=ExtResource("11_tkoav")]
+transform = Transform3D(0.873339, 0, -0.487113, 0, 1, 0, 0.487113, 0, 0.873339, 2.37453, 3.70712, 19.424)
+_name = "Bob"
+_dialog_lines = ["Hmmmmmm ...", "It looks like you should be able to **glide*/* over to the other side ...", "If you are having trouble ...", "... you can try standing on my head?", "It won't hurt me, I promise.", "I am a skeleton after all.", "Hehe!", "[P] Thank you!"]
+
+[node name="Poppy" parent="NPC" instance=ExtResource("11_tkoav")]
+transform = Transform3D(0.999628, 0, 0.0272586, 0, 1, 0, -0.0272586, 0, 0.999628, 6.31498, -0.0612291, -37.5419)
+_name = "Poppy"
+_dialog_lines = ["So ... you know this is the **Netherworld*/*, right?", "And that the **Underworld*/* is a different realm?", "[P] I have heard about this ...", "But did you know there are thousands of **Netherworlds*/*?", "This is just one of many!"]
+
+[node name="Billy" parent="NPC" instance=ExtResource("11_tkoav")]
+transform = Transform3D(0.919073, 0, -0.394086, 0, 1, 0, 0.394086, 0, 0.919073, -28.5848, -0.0612291, 27.6499)
+_name = "Billy"
+_dialog_lines = ["Oh no!", "... I think we're lost!", "Hey! Do you know Mandy never smiles?!"]
+
+[node name="Willis" parent="NPC" instance=ExtResource("11_tkoav")]
+transform = Transform3D(0.873339, 0, -0.487113, 0, 1, 0, 0.487113, 0, 0.873339, -39.1313, -0.210016, 14.6755)
+_name = "Willis"
+_dialog_lines = ["Such a pretty view!", "I wonder what happens if we jump off...", "... better not try that."]
+
+[node name="Gabby" parent="NPC" instance=ExtResource("12_3ndc1")]
+transform = Transform3D(0.860324, 0, -0.509747, -0.00403019, 0.999969, -0.00680195, 0.509731, 0.00790626, 0.860297, 45.6338, -0.138192, -1.95644)
+_name = "Gabby"
+_dialog_lines = ["Welcome to my **graveyard*/*!", "This is where I keep my souls!", "Nice and fresh: in the ground.", "... I'm sorry you lost your souls.", "[P] It's fine ..."]
+
+[node name="Mandy" parent="NPC" instance=ExtResource("12_3ndc1")]
+transform = Transform3D(0.589837, -0.00311562, -0.807516, -0.0040302, 0.999969, -0.00680195, 0.807512, 0.00726649, 0.589806, -33.6685, -0.138192, 22.998)
+_name = "Mandy"
+_dialog_lines = ["Ugh ...", "Billy is an idiot, and will only understand the most extreme of punishments."]
+
+[node name="Remi" parent="NPC" instance=ExtResource("12_3ndc1")]
+transform = Transform3D(0.767515, -0.00126706, -0.64103, -0.00403019, 0.999969, -0.00680195, 0.641019, 0.00780407, 0.767485, 26.2975, 4.19075, -13.2674)
+_name = "Remi"
+_dialog_lines = ["Hmmmmmmm ....", "This looks like a perfect spot for a pumpkin patch!", "Nice and spacious!", "[P] Now that you mention it ..."]
+
+[node name="Robert" parent="NPC" instance=ExtResource("12_3ndc1")]
+transform = Transform3D(0.859365, 0.00694156, 0.511314, -0.00403019, 0.999969, -0.00680195, -0.511346, 0.00378466, 0.859367, -44.3584, -0.0798068, -6.96932)
+_name = "Robert"
+_dialog_lines = ["Do you like my coffin?", "I made it myself!", "[P] It looks really nice!", "[P] Can I take a nap in it? I'm a bit sleepy ...", "Uhhhhhh ...", "Maybe next time?"]
 
 [node name="Grass" type="Node3D" parent="."]
 
