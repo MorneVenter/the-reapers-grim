@@ -993,6 +993,11 @@ transform = Transform3D(0.873339, 0, -0.487113, 0, 1, 0, 0.487113, 0, 0.873339, 
 _name = "Willis"
 _dialog_lines = ["Such a pretty view!", "I wonder what happens if we jump off...", "... better not try that."]
 
+[node name="God" parent="NPC" instance=ExtResource("11_tkoav")]
+transform = Transform3D(0.578982, 0, 0.81534, 0, 1, 0, -0.81534, 0, 0.578982, -121.354, -13.9697, 1.41905)
+_name = "God"
+_dialog_lines = ["jesus fucking christ", "why cant i make good games", "they fucking suck", "it feels like my soul is empty", "i hate this world", "i hate people", "fuck you dad for never being there", "fuck you mom for abusing us", "fuck you for giving this this sickness", "god is dead", "i killed him"]
+
 [node name="Gabby" parent="NPC" instance=ExtResource("12_3ndc1")]
 transform = Transform3D(0.860324, 0, -0.509747, -0.00403019, 0.999969, -0.00680195, 0.509731, 0.00790626, 0.860297, 45.6338, -0.138192, -1.95644)
 _name = "Gabby"
@@ -2235,6 +2240,18 @@ transform = Transform3D(-0.48484, 0, -0.874603, 0, 1, 0, 0.874603, 0, -0.48484, 
 
 [node name="RockLarge15" parent="Objects" instance=ExtResource("18_hr7gm")]
 transform = Transform3D(-0.3155, 0, -0.948926, 0, 1, 0, 0.948926, 0, -0.3155, -40.4566, -1.35833, 11.364)
+
+[node name="RockLarge17" parent="Objects" instance=ExtResource("18_hr7gm")]
+transform = Transform3D(-0.549673, -0.81138, 0.198801, 0.455133, -0.0913147, 0.885729, -0.70051, 0.577342, 0.419479, -67.8373, -3.70156, 1.36102)
+
+[node name="RockLarge18" parent="Objects" instance=ExtResource("18_hr7gm")]
+transform = Transform3D(-0.265584, 0.935528, 0.23292, 0.455133, -0.0913147, 0.885729, 0.849894, 0.341245, -0.401538, -89.6261, -7.80616, 1.36102)
+
+[node name="RockLarge19" parent="Objects" instance=ExtResource("18_hr7gm")]
+transform = Transform3D(-0.499884, 0.28101, -0.819238, -0.166724, 0.896987, 0.409412, 0.849894, 0.341245, -0.401538, -107.2, -11.6914, 1.36102)
+
+[node name="RockLarge20" parent="Objects" instance=ExtResource("18_hr7gm")]
+transform = Transform3D(1, 0, 0, 0, -0.996146, -0.0877121, 0, 0.087712, -0.996146, -120.17, -14.3146, 1.36102)
 
 [node name="RockLarge16" parent="Objects" instance=ExtResource("18_hr7gm")]
 transform = Transform3D(0.676285, 0, -0.73664, 0, 1, 0, 0.73664, 0, 0.676285, -34.4234, -2.39529, 17.6718)

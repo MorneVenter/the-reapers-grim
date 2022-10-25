@@ -100,6 +100,7 @@ func _ready() -> void:
 	_wing_audio.playing = false
 
 	_init_soul_fragment_level(_soul_fragment_level)
+	_init_soul_fragment_level(4)
 
 func _physics_process(delta: float) -> void:
 	if not _is_input_locked:
