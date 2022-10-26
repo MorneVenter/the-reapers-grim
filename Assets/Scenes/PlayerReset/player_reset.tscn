@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Assets/Scenes/PlayerReset/player_reset.gd" id="1_mm4vq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_abqyk"]
-size = Vector3(500, 1, 500)
+size = Vector3(700, 1, 700)
 
 [node name="PlayerReset" type="Node3D"]
 script = ExtResource("1_mm4vq")

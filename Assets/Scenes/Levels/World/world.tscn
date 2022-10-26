@@ -28,8 +28,8 @@
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_tsr71"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 35.0
-dof_blur_far_transition = 20.77
+dof_blur_far_distance = 41.0
+dof_blur_far_transition = 7.84
 dof_blur_near_distance = 12.0
 
 [sub_resource type="Gradient" id="Gradient_jmrka"]
@@ -68,9 +68,9 @@ light_energy = 2.4
 light_volumetric_fog_energy = 8.0
 light_bake_mode = 1
 shadow_enabled = true
-shadow_bias = 0.12
-shadow_normal_bias = 0.9
-shadow_blur = 3.0
+shadow_bias = 0.3
+shadow_normal_bias = 5.531
+shadow_blur = 2.061
 directional_shadow_mode = 1
 directional_shadow_split_1 = 0.363
 directional_shadow_split_2 = 0.605
@@ -83,7 +83,6 @@ light_color = Color(0.278431, 0.235294, 1, 1)
 light_energy = 5.0
 light_specular = 0.825
 light_bake_mode = 1
-shadow_enabled = true
 spot_range = 11.4781
 spot_angle = 66.0938
 
@@ -93,7 +92,6 @@ light_color = Color(0.278431, 0.235294, 1, 1)
 light_energy = 4.675
 light_specular = 0.825
 light_bake_mode = 1
-shadow_enabled = true
 spot_range = 11.4781
 spot_angle = 66.0938
 
@@ -103,7 +101,6 @@ light_color = Color(1, 0.0666667, 0, 1)
 light_energy = 4.241
 light_specular = 1.941
 light_bake_mode = 1
-shadow_enabled = true
 spot_range = 11.4781
 spot_angle = 37.455
 
@@ -113,7 +110,6 @@ light_color = Color(1, 0.0666667, 0, 1)
 light_energy = 4.241
 light_specular = 1.941
 light_bake_mode = 1
-shadow_enabled = true
 spot_range = 11.4781
 spot_angle = 37.455
 
@@ -123,7 +119,6 @@ light_color = Color(1, 0.0666667, 0, 1)
 light_energy = 4.241
 light_specular = 1.941
 light_bake_mode = 1
-shadow_enabled = true
 spot_range = 11.4781
 spot_angle = 37.455
 
@@ -149,7 +144,7 @@ _error_dialog_lines = ["… i’m dying …", "**OF BOREDOM*/*!", "YOU HAD **ONE
 
 [node name="Aubrey" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1313, 5.69899, -22.1811)
-_coin_cost = 370
+_coin_cost = 330
 _name = "Aubrey"
 _pitch = 1.05
 _accept_dialog_lines = ["You got the **%coin obols*/*?", "i knew i could count on you!", "[P] … i’m the reason you’re in this mess", "[P] i wasn’t able to do my job", "oh deary, you made a **mistake*/*", "we all make those", "our mistakes don’t define us …", "... but how we fix them do", "and so far … you’re doing **great*/*!", "[P] thank you … ", "[P] i’m not cut out for this job though …", "[P]  after this, i’m going to tell **Charon*/* that i’m quitting", "[P] (it looks like my **glide distance*/* has been increased)"]
@@ -157,7 +152,7 @@ _error_dialog_lines = ["oooooh weeee, what a pickle we’re in, amirite?", "we�
 
 [node name="Walter" parent="Fragments" instance=ExtResource("5_yfatx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8003, 4.93343, -23.4222)
-_coin_cost = 510
+_coin_cost = 380
 _name = "Walter"
 _pitch = 0.94
 _accept_dialog_lines = ["you got the **%coin obols*/*? nice!", "before we go, i couldn’t help but overhear what you said to ol’ **Aubrey*/* over there …", "listen, if you quit now you’ll never be a good grim reaper", "you have to allow yourself to **grow*/*, okay?", "no one starts out being the best", "[P] … thank you", " [P] i’ll think about it", "[P] (it looks like my **glide distance*/* has been increased)"]
@@ -2217,9 +2212,6 @@ transform = Transform3D(0.846816, 0, 0.531886, 0, 1, 0, -0.531886, 0, 0.846816, 
 [node name="RockLarge4" parent="Objects" instance=ExtResource("18_hr7gm")]
 transform = Transform3D(-0.0410561, 0, -0.999157, 0, 1, 0, 0.999157, 0, -0.0410561, -8.27293, -0.0404291, 24.4224)
 
-[node name="RockLarge5" parent="Objects" instance=ExtResource("18_hr7gm")]
-transform = Transform3D(-0.0410561, 0, -0.999157, 0, 1, 0, 0.999157, 0, -0.0410561, 27.2201, -0.0404291, 26.5673)
-
 [node name="RockLarge6" parent="Objects" instance=ExtResource("18_hr7gm")]
 transform = Transform3D(-0.0410561, 0, -0.999157, 0, 1, 0, 0.999157, 0, -0.0410561, 27.6764, 4.02091, -17.3359)
 
@@ -2290,7 +2282,7 @@ transform = Transform3D(0.465244, 0, 0.885183, 0, 1, 0, -0.885183, 0, 0.465244, 
 transform = Transform3D(0.993292, 0, 0.115631, 0, 1, 0, -0.115631, 0, 0.993292, 41.7559, 0.352596, 5.07258)
 
 [node name="RockMeduim6" parent="Objects" instance=ExtResource("19_s8wm4")]
-transform = Transform3D(0.640163, 0, 0.768239, 0, 1, 0, -0.768239, 0, 0.640163, 9.77286, -0.00861382, 26.2469)
+transform = Transform3D(0.640163, 0, 0.768239, 0, 1, 0, -0.768239, 0, 0.640163, 9.77286, -0.613883, 26.2469)
 
 [node name="RockMeduim7" parent="Objects" instance=ExtResource("19_s8wm4")]
 transform = Transform3D(0.640163, 0, 0.768239, 0.756282, 0.175745, -0.6302, -0.135014, 0.984436, 0.112505, 9.77286, -1.71202, 28.4279)

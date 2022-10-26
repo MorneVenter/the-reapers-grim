@@ -28,7 +28,7 @@ light_color = Color(0.12549, 1, 0, 1)
 light_energy = 11.502
 light_specular = 4.448
 light_bake_mode = 1
-shadow_enabled = true
+distance_fade_enabled = true
 omni_range = 0.546436
 omni_attenuation = 0.5
 
@@ -38,7 +38,7 @@ light_color = Color(0, 0.745098, 1, 1)
 light_energy = 11.502
 light_specular = 4.448
 light_bake_mode = 1
-shadow_enabled = true
+distance_fade_enabled = true
 omni_range = 0.546436
 omni_attenuation = 0.5
 
@@ -48,7 +48,7 @@ light_color = Color(0.870588, 1, 0, 1)
 light_energy = 11.502
 light_specular = 4.448
 light_bake_mode = 1
-shadow_enabled = true
+distance_fade_enabled = true
 omni_range = 0.546436
 omni_attenuation = 0.5
 

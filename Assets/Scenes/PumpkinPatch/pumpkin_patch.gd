@@ -30,6 +30,13 @@ func _set_large_patch(value: bool) -> void:
 func _show_carved_patch() -> void:
 	_set_large_patch(false)
 	_set_small_patch(false)
+	$Highlight.queue_free()
+	_grow_animator.stop()
+	_grow_animator.queue_free()
+	_small_patch.queue_free()
+	_large_patch.queue_free()
+	_large_patch_collider.queue_free()
+	_small_patch_collider.queue_free()
 	var new_pumpkin := multicolor_pumpkin.instantiate()
 	add_child(new_pumpkin)
 

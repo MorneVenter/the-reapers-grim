@@ -181,7 +181,6 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 global_illumination/gi/use_half_resolution=true
-anti_aliasing/screen_space_roughness_limiter/enabled=false
 global_illumination/sdfgi/probe_ray_count=0
 global_illumination/sdfgi/frames_to_converge=3
 environment/default_environment="res://default_env.tres"
